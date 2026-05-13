@@ -42,34 +42,45 @@ function renderFooter() {
     <footer class="site-footer">
       <div class="container site-footer__main">
         <section>
-          <h2>左安门</h2>
+          <h3>关于左安</h3>
           <p>为企业关键阶段连接高阶独立人才。</p>
-          <p>阶段性高阶能力支持，面向增长、组织、AI 转型和关键项目。</p>
+          <ul>
+            <li><a href="/">为什么选择左安</a></li>
+            <li><a href="/">左安如何工作</a></li>
+          </ul>
         </section>
         <section>
-          <h3>网站导航</h3>
+          <h3>我们做什么</h3>
           <ul>
-            <li><a href="/">首页</a></li>
+            <li><a href="/services">按需人才</a></li>
+            <li><a href="/services">临时高管</a></li>
             <li><a href="/services">我们做什么</a></li>
-            <li><a href="/resources">资源</a></li>
           </ul>
         </section>
         <section>
-          <h3>企业入口</h3>
+          <h3>资源</h3>
           <ul>
-            <li><a href="/find-talent">寻找人才</a></li>
-            <li><a href="/find-talent">提交需求</a></li>
-            <li><a href="/services">查看服务方式</a></li>
+            <li><a href="/resources">商业资源中心</a></li>
+            <li><a href="/resources">案例研究</a></li>
           </ul>
         </section>
         <section>
-          <h3>人才与资源</h3>
+          <h3>加入左安</h3>
           <ul>
-            <li><a href="/join">加入左安</a></li>
-            <li><a href="/join">申请入席</a></li>
-            <li><a href="/resources">阅读资源</a></li>
+            <li><a href="/join">成为独立人才</a></li>
+            <li><a href="/join">人才资源</a></li>
           </ul>
         </section>
+      </div>
+      <div class="container site-footer__contact">
+        <div>
+          <h3>联系我们</h3>
+          <a class="site-footer__mail" href="mailto:contact@zuoanmen.com">contact@zuoanmen.com</a>
+          <span class="site-footer__note">邮箱为原型占位，正式上线前确认。</span>
+        </div>
+        <div class="site-footer__qr" aria-label="公众号二维码占位">
+          <span>公众号二维码</span>
+        </div>
       </div>
       <div class="container site-footer__bar">
         <span>© 2026 左安门</span>
