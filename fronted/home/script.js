@@ -1,18 +1,18 @@
 const capabilityData = {
   services: [
     {
-      title: "分数制高管",
-      description: "阶段性 CFO / COO / CMO / HR / CTO 等高阶角色支持。",
+      title: "按需人才",
+      description: "为阶段性任务配置外部高阶能力，不必先创建长期岗位。",
       href: "/services"
     },
     {
-      title: "AI 与战略顾问",
-      description: "判断 AI 转型机会、业务流程改造和战略选择。",
+      title: "临时高管",
+      description: "CFO、COO、CMO、HR、CTO 等关键角色的阶段性支持。",
       href: "/services"
     },
     {
       title: "项目型专家团队",
-      description: "为增长、组织、转型、新业务等具体项目组建小型专家组。",
+      description: "围绕增长、组织、转型、新业务等任务组建小型专家组。",
       href: "/services"
     },
     {

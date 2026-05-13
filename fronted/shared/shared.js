@@ -6,6 +6,45 @@ const navItems = [
   { label: "寻找人才", href: "/find-talent" }
 ];
 
+const footerColumns = [
+  {
+    title: "关于左安",
+    links: [
+      { label: "为什么选择左安", href: "/#why-zuoan" },
+      { label: "左安如何工作", href: "/#how-it-works" }
+    ]
+  },
+  {
+    title: "我们做什么",
+    links: [
+      { label: "按需人才", href: "/services" },
+      { label: "临时高管", href: "/services" }
+    ]
+  },
+  {
+    title: "资源",
+    links: [
+      { label: "商业资源中心", href: "/resources" },
+      { label: "案例研究", href: "/resources" }
+    ]
+  },
+  {
+    title: "加入左安",
+    links: [
+      { label: "成为独立人才", href: "/join" },
+      { label: "人才资源", href: "/join" }
+    ]
+  }
+];
+
+const footerContact = {
+  title: "联系我们",
+  email: "contact@zuoanmen.com",
+  note: "邮箱为原型占位，正式上线前确认。",
+  followTitle: "关注我们",
+  qrLabel: "公众号二维码"
+};
+
 function renderHeader(activePath = "/") {
   const mount = document.querySelector("[data-shared-header]");
   if (!mount) return;
@@ -41,46 +80,29 @@ function renderFooter() {
   mount.innerHTML = `
     <footer class="site-footer">
       <div class="container site-footer__main">
-        <section>
-          <h3>关于左安</h3>
-          <p>为企业关键阶段连接高阶独立人才。</p>
-          <ul>
-            <li><a href="/">为什么选择左安</a></li>
-            <li><a href="/">左安如何工作</a></li>
-          </ul>
+        ${footerColumns.map((column) => `
+          <section class="site-footer__column" aria-label="${column.title}">
+            <h3>${column.title}</h3>
+            <ul>
+              ${column.links.map((link) => `<li><a href="${link.href}">${link.label}</a></li>`).join("")}
+            </ul>
+          </section>
+        `).join("")}
+        <section class="site-footer__column site-footer__column--contact" aria-label="${footerContact.title}">
+          <div class="site-footer__contact-layout">
+            <div class="site-footer__contact-info">
+              <h3>${footerContact.title}</h3>
+              <a class="site-footer__mail" href="mailto:${footerContact.email}">${footerContact.email}</a>
+              <span class="site-footer__note">${footerContact.note}</span>
+            </div>
+            <div class="site-footer__follow">
+              <span class="site-footer__follow-title">${footerContact.followTitle}</span>
+              <div class="site-footer__qr" aria-label="${footerContact.qrLabel}占位">
+                <span>${footerContact.qrLabel}</span>
+              </div>
+            </div>
+          </div>
         </section>
-        <section>
-          <h3>我们做什么</h3>
-          <ul>
-            <li><a href="/services">按需人才</a></li>
-            <li><a href="/services">临时高管</a></li>
-            <li><a href="/services">我们做什么</a></li>
-          </ul>
-        </section>
-        <section>
-          <h3>资源</h3>
-          <ul>
-            <li><a href="/resources">商业资源中心</a></li>
-            <li><a href="/resources">案例研究</a></li>
-          </ul>
-        </section>
-        <section>
-          <h3>加入左安</h3>
-          <ul>
-            <li><a href="/join">成为独立人才</a></li>
-            <li><a href="/join">人才资源</a></li>
-          </ul>
-        </section>
-      </div>
-      <div class="container site-footer__contact">
-        <div>
-          <h3>联系我们</h3>
-          <a class="site-footer__mail" href="mailto:contact@zuoanmen.com">contact@zuoanmen.com</a>
-          <span class="site-footer__note">邮箱为原型占位，正式上线前确认。</span>
-        </div>
-        <div class="site-footer__qr" aria-label="公众号二维码占位">
-          <span>公众号二维码</span>
-        </div>
       </div>
       <div class="container site-footer__bar">
         <span>© 2026 左安门</span>

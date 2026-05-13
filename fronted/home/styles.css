@@ -14,7 +14,7 @@
 .hero-copy h1,
 .section-copy h2,
 .section-heading h2,
-.resource-banner h2,
+.resource-panel h2,
 .talent-band h2,
 .final-cta h2 {
   margin: 0;
@@ -114,60 +114,6 @@
   line-height: 1.3;
 }
 
-.audience-strip {
-  background: var(--color-surface-muted);
-  border-bottom: 1px solid var(--color-border);
-}
-
-.audience-panel {
-  display: grid;
-  grid-template-columns: 0.35fr 0.65fr;
-  gap: 0;
-  padding: 32px 0;
-}
-
-.audience-intro {
-  padding: 24px 28px;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-right: 0;
-}
-
-.audience-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-}
-
-.audience-grid > div {
-  padding: 24px 28px;
-  border-right: 1px solid var(--color-border);
-}
-
-.audience-grid > div:last-child {
-  border-right: 0;
-}
-
-.strip-label {
-  display: block;
-  color: var(--color-text-secondary);
-  font-size: 12px;
-  line-height: 1.33;
-}
-
-.audience-grid p,
-.audience-intro p {
-  margin: 8px 0 0;
-  color: var(--color-text-primary);
-  font-size: 16px;
-  line-height: 1.5;
-}
-
-.audience-intro p {
-  color: var(--color-text-secondary);
-}
-
 .editorial-section,
 .process-section,
 .resource-section {
@@ -191,7 +137,7 @@
 
 .section-copy h2,
 .section-heading h2,
-.resource-banner h2,
+.resource-panel h2,
 .talent-band h2,
 .final-cta h2 {
   max-width: 860px;
@@ -202,7 +148,7 @@
 
 .section-copy p,
 .section-heading p,
-.resource-banner p,
+.resource-panel p,
 .talent-band p,
 .final-cta p {
   max-width: 760px;
@@ -261,7 +207,7 @@
 
 .problem-card {
   display: grid;
-  min-height: 250px;
+  min-height: 210px;
   align-content: start;
   gap: var(--spacing-md);
   padding: 28px;
@@ -283,7 +229,7 @@
 
 .problem-card h3,
 .step-card h3,
-.trust-cards h3 {
+.trust-steps h3 {
   margin: 0;
   color: var(--color-text-primary);
   font-size: 24px;
@@ -293,7 +239,7 @@
 
 .problem-card p,
 .step-card p,
-.trust-cards p {
+.trust-steps p {
   margin: 0;
   color: var(--color-text-secondary);
   font-size: 16px;
@@ -433,40 +379,53 @@
   gap: var(--spacing-2xl);
 }
 
-.trust-cards {
+.trust-steps {
   display: grid;
-  grid-template-columns: 1fr 1fr;
   border-top: 1px solid var(--color-border);
   border-left: 1px solid var(--color-border);
+  background: var(--color-surface);
 }
 
-.trust-cards article {
-  min-height: 220px;
-  padding: 28px;
+.trust-steps article {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: var(--spacing-lg);
+  min-height: 128px;
+  padding: 26px 28px;
   border-right: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
 }
 
-.trust-cards p {
+.trust-steps span {
+  color: var(--color-primary);
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 1.16;
+}
+
+.trust-steps p {
   margin-top: var(--spacing-md);
 }
 
-.resource-banner {
+.resource-duo {
   display: grid;
-  grid-template-columns: 0.42fr 0.58fr;
-  gap: var(--spacing-2xl);
-  align-items: center;
-  padding: 48px;
+  grid-template-columns: 1fr 1fr;
   border: 1px solid var(--color-border);
   background: var(--color-surface);
 }
 
-.resource-cover {
+.resource-panel {
   display: grid;
-  align-content: space-between;
-  min-height: 360px;
-  padding: 32px;
-  border: 1px solid var(--color-border);
+  align-content: start;
+  min-height: 390px;
+  padding: 48px;
+}
+
+.resource-panel + .resource-panel {
+  border-left: 1px solid var(--color-border);
+}
+
+.resource-panel--guide {
   background:
     linear-gradient(90deg, rgba(15, 98, 254, 0.08) 0 1px, transparent 1px 100%),
     linear-gradient(180deg, rgba(15, 98, 254, 0.08) 0 1px, transparent 1px 100%),
@@ -474,21 +433,13 @@
   background-size: 32px 32px;
 }
 
-.resource-cover span {
-  color: var(--color-primary);
-  font-size: 14px;
-  font-weight: 600;
+.resource-panel--case {
+  background: var(--color-surface);
 }
 
-.resource-cover strong {
-  max-width: 360px;
-  font-size: 40px;
-  font-weight: 300;
-  line-height: 1.16;
-}
-
-.resource-banner .button {
+.resource-panel .button {
   margin-top: var(--spacing-xl);
+  justify-self: start;
 }
 
 .talent-band {
@@ -536,8 +487,13 @@
   .editorial-grid,
   .process-grid,
   .trust-grid,
-  .resource-banner {
+  .resource-duo {
     grid-template-columns: 1fr;
+  }
+
+  .resource-panel + .resource-panel {
+    border-left: 0;
+    border-top: 1px solid var(--color-border);
   }
 
   .hero-grid {
@@ -611,33 +567,12 @@
     bottom: 16px;
   }
 
-  .audience-grid,
-  .audience-panel,
   .problem-grid,
   .steps,
   .capability-grid,
-  .trust-cards,
+  .trust-steps,
   .talent-band__inner {
     grid-template-columns: 1fr;
-  }
-
-  .audience-intro {
-    border-right: 1px solid var(--color-border);
-    border-bottom: 0;
-  }
-
-  .audience-grid {
-    border-top: 0;
-  }
-
-  .audience-grid > div,
-  .audience-grid > div:last-child {
-    border-right: 0;
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  .audience-grid > div:last-child {
-    border-bottom: 0;
   }
 
   .capability-tabs {
@@ -654,15 +589,8 @@
     border-right: 0;
   }
 
-  .resource-banner {
+  .resource-panel {
     padding: 24px;
-  }
-
-  .resource-cover {
-    min-height: 260px;
-  }
-
-  .resource-cover strong {
-    font-size: 30px;
+    min-height: 300px;
   }
 }
