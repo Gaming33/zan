@@ -1,7 +1,7 @@
 const navItems = [
   { label: "首页", href: "/" },
   { label: "我们做什么", href: "/services" },
-  { label: "资源", href: "/resources" },
+  { label: "资源", href: "/resources/case-studies" },
   { label: "加入左安", href: "/join" },
   { label: "寻找人才", href: "/find-talent" }
 ];
@@ -24,8 +24,8 @@ const footerColumns = [
   {
     title: "资源",
     links: [
-      { label: "商业资源中心", href: "/resources" },
-      { label: "案例研究", href: "/resources" }
+      { label: "商业资源中心", href: "/resources/case-studies" },
+      { label: "案例研究", href: "/resources/case-studies" }
     ]
   },
   {

@@ -48,10 +48,10 @@
 
 ## 1.2 技术、路径与 Harness 约束
 
-- 资源页页面文件夹：`fronted/resources/`
-- 路由建议：`/resources`
-- 本页开发写入范围只允许在 `fronted/resources/` 内。
-- 不改 `fronted/resources/` 工作区外的任何文件或文件夹。
+- 案例研究页面文件夹：`fronted/resources/case-studies/`
+- 路由建议：`/resources/case-studies`
+- 本页开发写入范围只允许在 `fronted/resources/case-studies/` 内。
+- 不改 `fronted/resources/case-studies/` 工作区外的任何文件或文件夹。
 - 不改 `fronted/shared/`、`fronted/home/`、`fronted/services/`、`fronted/join/`、`fronted/find-talent/`。
 - Header、Footer 的样式和结构必须参考 `fronted/shared/`，保持全站统一，但不要修改 `fronted/shared/` 内文件。
 - 不改其他页面 md。
@@ -67,7 +67,7 @@
   - 可选的前端详情展开或链接占位。
 - 筛选和搜索可以使用前端静态数据模拟，数据可以直接写在资源页自己的 JavaScript 中。
 - 先读 `PROJECT_PROGRESS.md`、`docs/DESIGN.md`、当前页面 md。
-- 只开发当前页面，且只在 `fronted/resources/` 内完成。
+- 只开发当前页面，且只在 `fronted/resources/case-studies/` 内完成。
 - 验证本地页面能打开，筛选和搜索能触发，响应式没有明显溢出。
 - 不保留临时截图、测试资产或无关文件。
 
@@ -98,7 +98,7 @@
 ### 企业读者路径
 
 1. 从 Header 点击 `资源`。
-2. 进入 `/resources`。
+2. 进入 `/resources/case-studies`。
 3. 看到页面标题 `案例研究`。
 4. 使用行业筛选、功能筛选或 Search 查找相关案例。
 5. 浏览案例卡片。
@@ -147,7 +147,7 @@ Header 必须与全站 Header 保持一致。
 实现方式：
 
 - 参考 `fronted/shared/` 中已有 Header 的结构、间距、字体、颜色和交互状态。
-- 如果资源页需要自己的静态 HTML 片段，应在 `fronted/resources/` 内复刻同样视觉效果。
+- 如果资源页需要自己的静态 HTML 片段，应在 `fronted/resources/case-studies/` 内复刻同样视觉效果。
 - 不要修改 `fronted/shared/`。
 - 不要新建第二套视觉风格不同的 Header。
 
@@ -278,7 +278,7 @@ Footer 必须与全站 Footer 保持一致。
 实现方式：
 
 - 参考 `fronted/shared/` 中已有 Footer 的结构、间距、字体、颜色和链接状态。
-- 如果资源页需要自己的静态 HTML 片段，应在 `fronted/resources/` 内复刻同样视觉效果。
+- 如果资源页需要自己的静态 HTML 片段，应在 `fronted/resources/case-studies/` 内复刻同样视觉效果。
 - 不要修改 `fronted/shared/`。
 - 不要新建第二套视觉风格不同的 Footer。
 
@@ -439,7 +439,7 @@ Read
 
 - Header `首页` -> `/`
 - Header `我们做什么` -> `/services`
-- Header `资源` -> `/resources`
+- Header `资源` -> `/resources/case-studies`
 - Header `加入左安` -> `/join`
 - Header `寻找人才` -> `/find-talent`
 - Header `提交需求` -> `/find-talent`
@@ -479,7 +479,7 @@ Read
 - 没有闭门会、课程、公众号和主体 CTA。
 - 没有使用未确认 logo、客户名、数字或服务承诺。
 - 视觉遵循 `docs/DESIGN.md` 的 IBM/Carbon 风格。
-- 开发写入范围严格限制在 `fronted/resources/`。
+- 开发写入范围严格限制在 `fronted/resources/case-studies/`。
 - 技术栈为 HTML + CSS，筛选和搜索交互使用原生 JavaScript。
 - Header 和 Footer 视觉与 `fronted/shared/` 保持一致，但不修改 shared 文件。
 - 后续 coding agent 可以直接依据本 md 实现，不需要重新讨论页面结构。

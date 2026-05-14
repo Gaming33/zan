@@ -116,3 +116,19 @@ If no metric is provided, write result direction such as:
 - "为管理层判断投入优先级提供了..."
 
 Do not invent revenue, cost, efficiency, conversion, headcount, or ROI numbers.
+
+## Length And Depth
+
+- The final file should read like a real case study, not a template stub.
+- Aim for about 800-1200 Chinese characters total per demo file.
+- The Case Demo section should carry most of the narrative weight.
+- Use 4 or more substantive paragraphs in Case Demo when the evidence allows it.
+- Add concrete operating detail instead of padding with generic AI language.
+- If the evidence is thin, say so in Sensitivity Notes rather than inventing more story.
+
+## Evidence Discipline
+
+- The row asset provides the source-case frame.
+- The cleaned JD pool calibrates role language.
+- BTG only provides the narrative shape.
+- The final demo must feel specific enough that a business owner can recognize the operating problem immediately.

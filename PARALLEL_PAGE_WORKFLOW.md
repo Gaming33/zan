@@ -10,11 +10,16 @@ Before every new page discussion or development session, tell the agent to read:
 - `PROJECT_PROGRESS.md`
 - `docs/DESIGN.md`
 - the current page md:
-  - `docs/01-home.md`
-  - `docs/02-services.md`
-  - `docs/03-resources.md`
-  - `docs/04-join-zoan.md`
-  - `docs/05-find-talent.md`
+  - `docs/home/home.md`
+  - `docs/services/index.md`
+  - `docs/services/on-demand-talent/02-services.md`
+  - `docs/services/interim-executive/interim-executive.md`
+  - `docs/resources/index.md`
+  - `docs/resources/case-studies/case-studies.md`
+  - `docs/resources/article-pages/article-pages.md`
+  - `docs/resources/talent-resources/talent-resources.md`
+  - `docs/join/join-zoan.md`
+  - `docs/find/find-talent.md`
 
 The design source of truth is always `docs/DESIGN.md`.
 
@@ -31,7 +36,12 @@ fronted/
   shared/
   home/
   services/
+    on-demand-talent/
+    interim-executive/
   resources/
+    case-studies/
+    article-pages/
+    talent-resources/
   join/
   find-talent/
 ```
@@ -39,8 +49,13 @@ fronted/
 Ownership rules:
 
 - `fronted/home/` owns the home page.
-- `fronted/services/` owns the services page.
-- `fronted/resources/` owns the resources page.
+- `fronted/services/` owns the services column and service subpages.
+- `fronted/services/on-demand-talent/` owns the on-demand talent subpage.
+- `fronted/services/interim-executive/` owns the interim executive subpage.
+- `fronted/resources/` owns the resources column and resource subpages.
+- `fronted/resources/case-studies/` owns the case studies subpage.
+- `fronted/resources/article-pages/` owns article-list or article-detail prototypes.
+- `fronted/resources/talent-resources/` owns talent-facing resource prototypes.
 - `fronted/join/` owns the join Zuoan page.
 - `fronted/find-talent/` owns the find talent page.
 - `fronted/shared/` owns reusable layout and components only.
@@ -96,7 +111,7 @@ After page work is done:
 
 ```powershell
 git status
-git add docs/01-home.md fronted/home fronted/shared
+git add docs/home/home.md fronted/home fronted/shared
 git commit -m "feat: implement home page"
 ```
 
@@ -291,7 +306,12 @@ Use this after the page md is finalized.
 Routes：
 - `/` -> `fronted/home/`
 - `/services` -> `fronted/services/`
-- `/resources` -> `fronted/resources/`
+- `/services/on-demand-talent` -> `fronted/services/on-demand-talent/`
+- `/services/interim-executive` -> `fronted/services/interim-executive/`
+- `/resources` -> `fronted/resources/` when a resources index page exists
+- `/resources/case-studies` -> `fronted/resources/case-studies/`
+- `/resources/article-pages` -> `fronted/resources/article-pages/`
+- `/resources/talent-resources` -> `fronted/resources/talent-resources/`
 - `/join` -> `fronted/join/`
 - `/find-talent` -> `fronted/find-talent/`
 
@@ -325,7 +345,7 @@ Routes：
 Discussion:
 
 ```markdown
-当前页面 md：`docs/01-home.md`
+当前页面 md：`docs/home/home.md`
 讨论目标：定稿首页结构和内容。
 
 首页职责：
@@ -349,7 +369,7 @@ Discussion:
 Development:
 
 ```markdown
-当前页面 md：`docs/01-home.md`
+当前页面 md：`docs/home/home.md`
 页面文件夹：`fronted/home/`
 路由建议：`/`
 
@@ -370,7 +390,7 @@ CTA：
 - 提交需求 -> `/find-talent`
 - 申请入席 -> `/join`
 - 查看服务 -> `/services`
-- 查看资源 -> `/resources`
+- 查看资源 -> `/resources/case-studies`
 ```
 
 ### 6.2 Services Page
@@ -378,7 +398,7 @@ CTA：
 Discussion:
 
 ```markdown
-当前页面 md：`docs/02-services.md`
+当前页面 md：`docs/services/index.md`
 讨论目标：定稿“我们做什么”页面。
 
 必须讨论：
@@ -395,7 +415,7 @@ Discussion:
 Development:
 
 ```markdown
-当前页面 md：`docs/02-services.md`
+当前页面 md：`docs/services/index.md`
 页面文件夹：`fronted/services/`
 路由建议：`/services`
 
@@ -421,7 +441,7 @@ CTA：
 Discussion:
 
 ```markdown
-当前页面 md：`docs/03-resources.md`
+当前页面 md：`docs/resources/case-studies/case-studies.md`
 讨论目标：定稿资源页。
 
 必须讨论：
@@ -436,9 +456,9 @@ Discussion:
 Development:
 
 ```markdown
-当前页面 md：`docs/03-resources.md`
+当前页面 md：`docs/resources/case-studies/case-studies.md`
 页面文件夹：`fronted/resources/`
-路由建议：`/resources`
+路由建议：`/resources/case-studies`
 
 只实现资源页。不要改其他页面文件夹。
 
@@ -459,7 +479,7 @@ Development:
 Discussion:
 
 ```markdown
-当前页面 md：`docs/04-join-zoan.md`
+当前页面 md：`docs/join/join-zoan.md`
 讨论目标：定稿“加入左安”页面。
 
 必须讨论：
@@ -475,7 +495,7 @@ Discussion:
 Development:
 
 ```markdown
-当前页面 md：`docs/04-join-zoan.md`
+当前页面 md：`docs/join/join-zoan.md`
 页面文件夹：`fronted/join/`
 路由建议：`/join`
 
@@ -500,7 +520,7 @@ Development:
 Discussion:
 
 ```markdown
-当前页面 md：`docs/05-find-talent.md`
+当前页面 md：`docs/find/find-talent.md`
 讨论目标：定稿“寻找人才”页面。
 
 必须讨论：
@@ -516,7 +536,7 @@ Discussion:
 Development:
 
 ```markdown
-当前页面 md：`docs/05-find-talent.md`
+当前页面 md：`docs/find/find-talent.md`
 页面文件夹：`fronted/find-talent/`
 路由建议：`/find-talent`
 
@@ -553,7 +573,7 @@ Every page agent must answer:
 Markdown discussion commits:
 
 ```powershell
-git add docs/01-home.md
+git add docs/home/home.md
 git commit -m "docs: finalize home page brief"
 ```
 

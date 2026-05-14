@@ -23,11 +23,29 @@ Use this file to calibrate role/talent profiles in final demos. Do not treat it 
 
 ## 增长与市场
 
-No extracted patterns yet. In the next JD pass, prioritize roles that combine content growth, private-domain conversion, live commerce, brand campaign operations, and AI-assisted marketing workflows.
+### Pattern: AIGC Content And Private-Domain Growth Lead
+
+- Source JD ids: JD-E04, JD-E01
+- Seniority signal: senior growth lead or content operations owner
+- Business context: brands and content-heavy businesses need faster content production, stronger conversion, and lower creative cost
+- Responsibility patterns: connect content generation with distribution and conversion, design repeatable growth workflows, coordinate short video / live / private-domain operations
+- Capability requirements: growth strategy, content operations, campaign logic, conversion thinking, product-algorithm collaboration
+- AI/tool language: short-video generation, live script workflow, content automation, recommendation, private-domain agent, marketing automation
+- Useful rewritten phrasing: "把内容生产、触达和转化连成一条可复用的增长工作流"
+- Notes: Use for apparel, retail, mother-baby, beauty, live commerce, and creator-economy demos.
 
 ## 战略与商业模式
 
-No extracted patterns yet. In the next JD pass, prioritize roles that combine market opportunity assessment, new business validation, product-market fit, and AI product commercialization.
+### Pattern: AI Strategy And Commercialization Lead
+
+- Source JD ids: JD-E01, JD-E05
+- Seniority signal: strategy owner, CTO/CIO, or AI commercialization lead
+- Business context: enterprise needs to choose which AI scenarios matter first and how to convert pilots into durable business value
+- Responsibility patterns: set roadmap, prioritize use cases, define investment logic, align executive stakeholders, connect platform work with business rollout
+- Capability requirements: AI strategy, commercialization judgment, enterprise communication, investment prioritization, change management
+- AI/tool language: enterprise AI platform, AI roadmap, model lifecycle, ROI logic, pilot-to-scale, business adoption
+- Useful rewritten phrasing: "能把试点场景、投入优先级和组织落地路径连成一条可决策的路线"
+- Notes: Use for AI cloud, private deployment, enterprise transformation, and solution-platform demos.
 
 ## 组织与人才
 

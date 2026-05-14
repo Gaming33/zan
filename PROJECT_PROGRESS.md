@@ -13,11 +13,16 @@
 
 - Design system: `docs/DESIGN.md`
 - Page docs:
-  - `docs/01-home.md`
-  - `docs/02-services.md`
-  - `docs/03-resources.md`
-  - `docs/04-join-zoan.md`
-  - `docs/05-find-talent.md`
+- `docs/home/home.md`
+- `docs/services/index.md`
+- `docs/services/on-demand-talent/02-services.md`
+- `docs/services/interim-executive/interim-executive.md`
+- `docs/resources/index.md`
+- `docs/resources/case-studies/case-studies.md`
+- `docs/resources/article-pages/article-pages.md`
+- `docs/resources/talent-resources/talent-resources.md`
+- `docs/join/join-zoan.md`
+- `docs/find/find-talent.md`
 
 ## Project Background
 
@@ -106,23 +111,43 @@ Public pages should follow user decision flow:
   - Official core sections.
   - AI generation and implementation notes.
 
-`docs/01-home.md`
-- Status: skeleton only.
-- Needs page content, module copy, exact CTA targets, visual notes.
+`docs/home/home.md`
+- Status: finalized for the current home prototype.
+- Owns homepage content, module order, CTA targets, interaction notes, and high-fidelity layout requirements.
 
-`docs/02-services.md`
+`docs/services/index.md`
+- Status: structure index.
+- Owns the services column map and subpage routing.
+
+`docs/services/on-demand-talent/02-services.md`
 - Status: skeleton only.
 - Needs service definitions, boundaries, process, conversion paths.
 
-`docs/03-resources.md`
-- Status: skeleton only.
-- Needs content categories, first resource placeholders, case format.
+`docs/services/interim-executive/interim-executive.md`
+- Status: placeholder only.
+- Needs page strategy and module content.
 
-`docs/04-join-zoan.md`
+`docs/resources/index.md`
+- Status: structure index.
+- Owns the resources column map and subpage routing.
+
+`docs/resources/case-studies/case-studies.md`
+- Status: finalized enough for current case-studies prototype.
+- Owns case-study list structure, filters, cards, and first placeholder cases.
+
+`docs/resources/article-pages/article-pages.md`
+- Status: placeholder only.
+- Needs article list/detail strategy.
+
+`docs/resources/talent-resources/talent-resources.md`
+- Status: placeholder only.
+- Needs talent-resource content strategy.
+
+`docs/join/join-zoan.md`
 - Status: skeleton only.
 - Needs talent value proposition, criteria, form fields, CTA copy.
 
-`docs/05-find-talent.md`
+`docs/find/find-talent.md`
 - Status: skeleton only.
 - Needs enterprise demand flow, light/deep form design, diagnostic language.
 
@@ -155,7 +180,12 @@ Shared layout:
 Page routes to create later:
 - `/` -> home
 - `/services` -> 我们做什么
-- `/resources` -> 资源
+- `/services/on-demand-talent` -> 按需人才
+- `/services/interim-executive` -> 临时高管
+- `/resources` -> 资源栏目首页，待实现
+- `/resources/case-studies` -> 案例研究
+- `/resources/article-pages` -> 文章页
+- `/resources/talent-resources` -> 人才资源
 - `/join` -> 加入左安
 - `/find-talent` -> 寻找人才
 
@@ -304,7 +334,7 @@ Use this structure for every new session.
 读取：
 - `PROJECT_PROGRESS.md`
 - `docs/DESIGN.md`
-- `docs/01-home.md`
+- `docs/home/home.md`
 
 当前任务：定稿或实现首页。
 
@@ -342,11 +372,11 @@ CTA:
 - 提交需求 -> `/find-talent`
 - 申请入席 -> `/join`
 - 查看服务 -> `/services`
-- 查看资源 -> `/resources`
+- 查看资源 -> `/resources/case-studies`
 
 ## Process
 
-1. 先完善 `docs/01-home.md`。
+1. 先完善 `docs/home/home.md`。
 2. 确认模块顺序和跳转。
 3. 如进入实现，使用共享 Header/Footer 和组件。
 4. 验证桌面和移动端。
@@ -368,7 +398,7 @@ CTA:
 读取：
 - `PROJECT_PROGRESS.md`
 - `docs/DESIGN.md`
-- `docs/02-services.md`
+- `docs/services/index.md`
 
 当前任务：定稿或实现“我们做什么”页面。
 
@@ -403,7 +433,7 @@ CTA:
 
 ## Process
 
-1. 先完善 `docs/02-services.md`。
+1. 先完善 `docs/services/index.md`。
 2. 确认三类服务是否保留或改名。
 3. 实现时用 card grid + process steps + boundary section。
 
@@ -423,7 +453,7 @@ CTA:
 读取：
 - `PROJECT_PROGRESS.md`
 - `docs/DESIGN.md`
-- `docs/03-resources.md`
+- `docs/resources/case-studies/case-studies.md`
 
 当前任务：定稿或实现资源页。
 
@@ -458,7 +488,7 @@ CTA:
 
 ## Process
 
-1. 先完善 `docs/03-resources.md`。
+1. 先完善 `docs/resources/case-studies/case-studies.md`。
 2. 确认资源分类和首批占位。
 3. 实现时用 resource cards + case preview grid。
 
@@ -478,7 +508,7 @@ CTA:
 读取：
 - `PROJECT_PROGRESS.md`
 - `docs/DESIGN.md`
-- `docs/04-join-zoan.md`
+- `docs/join/join-zoan.md`
 
 当前任务：定稿或实现“加入左安”页面。
 
@@ -515,7 +545,7 @@ CTA:
 
 ## Process
 
-1. 先完善 `docs/04-join-zoan.md`。
+1. 先完善 `docs/join/join-zoan.md`。
 2. 确认页面命名：加入左安 / 贤才入席。
 3. 实现时表单必须可见、可提交、可展示成功状态。
 
@@ -535,7 +565,7 @@ CTA:
 读取：
 - `PROJECT_PROGRESS.md`
 - `docs/DESIGN.md`
-- `docs/05-find-talent.md`
+- `docs/find/find-talent.md`
 
 当前任务：定稿或实现“寻找人才”页面。
 
@@ -580,7 +610,7 @@ CTA:
 
 ## Process
 
-1. 先完善 `docs/05-find-talent.md`。
+1. 先完善 `docs/find/find-talent.md`。
 2. 确认轻表单和深表单的展示方式。
 3. 实现时表单可先前端成功提示。
 4. CTA 从首页和服务页统一指向此页。
@@ -595,11 +625,11 @@ CTA:
 
 ## Immediate TODO
 
-1. Finalize `docs/01-home.md`.
-2. Finalize `docs/02-services.md`.
-3. Finalize `docs/03-resources.md`.
-4. Finalize `docs/04-join-zoan.md`.
-5. Finalize `docs/05-find-talent.md`.
+1. Finalize `docs/services/index.md`.
+2. Finalize `docs/services/on-demand-talent/02-services.md`.
+3. Finalize `docs/resources/index.md`.
+4. Finalize `docs/join/join-zoan.md`.
+5. Finalize `docs/find/find-talent.md`.
 6. After all page docs are approved, start shared layout implementation.
 7. Then implement pages one by one.
 

@@ -41,6 +41,8 @@ Teacher source documents outside this folder are read-only inputs.
 
 Load only the files needed for the current task:
 
+- `references/case_row_contract.md`
+  - Read when updating or consuming the teacher-case row asset. It defines the upstream case-row schema and when not to re-extract it.
 - `references/filter_taxonomy.md`
   - Read before classifying cases or roles. It defines the fixed industry/function filters and the OR-logic tagging rule.
 - `references/source_contracts.md`
@@ -62,15 +64,19 @@ Use these source types in this order:
    - Path: `inputs/cases_raw/`
    - Use when the user adds new enterprise cases or pasted case notes.
 
-3. Cleaned JD assets = talent-language evidence.
+3. Teacher-case row asset = reusable upstream extraction.
+   - Path: `data/cases_row/teacher_case_rows.jsonl`
+   - Use this as the stable row-level source for case selection and case-index updates. Do not re-extract it every run if the source doc did not change.
+
+4. Cleaned JD assets = talent-language evidence.
    - Preferred paths: `data/cleaned_jd_pool.md`, `data/role_language_bank.md`
    - If missing or stale, update from `inputs/jd_raw/`.
 
-4. Teacher old role list = optional calibration, not a long-term index.
+5. Teacher old role list = optional calibration, not a long-term index.
    - Default path: `C:\Users\Leo\Downloads\岗位清单.docx`
    - Use only to understand the teacher's old role intent and common failure modes. Do not build a permanent role index from it.
 
-5. BTG references = writing structure only.
+6. BTG references = writing structure only.
    - Path: `references/btg_style_guide.md`
    - Use for case shape, tone, and section logic. Do not use BTG as business fact.
 
@@ -79,11 +85,14 @@ Use these source types in this order:
 Maintain these assets incrementally:
 
 ```text
+data/cases_row/teacher_case_rows.jsonl
 data/case_index.md
 data/cleaned_jd_pool.md
 data/rejected_jd_log.md
 data/role_language_bank.md
 ```
+
+`cases_row` is the upstream facts table extracted from the teacher enterprise-case document. It is not the final demo output.
 
 `case_index` is the primary business asset. It should map teacher cases to the fixed website filters.
 
@@ -112,12 +121,25 @@ Decide what this run needs:
 
 - new enterprise cases from `inputs/cases_raw/` or teacher source
 - new JD files from `inputs/jd_raw/`
+- existing teacher-case row assets from `data/cases_row/`
 - existing reusable assets from `data/`
 - requested run scope, such as all cases, 10 cases, a specific industry, a specific function, or named original cases
 
 If scope is ambiguous, ask the user which cases to run. Do not write a separate preflight output.
 
-### Stage 2: Update Case Index
+### Stage 2: Update Teacher-Case Rows When Needed
+
+Only do this when the teacher source document changes or the user adds new enterprise-case material.
+
+Read the teacher enterprise-case document and update:
+
+```text
+data/cases_row/teacher_case_rows.jsonl
+```
+
+Do not redo this step during every demo run. It is a reusable upstream asset.
+
+### Stage 3: Update Case Index
 
 Primary goal: map teacher enterprise cases into the website filter system.
 
@@ -146,7 +168,7 @@ data/case_index.md
 
 If a case needs a new taxonomy option, do not change the taxonomy directly. Record the proposal in the current run's `taxonomy_change_proposals.md`.
 
-### Stage 3: Update JD Assets
+### Stage 4: Update JD Assets
 
 If `data/cleaned_jd_pool.md` and `data/role_language_bank.md` already exist and no new JD input is present, reuse them.
 
@@ -168,7 +190,7 @@ data/role_language_bank.md
 
 Do not ask the user to manually clean JD data.
 
-### Stage 4: Select Cases For This Run
+### Stage 5: Select Cases For This Run
 
 Select cases from `data/case_index.md` according to the user's scope.
 
@@ -189,7 +211,7 @@ Selection should balance:
 - sensitivity risk
 - available JD/talent-language support
 
-### Stage 5: Generate Final Case-Role Demos
+### Stage 6: Generate Final Case-Role Demos
 
 Default behavior: generate final demos. Only stop before final demo generation if the user explicitly says not to generate final demos.
 
@@ -214,7 +236,13 @@ Each demo must include:
 
 Never expose original enterprise names in public prose.
 
-### Stage 6: QA And Run Summary
+Long-form target:
+
+- Case Demo should read like a real case study, not a note stub.
+- Aim for about 800-1200 Chinese characters per file overall, with concrete business detail and no filler.
+- Use 4 or more substantive paragraphs in the Case Demo section when the evidence allows it.
+
+### Stage 7: QA And Run Summary
 
 Create one run folder:
 
@@ -248,6 +276,7 @@ QA every demo for:
 - Work only inside `case demo/`.
 - Do not modify website files or docs outside this folder.
 - Do not ask the user to clean or summarize JD data.
+- Do not re-extract teacher-case rows every run if the source has not changed.
 - Do not build a long-term role index from the old teacher role list.
 - Do not let JD data override teacher case facts.
 - Do not use BTG as a business fact source.

@@ -12,6 +12,7 @@ inputs/
 references/        stable instructions and style references for the agent
 
 data/              reusable assets updated across runs
+  cases_row/teacher_case_rows.jsonl
   case_index.md
   cleaned_jd_pool.md
   rejected_jd_log.md
@@ -25,10 +26,11 @@ outputs/
 ## Source Priority
 
 1. Teacher enterprise cases define business facts.
-2. `data/case_index.md` is the active case asset once populated.
-3. Cleaned JD assets define role/talent language only.
-4. Teacher old role list is optional calibration and should not become a permanent role index.
-5. BTG references define writing shape only.
+2. `data/cases_row/teacher_case_rows.jsonl` is the reusable upstream row asset.
+3. `data/case_index.md` is the active case asset once populated.
+4. Cleaned JD assets define role/talent language only.
+5. Teacher old role list is optional calibration and should not become a permanent role index.
+6. BTG references define writing shape only.
 
 ## Case Index Contract
 
@@ -51,6 +53,14 @@ Required fields:
 - `open_questions`
 
 Original enterprise names are internal alignment data only. Do not place them in final public demo prose.
+
+## Row Asset Contract
+
+`data/cases_row/teacher_case_rows.jsonl` is the upstream facts table extracted from the teacher enterprise-case document.
+
+It should be updated only when the source material changes, not on every demo run.
+
+Each row should map a source case cluster to one or more demo seeds and one or more filter hints.
 
 ## Run Output Contract
 

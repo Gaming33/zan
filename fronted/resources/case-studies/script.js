@@ -118,7 +118,7 @@ function resetFilters() {
 }
 
 function initResourcesPage() {
-  window.ZuoanShared?.renderHeader("/resources");
+  window.ZuoanShared?.renderHeader("/resources/case-studies");
   window.ZuoanShared?.renderFooter();
   window.ZuoanShared?.bindSharedInteractions();
 
