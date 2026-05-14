@@ -1,0 +1,603 @@
+- generic [ref=e1]:
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e7]:
+        - generic:
+          - text: 
+          - generic:
+            - generic:
+              - link "Logo Logo Logo Logo Logo":
+                - /url: https://businesstalentgroup.com/
+                - img "Logo" [ref=e8] [cursor=pointer]
+                - img "Logo" [ref=e9] [cursor=pointer]
+                - img "Logo" [ref=e10] [cursor=pointer]
+                - img "Logo" [ref=e11] [cursor=pointer]
+                - img "Logo" [ref=e12] [cursor=pointer]
+        - navigation [ref=e13]:
+          - list [ref=e14]:
+            - listitem [ref=e15]:
+              - link "Who We Are" [ref=e16]:
+                - /url: "#"
+                - generic [ref=e17]: Who We Are
+            - listitem [ref=e18]:
+              - link "What We Do" [ref=e19]:
+                - /url: "#"
+                - generic [ref=e20]: What We Do
+            - listitem [ref=e21]:
+              - link "Resources" [ref=e22]:
+                - /url: "#"
+                - generic [ref=e23]: Resources
+            - listitem [ref=e24]:
+              - link "For Talent" [ref=e25] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=e26]: For Talent
+            - listitem [ref=e27]:
+              - link "Find Talent" [ref=e28] [cursor=pointer]:
+                - /url: https://info.businesstalentgroup.com/project-inquiry/
+                - generic [ref=e29]: Find Talent
+        - text:                                
+    - generic [ref=e34]:
+      - generic [ref=e43]:
+        - heading "Expertise Across the Enterprise" [level=1] [ref=e44]
+        - paragraph [ref=e45]: Find on-demand consulting, corporate strategy, and project leadership by skill, function, or industry.
+        - link "Get Started" [ref=e46] [cursor=pointer]:
+          - /url: https://info.businesstalentgroup.com/project-inquiry/
+      - generic [ref=e51]:
+        - heading "LIMITLESS ACCESS TO TALENT AND SKILLS" [level=3] [ref=e54]
+        - paragraph [ref=e57]: Get the agile workforce you need—from corporate strategists and freelance consultants to industry experts and project leaders—to add insights and innovative thinking, skills and expertise, and experience to your organization.
+      - generic [ref=e62]:
+        - heading "CAPABILITIES" [level=3] [ref=e65]
+        - paragraph [ref=e68]: "Here are just a few of our core capabilities to create a flexible and agile bench of talent for your on-demand consulting, corporate strategy, project leadership, and other business needs:"
+        - generic [ref=e71]:
+          - generic [ref=e79]:
+            - heading [level=4]
+            - paragraph
+            - link "STRATEGY & PLANNING" [ref=e80] [cursor=pointer]:
+              - /url: /services/strategy-consultants/
+          - generic [ref=e87]:
+            - heading [level=5]
+            - paragraph
+            - link "INTERIM EXECUTIVES" [ref=e88] [cursor=pointer]:
+              - /url: /services/interim-executives/
+        - generic [ref=e92]:
+          - generic [ref=e100]:
+            - heading [level=4]
+            - paragraph
+            - link "OPERATIONS & PERFORMANCE" [ref=e101] [cursor=pointer]:
+              - /url: /services/operations-performance-consultants/
+          - generic [ref=e108]:
+            - heading [level=4]
+            - paragraph
+            - link "ORGANIZATIONAL DESIGN & EFFECTIVENESS" [ref=e109] [cursor=pointer]:
+              - /url: /services/organizational-consultants/
+        - generic [ref=e113]:
+          - generic [ref=e121]:
+            - heading [level=5]
+            - paragraph
+            - link "BUSINESS INTEGRATIONS" [ref=e122] [cursor=pointer]:
+              - /url: /services/business-integration-solutions/
+          - generic [ref=e129]:
+            - heading [level=5]
+            - paragraph
+            - link "TRANSFORMATIONS" [ref=e130] [cursor=pointer]:
+              - /url: /services/transformation-consultants/
+        - generic [ref=e142]:
+          - heading [level=4]
+          - paragraph
+          - link "PROJECT MANAGEMENT" [ref=e143] [cursor=pointer]:
+            - /url: /services/project-management-consultants/
+      - generic [ref=e150]:
+        - heading "FUNCTIONS" [level=3] [ref=e153]
+        - paragraph [ref=e156]: "Our on-demand consulting is an ideal solution for a variety of business units, departments, and functions:"
+        - generic [ref=e159]:
+          - generic [ref=e167]:
+            - heading [level=4]
+            - paragraph
+            - link "CORPORATE & BUSINESS DEVELOPMENT" [ref=e168] [cursor=pointer]:
+              - /url: /services/corporate-development-consultants/
+          - generic [ref=e175]:
+            - heading [level=4]
+            - paragraph
+            - link "FINANCE" [ref=e176] [cursor=pointer]:
+              - /url: /services/finance-consultants/
+        - generic [ref=e180]:
+          - generic [ref=e188]:
+            - heading [level=4]
+            - paragraph
+            - link "HUMAN RESOURCES" [ref=e189] [cursor=pointer]:
+              - /url: /services/human-resources-consultants/
+          - generic [ref=e196]:
+            - heading [level=4]
+            - paragraph
+            - link "INTERNAL CONSULTING GROUPS" [ref=e197] [cursor=pointer]:
+              - /url: /services/internal-consulting-groups/
+        - generic [ref=e201]:
+          - generic [ref=e209]:
+            - heading [level=4]
+            - paragraph
+            - link "MARKETING & SALES" [ref=e210] [cursor=pointer]:
+              - /url: /services/marketing-sales-consultants/
+          - generic [ref=e217]:
+            - heading [level=4]
+            - paragraph
+            - link "MERGERS & ACQUISITIONS" [ref=e218] [cursor=pointer]:
+              - /url: /services/mergers-acquisitions-consultants/
+        - generic [ref=e222]:
+          - generic [ref=e230]:
+            - heading [level=4]
+            - paragraph
+            - link "OPERATIONS" [ref=e231] [cursor=pointer]:
+              - /url: /services/operations-consultants/
+          - generic [ref=e238]:
+            - heading [level=4]
+            - paragraph
+            - link "PROCUREMENT" [ref=e239] [cursor=pointer]:
+              - /url: /services/procurement-consultants/
+        - generic [ref=e243]:
+          - generic [ref=e251]:
+            - heading [level=4]
+            - paragraph
+            - link "STRATEGY" [ref=e252] [cursor=pointer]:
+              - /url: /services/strategy-consultants/
+          - generic [ref=e259]:
+            - heading [level=4]
+            - paragraph
+            - link "TECHNOLOGY & DIGITAL" [ref=e260] [cursor=pointer]:
+              - /url: /services/technology-digital-consultants/
+      - generic [ref=e266]:
+        - heading "INDUSTRIES" [level=3] [ref=e269]
+        - paragraph [ref=e272]: Across industries from pharma and biotech to ecommerce and insurance, we deliver just the right on-demand consulting, strategic insights, and project leadership to meet your needs.
+        - generic [ref=e275]:
+          - generic [ref=e283]:
+            - heading [level=4]
+            - paragraph
+            - link "CONSUMER GOODS" [ref=e284] [cursor=pointer]:
+              - /url: /services/consumer-goods-consultants/
+          - generic [ref=e291]:
+            - heading [level=4]
+            - paragraph
+            - link "ENERGY, SUSTAINABILITY & CLEAN TECH" [ref=e292] [cursor=pointer]:
+              - /url: /services/energy-consultants/
+        - generic [ref=e296]:
+          - generic [ref=e304]:
+            - heading [level=4]
+            - paragraph
+            - link "FINANCIAL SERVICES" [ref=e305] [cursor=pointer]:
+              - /url: /services/financial-services-consultants/
+          - generic [ref=e312]:
+            - heading [level=4]
+            - paragraph
+            - link "HEALTHCARE" [ref=e313] [cursor=pointer]:
+              - /url: /services/healthcare-consultants/
+        - generic [ref=e317]:
+          - generic [ref=e325]:
+            - heading [level=4]
+            - paragraph
+            - link "HOSPITALITY & LEISURE" [ref=e326] [cursor=pointer]:
+              - /url: /services/hospitality-consultants/
+          - generic [ref=e333]:
+            - heading [level=4]
+            - paragraph
+            - link "INDUSTRIAL" [ref=e334] [cursor=pointer]:
+              - /url: /services/industrial-goods-consultants/
+        - generic [ref=e338]:
+          - generic [ref=e346]:
+            - heading [level=4]
+            - paragraph
+            - link "INSURANCE" [ref=e347] [cursor=pointer]:
+              - /url: /services/insurance-consultants/
+          - generic [ref=e354]:
+            - heading [level=4]
+            - paragraph
+            - link "LIFE SCIENCE" [ref=e355] [cursor=pointer]:
+              - /url: /services/pharma-life-science-consultants/
+        - generic [ref=e359]:
+          - generic [ref=e367]:
+            - heading [level=4]
+            - paragraph
+            - link "MEDIA & ENTERTAINMENT" [ref=e368] [cursor=pointer]:
+              - /url: /services/entertainment-media-consultants/
+          - generic [ref=e375]:
+            - heading [level=4]
+            - paragraph
+            - link "NONPROFIT & GOVERNMENT" [ref=e376] [cursor=pointer]:
+              - /url: /services/nonprofit-consultants/
+        - generic [ref=e380]:
+          - generic [ref=e388]:
+            - heading [level=4]
+            - paragraph
+            - link "PRIVATE EQUITY" [ref=e389] [cursor=pointer]:
+              - /url: /services/private-equity-consultants/
+          - generic [ref=e396]:
+            - heading [level=4]
+            - paragraph
+            - link "RETAIL" [ref=e397] [cursor=pointer]:
+              - /url: /services/retail-consultants/
+        - generic [ref=e401]:
+          - generic [ref=e409]:
+            - heading [level=4]
+            - paragraph
+            - link "SERVICES" [ref=e410] [cursor=pointer]:
+              - /url: /services/b2b-services-consultants/
+          - generic [ref=e417]:
+            - heading [level=4]
+            - paragraph
+            - link "TECHNOLOGY" [ref=e418] [cursor=pointer]:
+              - /url: /services/technology-consultants/
+      - generic [ref=e427]:
+        - link "2026 HEITR Web CTA Book" [ref=e433] [cursor=pointer]:
+          - /url: https://www.heidrick.com/en/perspectives/on-demand-talent/2026-talent-report
+          - img "2026 HEITR Web CTA Book" [ref=e435]
+        - generic [ref=e438]:
+          - heading "2026 High-End Independent Talent Report" [level=2] [ref=e441]
+          - paragraph [ref=e444]: See the top projects and skills companies are seeking help with this year.
+          - link "Get the Report" [ref=e445] [cursor=pointer]:
+            - /url: https://www.heidrick.com/en/perspectives/on-demand-talent/2026-talent-report
+      - generic [ref=e450]:
+        - heading "Let’s Talk" [level=3] [ref=e453]
+        - paragraph [ref=e456]: Speak to a BTG representative to learn how on-demand talent can help with your most important work.
+        - generic [ref=e458]:
+          - generic [ref=e460]:
+            - group [ref=e462]:
+              - generic [ref=e465]:
+                - generic [ref=e466]: "*First Name"
+                - textbox "*First Name" [ref=e467]
+              - generic [ref=e470]:
+                - generic [ref=e471]: "*Last Name"
+                - textbox "*Last Name" [ref=e472]
+              - generic [ref=e475]:
+                - generic [ref=e476]: "*Business Email"
+                - textbox "*Business Email" [ref=e477]
+              - generic [ref=e480]:
+                - generic [ref=e481]: Phone
+                - textbox "Phone" [ref=e482]
+              - generic [ref=e485]:
+                - generic [ref=e486]: "*Company"
+                - textbox "*Company" [ref=e487]
+              - generic [ref=e490]:
+                - generic [ref=e491]: "*Country"
+                - combobox "*Country" [ref=e492]:
+                  - option "Select..." [selected]
+                  - option "Afghanistan"
+                  - option "Aland Islands"
+                  - option "Albania"
+                  - option "Algeria"
+                  - option "Andorra"
+                  - option "Angola"
+                  - option "Anguilla"
+                  - option "Antarctica"
+                  - option "Antigua and Barbuda"
+                  - option "Argentina"
+                  - option "Armenia"
+                  - option "Aruba"
+                  - option "Australia"
+                  - option "Austria"
+                  - option "Azerbaijan"
+                  - option "Bahamas"
+                  - option "Bahrain"
+                  - option "Bangladesh"
+                  - option "Barbados"
+                  - option "Belarus"
+                  - option "Belgium"
+                  - option "Belize"
+                  - option "Benin"
+                  - option "Bermuda"
+                  - option "Bhutan"
+                  - option "Bolivia, Plurinational State of"
+                  - option "Bonaire, Sint Eustatius and Saba"
+                  - option "Bosnia and Herzegovina"
+                  - option "Botswana"
+                  - option "Bouvet Island"
+                  - option "Brazil"
+                  - option "British Indian Ocean Territory"
+                  - option "Brunei Darussalam"
+                  - option "Bulgaria"
+                  - option "Burkina Faso"
+                  - option "Burundi"
+                  - option "Cambodia"
+                  - option "Cameroon"
+                  - option "Canada"
+                  - option "Cape Verde"
+                  - option "Cayman Islands"
+                  - option "Central African Republic"
+                  - option "Chad"
+                  - option "Chile"
+                  - option "China"
+                  - option "Christmas Island"
+                  - option "Cocos (Keeling) Islands"
+                  - option "Colombia"
+                  - option "Comoros"
+                  - option "Congo"
+                  - option "Congo, the Democratic Republic of the"
+                  - option "Cook Islands"
+                  - option "Costa Rica"
+                  - option "Cote d'Ivoire"
+                  - option "Croatia"
+                  - option "Cuba"
+                  - option "Curaçao"
+                  - option "Cyprus"
+                  - option "Czech Republic"
+                  - option "Denmark"
+                  - option "Djibouti"
+                  - option "Dominica"
+                  - option "Dominican Republic"
+                  - option "Ecuador"
+                  - option "Egypt"
+                  - option "El Salvador"
+                  - option "Equatorial Guinea"
+                  - option "Eritrea"
+                  - option "Estonia"
+                  - option "Ethiopia"
+                  - option "Falkland Islands (Malvinas)"
+                  - option "Faroe Islands"
+                  - option "Fiji"
+                  - option "Finland"
+                  - option "France"
+                  - option "French Guiana"
+                  - option "French Polynesia"
+                  - option "French Southern Territories"
+                  - option "Gabon"
+                  - option "Gambia"
+                  - option "Georgia"
+                  - option "Germany"
+                  - option "Ghana"
+                  - option "Gibraltar"
+                  - option "Greece"
+                  - option "Greenland"
+                  - option "Grenada"
+                  - option "Guadeloupe"
+                  - option "Guatemala"
+                  - option "Guernsey"
+                  - option "Guinea"
+                  - option "Guinea-Bissau"
+                  - option "Guyana"
+                  - option "Haiti"
+                  - option "Heard Island and McDonald Islands"
+                  - option "Holy See (Vatican City State)"
+                  - option "Honduras"
+                  - option "Hungary"
+                  - option "Iceland"
+                  - option "India"
+                  - option "Indonesia"
+                  - option "Iran, Islamic Republic of"
+                  - option "Iraq"
+                  - option "Ireland"
+                  - option "Isle of Man"
+                  - option "Israel"
+                  - option "Italy"
+                  - option "Jamaica"
+                  - option "Japan"
+                  - option "Jersey"
+                  - option "Jordan"
+                  - option "Kazakhstan"
+                  - option "Kenya"
+                  - option "Kiribati"
+                  - option "Korea, Democratic People's Republic of"
+                  - option "Korea, Republic of"
+                  - option "Kuwait"
+                  - option "Kyrgyzstan"
+                  - option "Lao People's Democratic Republic"
+                  - option "Latvia"
+                  - option "Lebanon"
+                  - option "Lesotho"
+                  - option "Liberia"
+                  - option "Libya"
+                  - option "Liechtenstein"
+                  - option "Lithuania"
+                  - option "Luxembourg"
+                  - option "Macao"
+                  - option "Macedonia, the former Yugoslav Republic of"
+                  - option "Madagascar"
+                  - option "Malawi"
+                  - option "Malaysia"
+                  - option "Maldives"
+                  - option "Mali"
+                  - option "Malta"
+                  - option "Martinique"
+                  - option "Mauritania"
+                  - option "Mauritius"
+                  - option "Mayotte"
+                  - option "Mexico"
+                  - option "Moldova, Republic of"
+                  - option "Monaco"
+                  - option "Mongolia"
+                  - option "Montenegro"
+                  - option "Montserrat"
+                  - option "Morocco"
+                  - option "Mozambique"
+                  - option "Myanmar"
+                  - option "Namibia"
+                  - option "Nauru"
+                  - option "Nepal"
+                  - option "Netherlands"
+                  - option "New Caledonia"
+                  - option "New Zealand"
+                  - option "Nicaragua"
+                  - option "Niger"
+                  - option "Nigeria"
+                  - option "Niue"
+                  - option "Norfolk Island"
+                  - option "Norway"
+                  - option "Oman"
+                  - option "Pakistan"
+                  - option "Palestine"
+                  - option "Panama"
+                  - option "Papua New Guinea"
+                  - option "Paraguay"
+                  - option "Peru"
+                  - option "Philippines"
+                  - option "Pitcairn"
+                  - option "Poland"
+                  - option "Portugal"
+                  - option "Qatar"
+                  - option "Reunion"
+                  - option "Romania"
+                  - option "Russian Federation"
+                  - option "Rwanda"
+                  - option "Saint Barthélemy"
+                  - option "Saint Helena, Ascension and Tristan da Cunha"
+                  - option "Saint Kitts and Nevis"
+                  - option "Saint Lucia"
+                  - option "Saint Martin (French part)"
+                  - option "Saint Pierre and Miquelon"
+                  - option "Saint Vincent and the Grenadines"
+                  - option "Samoa"
+                  - option "San Marino"
+                  - option "Sao Tome and Principe"
+                  - option "Saudi Arabia"
+                  - option "Senegal"
+                  - option "Serbia"
+                  - option "Seychelles"
+                  - option "Sierra Leone"
+                  - option "Singapore"
+                  - option "Sint Maarten (Dutch part)"
+                  - option "Slovakia"
+                  - option "Slovenia"
+                  - option "Solomon Islands"
+                  - option "Somalia"
+                  - option "South Africa"
+                  - option "South Georgia and the South Sandwich Islands"
+                  - option "South Sudan"
+                  - option "Spain"
+                  - option "Sri Lanka"
+                  - option "Sudan"
+                  - option "Suriname"
+                  - option "Svalbard and Jan Mayen"
+                  - option "Swaziland"
+                  - option "Sweden"
+                  - option "Switzerland"
+                  - option "Syrian Arab Republic"
+                  - option "Taiwan"
+                  - option "Tajikistan"
+                  - option "Tanzania, United Republic of"
+                  - option "Thailand"
+                  - option "Timor-Leste"
+                  - option "Togo"
+                  - option "Tokelau"
+                  - option "Tonga"
+                  - option "Trinidad and Tobago"
+                  - option "Tunisia"
+                  - option "Turkey"
+                  - option "Turkmenistan"
+                  - option "Turks and Caicos Islands"
+                  - option "Tuvalu"
+                  - option "Uganda"
+                  - option "Ukraine"
+                  - option "United Arab Emirates"
+                  - option "United Kingdom"
+                  - option "United States"
+                  - option "Uruguay"
+                  - option "Uzbekistan"
+                  - option "Vanuatu"
+                  - option "Venezuela, Bolivarian Republic of"
+                  - option "Viet Nam"
+                  - option "Virgin Islands, British"
+                  - option "Wallis and Futuna"
+                  - option "Western Sahara"
+                  - option "Yemen"
+                  - option "Zambia"
+                  - option "Zimbabwe"
+            - generic [ref=e495]:
+              - generic [ref=e496]: What would you like to learn more about?
+              - textbox "What would you like to learn more about?" [ref=e497]
+            - button "Let’s Talk" [ref=e500] [cursor=pointer]
+          - paragraph
+    - contentinfo [ref=e501]:
+      - generic [ref=e502]:
+        - generic [ref=e507]:
+          - generic [ref=e511]:
+            - heading "About" [level=5] [ref=e512]
+            - paragraph [ref=e513]:
+              - link "About BTG" [ref=e514] [cursor=pointer]:
+                - /url: /about-btg/
+            - paragraph [ref=e515]:
+              - link "Press" [ref=e516] [cursor=pointer]:
+                - /url: https://resources.businesstalentgroup.com/btg-press/
+            - paragraph [ref=e517]:
+              - link "Leadership" [ref=e518] [cursor=pointer]:
+                - /url: /leadership/
+            - paragraph [ref=e519]:
+              - link "Careers" [ref=e520] [cursor=pointer]:
+                - /url: https://heidrick.wd1.myworkdayjobs.com/en-US/businesstalentgroup
+            - paragraph [ref=e521]:
+              - link "Inclusion & Belonging" [ref=e522] [cursor=pointer]:
+                - /url: https://www.heidrick.com/en/about-us/inclusion-belonging-at-heidrick-struggles
+            - paragraph [ref=e523]:
+              - link "Resources" [ref=e524] [cursor=pointer]:
+                - /url: https://resources.businesstalentgroup.com/
+            - paragraph [ref=e525]:
+              - link "Blog" [ref=e526] [cursor=pointer]:
+                - /url: https://resources.businesstalentgroup.com/btg-blog
+            - paragraph [ref=e527]:
+              - link "About Heidrick & Struggles" [ref=e528] [cursor=pointer]:
+                - /url: https://www.heidrick.com/
+          - generic [ref=e532]:
+            - heading "Services" [level=5] [ref=e533]
+            - paragraph [ref=e534]:
+              - link "On-Demand Talent" [ref=e535] [cursor=pointer]:
+                - /url: /services/
+            - paragraph [ref=e536]:
+              - link "Interim Executives" [ref=e537] [cursor=pointer]:
+                - /url: /services/interim-executives/
+            - paragraph [ref=e538]:
+              - link "Why BTG?" [ref=e539] [cursor=pointer]:
+                - /url: /why-btg/
+            - paragraph [ref=e540]:
+              - link "Our Talent" [ref=e541] [cursor=pointer]:
+                - /url: /talent/
+            - paragraph [ref=e542]:
+              - link "Case Studies" [ref=e543] [cursor=pointer]:
+                - /url: https://resources.businesstalentgroup.com/btg-case-studies
+          - generic [ref=e547]:
+            - heading "Reach Out" [level=5] [ref=e548]
+            - paragraph [ref=e549]:
+              - link "Start a Project" [ref=e550] [cursor=pointer]:
+                - /url: /start-a-project/
+            - paragraph [ref=e551]:
+              - link "Become Talent" [ref=e552] [cursor=pointer]:
+                - /url: /become-an-independent-consultant/
+            - paragraph [ref=e553]:
+              - link "Talent Login" [ref=e554] [cursor=pointer]:
+                - /url: https://talent.businesstalentgroup.com/
+            - paragraph [ref=e555]:
+              - link "Refer a Project" [ref=e556] [cursor=pointer]:
+                - /url: https://info.businesstalentgroup.com/project-referral.html
+            - paragraph [ref=e557]:
+              - link "Refer Talent" [ref=e558] [cursor=pointer]:
+                - /url: https://info.businesstalentgroup.com/talent-referral.html
+            - paragraph [ref=e559]:
+              - link "Contact Us" [ref=e560] [cursor=pointer]:
+                - /url: /contact-us/
+          - generic [ref=e563]:
+            - heading "Stay Connected" [level=5] [ref=e564]
+            - generic [ref=e565]:
+              - paragraph [ref=e566]: Join the BTG mailing list to receive expert insights, research, news, and more.
+              - link "Sign me up" [ref=e568] [cursor=pointer]:
+                - /url: https://info.businesstalentgroup.com/email-preferences.html
+              - link "Connect with us on LinkedIn" [ref=e570] [cursor=pointer]:
+                - /url: https://www.linkedin.com/company/business-talent-group
+                - generic [ref=e571]: Connect with us on
+                - img "LinkedIn" [ref=e572]
+        - generic [ref=e576]:
+          - text: © 2026 Business Talent Group
+          - link "| Privacy Policy" [ref=e577] [cursor=pointer]:
+            - /url: https://businesstalentgroup.com/privacy-policy/
+          - link "| Terms of Use" [ref=e578] [cursor=pointer]:
+            - /url: https://businesstalentgroup.com/terms-of-use/
+          - link "| H&S Information Security" [ref=e579] [cursor=pointer]:
+            - /url: https://www.heidrick.com/en/privacy/information-security
+          - text: "| Change Cookie Settings"
+          - 'link "| California Residents: Do Not Sell/Share My Data" [ref=e580] [cursor=pointer]':
+            - /url: https://privacyportal.onetrust.com/webform/cda6bd66-4224-463b-9fa7-8f2c0e4752ce/392db7db-d97e-4505-8c98-6c8e4acc46f1
+  - region "Cookie banner" [ref=e584]:
+    - dialog "Privacy" [ref=e585]:
+      - generic [ref=e587]:
+        - generic [ref=e590]:
+          - text: We use cookies to personalise content and ads, to provide social media features and to analyse our traffic. We also share information about your use of our site with our social media, advertising and analytics partners.
+          - link "More information about your privacy, opens in a new tab" [active] [ref=e591] [cursor=pointer]:
+            - /url: https://businesstalentgroup.com/cookie-policy
+            - text: Show Cookie Policy
+        - generic [ref=e593]:
+          - button "Cookies Settings" [ref=e594] [cursor=pointer]
+          - button "Reject All" [ref=e595] [cursor=pointer]
+          - button "Accept All" [ref=e596] [cursor=pointer]
