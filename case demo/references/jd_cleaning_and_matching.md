@@ -1,16 +1,35 @@
 # JD Cleaning And Matching
 
-Use this reference in Stage 1 before generating any case-role demos.
+Use this reference for Stage 3 and Stage 4.
 
-## Raw Input Rule
+## Goal
 
-The user may provide raw jobhunting / Boss exports without manual cleanup. Accept `.xlsx`, `.csv`, `.txt`, `.md`, `.json`, or pasted mixed notes under `inputs/jd_raw/`.
+Turn raw jobhunting / Boss data into a clean evidence pool. The clean pool must keep high-quality original JD descriptions, filter out low-value records, and support later matching to teacher business themes.
 
-If an Excel workbook is present, inspect sheet names first. For the current Boss export shape, prefer the `Data` sheet.
+## Input Rule
 
-## Required Fields
+Accept raw files under:
 
-When present, use these columns exactly:
+```text
+inputs/jd_raw/
+```
+
+Supported shapes:
+
+- `.xlsx`
+- `.csv`
+- `.txt`
+- `.md`
+- `.json`
+- copied mixed notes
+
+The user does not need to summarize or normalize these files.
+
+## Excel Rule
+
+If an Excel workbook is present, inspect sheet names first. For the current Boss export shape, prefer `Data`.
+
+Use these columns when present:
 
 - `职位自编号`
 - `职位访问地址`
@@ -25,60 +44,116 @@ When present, use these columns exactly:
 - `最高薪资`
 - `几薪`
 
-Do not confuse `职位` with `招聘者职位`. `招聘者职位` is the recruiter title and should not be used as the job title.
+Do not confuse `职位` with `招聘者职位`. `招聘者职位` is the recruiter title.
 
-## Cleaning Rules
+## Deduping
 
-1. Keep source row identifiers for audit.
-2. Drop fully empty rows.
-3. Hard-dedupe by `职位访问地址` when present.
-4. Hard-dedupe by `职位自编号` when present.
-5. Soft-dedupe by `职位 + 公司 + 地区 + 最低薪资 + 最高薪资`.
-6. Preserve one representative row and record duplicate count.
-7. Normalize salary into a readable range such as `50-80K`, but keep original numeric values.
-8. Treat salary as market calibration only, never as a Zuoan promise.
+Apply in this order:
 
-## Quality Filter
+1. Hard-dedupe by `职位访问地址`.
+2. Hard-dedupe by `职位自编号`.
+3. Soft-dedupe by `职位 + 公司 + 地区 + 最低薪资 + 最高薪资`.
 
-Prefer JD records that satisfy at least two:
+Keep one representative row and record duplicate counts.
 
-- high salary for the role family
-- clear AI / data / product / algorithm / growth responsibilities
-- senior ownership wording such as 负责人、总监、专家、架构师、Lead、Head
-- strong company signal: large tech company, AI company, industry leader, listed company, strong vertical player
-- concrete business scenario, not generic AI enthusiasm
+## Rejection Rules
 
-Down-rank:
+Do not allow low-value records into `cleaned_jd_pool`.
 
+Reject or down-rank:
+
+- obvious advertisements,招商, franchise, training, traffic bait
 - internship, campus hiring, junior execution roles
-- pure sales roles without delivery or product ownership
-- recruiter / HR jobs unless the target is HRTech or RPO
-- vague descriptions without concrete responsibilities
-- obviously irrelevant keyword hits
+- pure sales roles without delivery / product / expert capability
+- recruiter or HR jobs unless the theme is HRTech / RPO
+- vague descriptions with AI keywords but no concrete responsibilities
+- irrelevant keyword hits
+- duplicate records
+- salary or title obviously inconsistent with high-quality expert profile
+
+Write rejected records to:
+
+```text
+outputs/rejected_jd_log.md
+```
+
+Do not silently drop them.
+
+## Quality Signals
+
+Prefer JD records with:
+
+- large tech company, AI company, listed company, industry leader, or strong vertical company signal
+- high salary for the role family
+- senior ownership wording: 负责人、总监、专家、架构师、Lead、Head
+- concrete AI / data / product / algorithm / growth responsibility
+- clear business scenario
+- evidence of delivery, architecture, productization, growth ownership, or team leadership
+
+## Cleaned Pool Output
+
+Write:
+
+```text
+outputs/cleaned_jd_pool.md
+```
+
+or, if structured output is better:
+
+```text
+outputs/cleaned_jd_pool.json
+```
+
+Each retained JD must preserve:
+
+- source file
+- sheet name when applicable
+- source row id
+- job URL
+- role title
+- company
+- city
+- salary raw values
+- normalized salary range
+- education
+- experience
+- skills
+- full original JD description
+- company type
+- likely industry
+- role family
+- seniority
+- business scenario
+- responsibility keywords
+- capability keywords
+- AI / tool / technical keywords
+- useful market phrasing
+- quality score
 
 ## Matching Method
 
-Match each cleaned JD to demo targets using scoring, not keyword hit alone.
+Match clean JD records to business themes and demo targets.
 
-Recommended score out of 10:
+Use source priority:
 
-- 0-3: semantic fit to target business problem
+1. `outputs/business_theme_report.md`
+2. `outputs/role_list_diagnosis.md`
+3. `references/teacher_case_mapping.md`
+4. `references/case_targets_and_jd_brief.md`
+
+Score out of 10:
+
+- 0-3: fit to teacher business pain / theme
 - 0-2: role seniority and ownership
 - 0-2: AI / technical / data relevance
 - 0-2: company quality and market signal
 - 0-1: salary signal
 
-Only include records scoring 6+ in a target shortlist unless the target has very few matches. For weak matches, mark `弱匹配` and explain why.
+Only include 6+ matches by default. If a target has no strong matches, include weak matches only with `弱匹配` and explain.
 
-Each selected JD must include a reason:
+## Matching Report Output
 
-```text
-Selected because this JD defines [capability] for [business scenario], which helps calibrate the talent profile for [target].
-```
-
-## Stage 1 Output Contract
-
-Write exactly one report:
+Write:
 
 ```text
 outputs/jd_matching_report.md
@@ -91,28 +166,37 @@ Required sections:
 
 ## Preflight
 - Raw files read:
-- Sheets read:
-- Reference files read:
+- Clean pool used:
+- References read:
 
 ## Data Overview
 - Raw row count:
 - Clean row count:
+- Rejected row count:
 - Hard duplicates removed:
 - Soft duplicates removed:
 - Main companies:
 - Main role families:
 - Salary distribution:
 
-## Target Matching Summary
+## Business Theme Matching
 
-### Demo 01: [target name]
+### [Theme Name]
+- Teacher source:
+- Best JD evidence:
+- Talent capability signals:
+- Match strength:
+- Gaps:
+
+## Demo Target Matching
+
+### Demo 01: [Target Name]
 - Teacher mapping:
-- Match strength: strong / medium / weak
 - Recommended JD records:
-  1. Role | Company | Salary | City | Score
+  1. Role | Company | Salary | City | Score | Source row
      - Matching reason:
      - Talent keywords:
-     - Useful JD language:
+     - Useful market phrasing:
 - Talent profile takeaways:
 - Gaps:
 
@@ -121,4 +205,4 @@ Required sections:
 - Suggested extra searches:
 ```
 
-Do not paste full JD descriptions into the report. Summarize the evidence and keep source row IDs / URLs for traceability.
+Do not paste full JD descriptions into the matching report. Full descriptions belong in `cleaned_jd_pool`.

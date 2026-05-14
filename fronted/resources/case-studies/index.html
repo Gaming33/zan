@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>案例研究 | 左安门</title>
+    <meta name="description" content="左安门案例研究列表，按行业、功能和关键词浏览企业关键阶段问题。">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23161616'/%3E%3Ctext x='16' y='21' font-size='16' text-anchor='middle' fill='white' font-family='Arial, sans-serif'%3E%E5%B7%A6%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="../shared/shared.css">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <div class="site-shell">
+      <div data-shared-header></div>
+
+      <main class="resources-main">
+        <section class="case-library" aria-labelledby="case-title">
+          <div class="container">
+            <div class="case-library__heading">
+              <h1 id="case-title">案例研究</h1>
+            </div>
+
+            <div class="case-tools" aria-label="案例筛选与搜索">
+              <div class="case-tools__row">
+                <label class="field-control">
+                  <span class="sr-only">行业筛选</span>
+                  <select id="industryFilter" aria-label="All Industries">
+                    <option value="All Industries">All Industries</option>
+                  </select>
+                </label>
+
+                <label class="field-control">
+                  <span class="sr-only">功能筛选</span>
+                  <select id="functionFilter" aria-label="All Functions">
+                    <option value="All Functions">All Functions</option>
+                  </select>
+                </label>
+
+                <button class="reset-button" type="button" id="resetFilters">Reset</button>
+
+                <label class="search-control">
+                  <span class="sr-only">Search</span>
+                  <input id="caseSearch" type="search" placeholder="Search" autocomplete="off">
+                  <span class="search-control__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" focusable="false">
+                      <path d="M10.5 18a7.5 7.5 0 1 1 5.3-12.8A7.5 7.5 0 0 1 10.5 18Zm0-2a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11Zm10 5-5.2-5.2 1.4-1.4 5.2 5.2-1.4 1.4Z"></path>
+                    </svg>
+                  </span>
+                </label>
+              </div>
+
+              <p class="result-count" id="resultCount" aria-live="polite">Displaying 0 results</p>
+            </div>
+
+            <div class="case-grid" id="caseGrid" aria-live="polite"></div>
+            <p class="empty-state" id="emptyState" hidden>暂无匹配案例，请调整筛选或搜索关键词。</p>
+          </div>
+        </section>
+      </main>
+
+      <div data-shared-footer></div>
+    </div>
+
+    <script src="../shared/shared.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

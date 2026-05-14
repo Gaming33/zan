@@ -50,10 +50,30 @@ Use these as offline structural examples. Do not copy BTG wording. Use the URL f
 - Common close: expert supports a defined project, decision, or operating outcome.
 - Reusable structure: client type -> problem -> expert need -> matched talent -> work delivered.
 
+## Talent Resources Pattern
+
+- Source: https://resources.businesstalentgroup.com/talent-resources
+- Use for: talent-side framing, independent professional positioning, consulting portfolio, project-readiness, and career operating model.
+- Do not use as: business fact source or proof that Zuoan has equivalent network scale.
+
+Reusable talent-side structure:
+
+```text
+professional background -> independent/project-based value -> portfolio or proof of work -> operating style -> fit for client project
+```
+
+Use this when writing `Role Demo`:
+
+- describe the expert's prior business track record before AI tools
+- show how AI extends the expert's leverage
+- emphasize project readiness, portfolio, and ability to enter a defined scope
+- avoid sounding like course enrollment or generic job advertising
+
 ## Use Rules
 
 - Keep generated Zuoan cases short and business-first.
 - Use teacher case mapping for business truth.
 - Use JD matching report for talent profile truth.
 - Use BTG examples only for case structure.
+- Use BTG talent resources only for talent-profile framing.
 - Do not add fake outcomes or numbers.

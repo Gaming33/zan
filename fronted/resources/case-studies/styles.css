@@ -1,0 +1,312 @@
+.resources-main {
+  background: var(--color-surface);
+}
+
+.case-library {
+  min-height: 720px;
+  padding: 72px 0 96px;
+}
+
+.case-library__heading {
+  margin-bottom: var(--spacing-xl);
+}
+
+.case-library h1 {
+  margin: 0;
+  color: var(--color-text-primary);
+  font-size: clamp(40px, 6vw, 84px);
+  font-weight: 400;
+  line-height: 0.95;
+}
+
+.case-tools {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.case-tools__row {
+  display: grid;
+  grid-template-columns: minmax(190px, 294px) minmax(190px, 294px) auto minmax(0, 1fr);
+  gap: var(--spacing-lg);
+  align-items: center;
+}
+
+.field-control,
+.search-control {
+  position: relative;
+  display: block;
+}
+
+.field-control select,
+.search-control input {
+  width: 100%;
+  height: 64px;
+  border: 1px solid #8d8d8d;
+  border-radius: 0;
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+  font: inherit;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.field-control select {
+  appearance: none;
+  padding: 0 56px 0 var(--spacing-lg);
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--color-primary) 50%),
+    linear-gradient(135deg, var(--color-primary) 50%, transparent 50%);
+  background-position:
+    calc(100% - 30px) 29px,
+    calc(100% - 20px) 29px;
+  background-size: 10px 10px, 10px 10px;
+  background-repeat: no-repeat;
+}
+
+.search-control {
+  justify-self: end;
+  width: min(100%, 420px);
+  max-width: 420px;
+}
+
+.search-control input {
+  padding: 0 56px 0 var(--spacing-lg);
+  border-width: 0 0 1px;
+  background: transparent;
+}
+
+.search-control__icon {
+  position: absolute;
+  top: 50%;
+  right: var(--spacing-md);
+  width: 24px;
+  height: 24px;
+  color: var(--color-text-secondary);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.search-control__icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+.field-control select:focus-visible,
+.search-control input:focus-visible,
+.reset-button:focus-visible,
+.case-card__read:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.reset-button {
+  justify-self: start;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-primary);
+  cursor: pointer;
+  font: inherit;
+  font-size: 18px;
+  white-space: nowrap;
+}
+
+.reset-button:hover {
+  color: var(--color-secondary);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.result-count {
+  margin: var(--spacing-sm) 0 0;
+  color: var(--color-text-secondary);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--spacing-xl);
+}
+
+.case-card {
+  display: grid;
+  min-width: 0;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  transition: border-color 160ms ease, transform 160ms ease;
+}
+
+.case-card:hover {
+  border-color: #8d8d8d;
+  transform: translateY(-2px);
+}
+
+.case-card__media {
+  position: relative;
+  min-height: 190px;
+  border-bottom: 1px solid var(--color-border);
+  background:
+    linear-gradient(90deg, rgba(15, 98, 254, 0.08) 0 1px, transparent 1px 100%),
+    linear-gradient(180deg, rgba(15, 98, 254, 0.08) 0 1px, transparent 1px 100%),
+    #f4f4f4;
+  background-size: 24px 24px;
+  overflow: hidden;
+}
+
+.case-card__media::before,
+.case-card__media::after {
+  position: absolute;
+  content: "";
+}
+
+.case-card__media::before {
+  right: 24px;
+  bottom: 24px;
+  width: 96px;
+  height: 96px;
+  border: 1px solid #a8a8a8;
+  background: #ffffff;
+}
+
+.case-card__media::after {
+  right: 64px;
+  bottom: 64px;
+  width: 96px;
+  height: 96px;
+  background: var(--color-primary);
+}
+
+.case-card__meta {
+  position: absolute;
+  left: var(--spacing-md);
+  bottom: var(--spacing-md);
+  display: inline-flex;
+  max-width: calc(100% - 32px);
+  gap: var(--spacing-sm);
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  line-height: 1.33;
+}
+
+.case-card__body {
+  display: grid;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+}
+
+.case-card h2 {
+  min-height: 64px;
+  margin: 0;
+  color: var(--color-text-primary);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.case-card p {
+  min-height: 52px;
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.case-card__read {
+  justify-self: start;
+  margin-top: var(--spacing-sm);
+  border: 0;
+  background: transparent;
+  color: var(--color-primary);
+  cursor: pointer;
+  font: inherit;
+  font-size: 16px;
+  padding: 0;
+}
+
+.case-card__read:hover {
+  color: var(--color-secondary);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.empty-state {
+  margin: var(--spacing-2xl) 0 0;
+  padding: var(--spacing-xl);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-muted);
+  color: var(--color-text-secondary);
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 1180px) {
+  .case-tools__row {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+  }
+
+  .search-control {
+    grid-column: 1 / -1;
+    justify-self: stretch;
+    width: 100%;
+    max-width: none;
+  }
+
+  .case-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .case-library {
+    padding: 56px 0 72px;
+  }
+
+  .case-library h1 {
+    font-size: 44px;
+    line-height: 1.05;
+  }
+
+  .case-tools__row,
+  .case-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .field-control select,
+  .search-control input {
+    height: 56px;
+    font-size: 16px;
+  }
+
+  .result-count {
+    font-size: 18px;
+  }
+
+  .case-card__media {
+    min-height: 168px;
+  }
+
+  .case-card h2,
+  .case-card p {
+    min-height: 0;
+  }
+}
