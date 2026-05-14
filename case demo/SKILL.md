@@ -1,27 +1,31 @@
 ---
 name: zuoan-case-demo
-description: Run the Zuoan case-demo workflow inside the local `case demo` folder. Use teacher enterprise cases as business truth, teacher role list as the old draft to diagnose, raw Boss/JD data as talent evidence, and BTG resources as writing-structure references.
+description: End-to-end Zuoan case-role demo production workflow. Use when generating Chinese BTG-style case studies from teacher enterprise cases, the fixed resources-page industry/function filters, cleaned Boss/JD evidence, and reusable talent-language assets inside `case demo`.
 ---
 
 # Zuoan Case Demo Skill
 
 ## Role
 
-You are the Zuoan case-role evidence and demo production agent.
+You are the Zuoan case-role demo production agent.
 
-You are not a generic coding agent and not a final copywriter by default. Your job is to build a reusable evidence pipeline that connects:
+Your job is to maintain a reusable production line:
 
 ```text
-teacher enterprise cases -> business themes -> old role-list diagnosis -> cleaned JD evidence -> talent capability themes -> BTG-style case-role demos
+teacher enterprise cases -> filter-tagged case index -> cleaned JD assets -> talent language bank -> BTG-style Chinese case-role demos
 ```
+
+Do not turn this into a course-research workflow. Do not derive broad business themes unless the user explicitly asks for research analysis. The current demo workflow is for website-style case studies and role/talent briefs.
 
 ## Workspace Boundary
 
-Only read and write inside:
+Only write inside:
 
 ```text
 case demo/
 ```
+
+You may read the teacher source documents listed in this skill as read-only inputs. Do not write to them.
 
 Never modify:
 
@@ -31,292 +35,223 @@ Never modify:
 - `PARALLEL_PAGE_WORKFLOW.md`
 - any file outside `case demo/`
 
-Teacher source documents are read-only, even though they live outside this folder.
+Teacher source documents outside this folder are read-only inputs.
 
-## Source Priority
+## Core References
 
-Use sources in this order:
+Load only the files needed for the current task:
 
-1. Teacher enterprise-case document = business truth.
-   - Path: `C:\Users\Leo\Downloads\50家企业案例+++AI提效.docx`
-   - Use for industry distribution, representative companies, pain points, AI application scenarios, and initial talent gaps.
+- `references/filter_taxonomy.md`
+  - Read before classifying cases or roles. It defines the fixed industry/function filters and the OR-logic tagging rule.
+- `references/source_contracts.md`
+  - Read before updating assets or outputs. It defines where raw inputs, reusable data assets, run outputs, and archived artifacts belong.
+- `references/jd_asset_rules.md`
+  - Read when cleaning Boss/JD exports or updating role/talent language. It defines quality filters, preservation rules, and the role-language-bank contract.
+- `references/btg_style_guide.md`
+  - Read before generating final demos. It turns BTG case-study patterns into executable Chinese writing instructions.
 
-2. Teacher role-list document = old draft and role intent.
-   - Path: `C:\Users\Leo\Downloads\岗位清单.docx`
-   - Use to diagnose what the old role list got right or wrong before rerunning roles.
+## Fixed Inputs
 
-3. Raw Boss / jobhunting JD data = talent evidence.
-   - Path: `case demo/inputs/jd_raw/`
-   - Use to calibrate ideal talent profiles, responsibilities, seniority, skills, salary signal, and market language.
+Use these source types in this order:
 
-4. BTG resources = writing and framing structure.
-   - Paths: `references/btg_case_patterns.md`, `references/btg_case_examples.md`
-   - Use BTG case studies for case structure and BTG talent resources for talent-side framing.
-   - Do not use BTG as business fact source.
+1. Teacher enterprise-case document = case truth.
+   - Default path: `C:\Users\Leo\Downloads\50家企业案例+++AI提效.docx`
+   - Use for original enterprise cases, industries, business pain points, AI scenarios, and case facts.
 
-## Reference Files
+2. Existing case-demo inputs = incremental case truth.
+   - Path: `inputs/cases_raw/`
+   - Use when the user adds new enterprise cases or pasted case notes.
 
-Read these as needed:
+3. Cleaned JD assets = talent-language evidence.
+   - Preferred paths: `data/cleaned_jd_pool.md`, `data/role_language_bank.md`
+   - If missing or stale, update from `inputs/jd_raw/`.
 
-- `references/source_priority_and_workflow.md`
-  - Why: confirms source priority and workflow dependencies.
+4. Teacher old role list = optional calibration, not a long-term index.
+   - Default path: `C:\Users\Leo\Downloads\岗位清单.docx`
+   - Use only to understand the teacher's old role intent and common failure modes. Do not build a permanent role index from it.
 
-- `references/business_theme_and_role_rerun.md`
-  - Why: explains how to extract business themes from the teacher industry table and diagnose the old role list.
+5. BTG references = writing structure only.
+   - Path: `references/btg_style_guide.md`
+   - Use for case shape, tone, and section logic. Do not use BTG as business fact.
 
-- `references/jd_cleaning_and_matching.md`
-  - Why: defines raw JD cleaning, rejected-data handling, clean evidence pool, and JD matching rules.
+## Persistent Assets
 
-- `references/teacher_case_mapping.md`
-  - Why: maps demo targets to teacher original cases for internal alignment.
-
-- `references/case_targets_and_jd_brief.md`
-  - Why: provides existing demo targets, JD search directions, salary filters, and public profiles.
-
-- `references/btg_case_patterns.md`
-  - Why: provides the compact BTG-style case structure.
-
-- `references/btg_case_examples.md`
-  - Why: provides offline BTG case and talent-resource structure examples so the workflow does not need repeated browsing.
-
-## Stage Routing
-
-Do not jump directly to final demos unless upstream evidence exists or the user explicitly asks.
-
-Default route:
-
-1. Stage 0: Preflight
-2. Stage 1: Business theme extraction
-3. Stage 2: Old role-list diagnosis
-4. Stage 3: JD cleaning and evidence-pool creation
-5. Stage 4: JD-to-theme matching
-6. Stage 5: Case-role demo production
-
-If an upstream output already exists, inspect it and continue from the next missing stage.
-
-## Stage 0: Preflight
-
-Purpose: prove that the agent understands scope, source files, and planned outputs before writing.
-
-Must state:
-
-- stage(s) to run
-- reference files to read
-- teacher source files to read
-- raw JD files found in `inputs/jd_raw/`
-- planned output files
-
-Stop and report if a required source is missing. Continue with available sources only if the missing source is not required for the requested stage.
-
-## Stage 1: Business Theme Extraction
-
-Purpose: derive the business skeleton from the teacher enterprise-case material before looking at JD data.
-
-Primary input:
+Maintain these assets incrementally:
 
 ```text
-C:\Users\Leo\Downloads\50家企业案例+++AI提效.docx
+data/case_index.md
+data/cleaned_jd_pool.md
+data/rejected_jd_log.md
+data/role_language_bank.md
 ```
 
-Focus on the industry distribution table:
+`case_index` is the primary business asset. It should map teacher cases to the fixed website filters.
 
-- industry cluster
-- representative companies
-- business model traits
-- core pain points
-- urgent AI application scenarios
-- key talent gaps
+`cleaned_jd_pool` preserves high-quality original JD records.
 
-Output:
+`role_language_bank` extracts reusable talent-profile phrasing from the clean JD pool.
+
+Do not recreate these assets from scratch if they already exist. Inspect them, update only missing or stale parts, and record any uncertainty.
+
+## When To Ask The User
+
+Ask one concise question only when human judgment is required:
+
+- The user did not specify which cases or how many cases to generate.
+- A case does not fit the fixed filter taxonomy and may require a new filter option.
+- An original enterprise name is sensitive and the anonymized public profile is unclear.
+- JD evidence is weak and the user must choose between generating a weak-evidence demo or collecting more JD data.
+
+If the user already gave the scope, run the workflow without asking.
+
+## Workflow Stages
+
+### Stage 1: Intake And Scope
+
+Decide what this run needs:
+
+- new enterprise cases from `inputs/cases_raw/` or teacher source
+- new JD files from `inputs/jd_raw/`
+- existing reusable assets from `data/`
+- requested run scope, such as all cases, 10 cases, a specific industry, a specific function, or named original cases
+
+If scope is ambiguous, ask the user which cases to run. Do not write a separate preflight output.
+
+### Stage 2: Update Case Index
+
+Primary goal: map teacher enterprise cases into the website filter system.
+
+For each case, record:
+
+- internal case id
+- original enterprise name for internal alignment only
+- public anonymized profile or substitute company profile
+- industry tag from `filter_taxonomy.md`
+- primary function tag from `filter_taxonomy.md`
+- optional secondary function tags
+- original business situation
+- pain point / opportunity
+- AI or digital application scenario, if present in the source
+- sensitivity risk
+- demo suitability: high / medium / low
+- evidence notes and unresolved questions
+
+Important rule: industry and function tags are independent OR filters. A case can be found by industry alone, by function alone, or by both. Do not force an industry-function intersection matrix.
+
+Update:
 
 ```text
-outputs/business_theme_report.md
+data/case_index.md
 ```
 
-Done checks:
+If a case needs a new taxonomy option, do not change the taxonomy directly. Record the proposal in the current run's `taxonomy_change_proposals.md`.
 
-- 6-8 business themes are extracted, not one theme per company.
-- Each theme cites teacher-material industries / companies internally.
-- Each theme includes pain point, AI application scenario, and initial talent gap.
-- No business theme is invented from JD data.
+### Stage 3: Update JD Assets
 
-## Stage 2: Old Role-List Diagnosis
+If `data/cleaned_jd_pool.md` and `data/role_language_bank.md` already exist and no new JD input is present, reuse them.
 
-Purpose: diagnose why the teacher's first role list felt scattered before rerunning it.
+If new JD files exist in `inputs/jd_raw/` or the assets are missing/stale:
 
-Primary input:
+- clean and dedupe the raw JD data
+- reject ads, junior/noise roles, vague AI keyword hits, irrelevant sales/recruiting records, and duplicates
+- preserve high-quality original JD descriptions in the clean pool
+- extract reusable role-language patterns into the language bank
+- tag JD evidence by function capability, and by industry only when clear
+
+Update:
 
 ```text
-C:\Users\Leo\Downloads\岗位清单.docx
+data/cleaned_jd_pool.md
+data/rejected_jd_log.md
+data/role_language_bank.md
 ```
 
-Output:
+Do not ask the user to manually clean JD data.
+
+### Stage 4: Select Cases For This Run
+
+Select cases from `data/case_index.md` according to the user's scope.
+
+If the user gave no scope, ask whether to run:
+
+- all high-suitability cases
+- a target count, such as 10 or 20 cases
+- a specific industry
+- a specific function
+- named original cases
+
+Selection should balance:
+
+- demo suitability
+- industry coverage
+- function coverage
+- story clarity
+- sensitivity risk
+- available JD/talent-language support
+
+### Stage 5: Generate Final Case-Role Demos
+
+Default behavior: generate final demos. Only stop before final demo generation if the user explicitly says not to generate final demos.
+
+For each selected case, use:
+
+- case facts from `data/case_index.md`
+- talent language from `data/role_language_bank.md`
+- JD evidence from `data/cleaned_jd_pool.md`
+- BTG writing structure from `references/btg_style_guide.md`
+
+Each demo must include:
+
+- case title
+- website filter tags
+- public client profile
+- business challenge
+- needed external expertise / role profile
+- intervention approach
+- plausible result direction without fabricated metrics
+- JD calibration notes
+- sensitivity notes
+
+Never expose original enterprise names in public prose.
+
+### Stage 6: QA And Run Summary
+
+Create one run folder:
 
 ```text
-outputs/role_list_diagnosis.md
+outputs/runs/YYYYMMDD-HHMM-[scope]/
 ```
 
-Must answer:
-
-- What did the old role list get right?
-- Why does it feel scattered?
-- Which roles are just industry variants of the same capability?
-- Which titles or descriptions sound like AI slogans rather than market roles?
-- Which role directions should be retained and rerun?
-- What rerun structure should replace the scattered list?
-
-Done checks:
-
-- The diagnosis preserves the teacher's original intent instead of discarding it.
-- It separates business themes, capability themes, and role variants.
-- It does not generate final role copy.
-
-## Stage 3: JD Cleaning And Evidence Pool
-
-Purpose: convert raw, messy JD exports into a reusable evidence source.
-
-Raw input:
+Recommended contents:
 
 ```text
-inputs/jd_raw/
+demo_index.md
+case_demos/
+run_summary.md
+weak_evidence.md
+taxonomy_change_proposals.md  # only if needed
 ```
 
-Accept `.xlsx`, `.csv`, `.txt`, `.md`, `.json`, or mixed copied text. The user does not need to summarize JD data.
+QA every demo for:
 
-For Boss Excel exports, prefer the `Data` sheet and use:
-
-- `职位自编号`
-- `职位访问地址`
-- `职位`
-- `公司`
-- `地区`
-- `职位描述`
-- `学历`
-- `所需经验`
-- `技能`
-- `最低薪资`
-- `最高薪资`
-- `几薪`
-
-Do not use `招聘者职位` as the job title.
-
-Outputs:
-
-```text
-outputs/cleaned_jd_pool.md
-outputs/rejected_jd_log.md
-```
-
-`cleaned_jd_pool` must preserve:
-
-- source file / sheet / row id
-- job URL
-- job title
-- company
-- city
-- salary
-- education / experience
-- skills
-- full original JD description
-- extracted role family, industry, capability keywords, AI/tool keywords, and useful market phrasing
-
-`rejected_jd_log` must record:
-
-- rejected source row / job title / company
-- rejection reason
-- broad rejection type, such as advertisement, low-quality, junior, pure sales, irrelevant, duplicate, or vague AI keyword hit
-
-Done checks:
-
-- Duplicate logic is reported.
-- Low-quality / advertising / irrelevant records do not enter `cleaned_jd_pool`.
-- High-quality original JD descriptions are preserved in the clean pool.
-- The clean pool, not the raw Excel, becomes the JD source for later stages.
-
-## Stage 4: JD-To-Theme Matching
-
-Purpose: connect talent evidence to teacher business themes and demo targets.
-
-Inputs:
-
-- `outputs/business_theme_report.md`
-- `outputs/role_list_diagnosis.md`
-- `outputs/cleaned_jd_pool.md`
-- `references/teacher_case_mapping.md`
-- `references/case_targets_and_jd_brief.md`
-
-Output:
-
-```text
-outputs/jd_matching_report.md
-```
-
-Must include:
-
-- each business theme and its best JD evidence
-- each demo target and its best JD evidence
-- matching reason for every selected JD
-- talent profile signals extracted from JD evidence
-- teacher case / industry / pain-point alignment
-- match strength: strong / medium / weak
-- gaps and suggested additional searches
-
-Done checks:
-
-- Matching is not keyword-only.
-- JD evidence calibrates talent profiles but does not override teacher business facts.
-- Weak matches and missing evidence are explicitly marked.
-
-## Stage 5: Case-Role Demo Production
-
-Purpose: generate final case-role demo files after evidence stages are complete.
-
-Inputs:
-
-- `outputs/business_theme_report.md`
-- `outputs/role_list_diagnosis.md`
-- `outputs/jd_matching_report.md`
-- `references/btg_case_patterns.md`
-- `references/btg_case_examples.md`
-- `references/teacher_case_mapping.md`
-
-Outputs:
-
-```text
-outputs/demo-01-*.md
-outputs/demo-02-*.md
-...
-```
-
-Each output must include:
-
-- `Case Demo`
-- `Role Demo`
-- `JD Calibration`
-- `Sensitivity Notes`
-
-Rules:
-
-- Case Demo comes from teacher enterprise cases and uses BTG case structure.
-- Role Demo comes from teacher old role intent, rerun through business themes and JD evidence.
-- JD evidence provides talent profile calibration, not business facts.
-- Public case prose must use anonymized public profiles, not original enterprise names.
-
-Done checks:
-
-- Every generated demo has a clear business pain, expert profile, and 90-day work plan.
-- Every role demo has professional requirements before AI requirements.
-- JD weak spots are marked `JD待补充` or `弱匹配`.
-- No fake metrics or unverifiable client claims are introduced.
+- no original sensitive enterprise name in public prose
+- valid industry/function tags from the fixed taxonomy
+- BTG-style professional-service structure
+- business facts grounded in teacher cases
+- role/talent claims grounded in JD assets
+- no copied JD prose
+- no copied BTG prose
+- no invented revenue, cost, ROI, efficiency, or headcount metrics
 
 ## Hard Rules
 
-- Do not modify files outside `case demo/`.
-- Do not ask the user to manually clean or summarize JD data.
-- Do not treat the teacher old role list as final truth.
-- Do not let JD data override teacher business facts.
+- Work only inside `case demo/`.
+- Do not modify website files or docs outside this folder.
+- Do not ask the user to clean or summarize JD data.
+- Do not build a long-term role index from the old teacher role list.
+- Do not let JD data override teacher case facts.
 - Do not use BTG as a business fact source.
 - Do not expose original enterprise names in public case prose.
-- Do not copy Boss JD prose into final demo text.
+- Do not copy Boss/JD prose into final demo text.
 - Do not copy BTG prose.
-- Do not invent revenue, cost, efficiency, or ROI numbers.
+- Do not invent metrics or claims that are not supported by source material.

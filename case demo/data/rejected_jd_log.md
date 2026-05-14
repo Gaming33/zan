@@ -1,8 +1,8 @@
 # Rejected JD Log
 
-## Preflight
+## Asset Status
 
-- Stage: Stage 3 - JD Cleaning And Evidence Pool
+- Asset type: reusable JD rejection log
 - Raw file scanned: `case demo/inputs/jd_raw/职位-20260514012802-(1-1).xlsx`
 - Sheet: `Data`
 - Raw row count: 963
@@ -45,4 +45,3 @@ Records were rejected or down-ranked when they matched one or more:
 - Some records with HR keywords should be retained only if they describe AI-HR systems, HR product platforms, recruiting automation, or people analytics.
 - Some digital-human / AIGC roles are high-quality but may match content-growth themes better than enterprise AI platform themes.
 - Some very high salary roles are broad AI transformation roles; keep them as senior talent benchmark but avoid letting them override teacher case facts.
-

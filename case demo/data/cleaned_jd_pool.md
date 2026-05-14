@@ -1,14 +1,15 @@
 # Cleaned JD Pool
 
-## Preflight
+## Asset Status
 
-- Stage: Stage 3 - JD Cleaning And Evidence Pool
+- Asset type: reusable JD evidence pool
 - Raw file scanned: `case demo/inputs/jd_raw/职位-20260514012802-(1-1).xlsx`
 - Sheet: `Data`
 - Raw row count: 963
 - Clean candidate count after first pass: 761
 - Rejected / excluded count: 202
-- This file preserves a prioritized evidence pool for Stage 4 matching. It is not final public copy.
+- This first-pass asset preserves prioritized high-quality JD evidence for talent-language calibration. It is not final public copy.
+- Future runs should update this file incrementally if new JD files are added to `inputs/jd_raw/`.
 
 ## Data Overview
 
@@ -121,4 +122,3 @@
 - Capability keywords: 技术路线、数据闭环、在线/边缘推理、算法+工程混编团队、工业交付
 - Useful market phrasing: `从0到1构建视觉/AI系统并在生产或业务场景稳定运行的完整闭环案例`
 - Full original JD description: 职位描述：1.输出年度/季度技术路线与里程碑，明确人力/算力/预算与风险预案。2.设计端到端体系：数据闭环、在线/边缘推理、可启动性与回滚。3.建立安全与合规基线，形成本地/云边混合部署方案。4.0→1构建算法+工程混编团队，设定绩效目标与成长路径。职位要求：本科及以上，计算机、人工智能、自动化、电子/光电、测控、应用数学等相关；5年及以上计算机/机器视觉经验，且2年以上团队实现或技术管理经验；有从0到1构建视觉/AI系统并在生产或业务场景稳定运行的完整闭环案例，含数据、训练、部署、运维；在工业/设备/智能制造场景拥有交付经验优先；能将业务目标拆解为技术路线、里程碑与资源体系配置，形成指标驱动与复盘机制；具备图像/视频理解、三维数据处理等方向经验，并能进行工程权衡；掌握主流训练/推理框架与工具链、自动化测试与CI/CD、边缘/云部署实践；熟悉标定、多参数融合与触发同步、治具集成；建立可复用的数据策略；跨部门影响力和落地节奏控制能力强。
-
