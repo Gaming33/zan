@@ -2,6 +2,14 @@
 
 Use this file whenever classifying teacher cases, selected demos, or JD/talent language.
 
+The machine-readable source for this taxonomy is:
+
+```text
+data/taxonomy_map.json
+```
+
+Use this markdown file for human/agent interpretation and `data/taxonomy_map.json` for exact allowed values and teacher-cluster mappings.
+
 ## Industry Filters
 
 These options mirror the resources-page case-study filter. Do not rename them without user approval.
@@ -41,6 +49,8 @@ For each case:
 - assign one primary function filter
 - add secondary function filters only when they help retrieval
 - do not create a matrix just to fill industry/function combinations
+
+When a teacher `industry_cluster` appears in `data/taxonomy_map.json`, use its `teacher_cluster_mapping` as the first routing hint. If a `demo_seed_options` value also appears in `demo_seed_overrides`, the demo-seed override wins because it is more specific than the cluster-level mapping.
 
 Examples:
 

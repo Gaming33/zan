@@ -12,6 +12,7 @@ inputs/
 references/        stable instructions and style references for the agent
 
 data/              reusable assets updated across runs
+  taxonomy_map.json
   cases_row/teacher_case_rows.jsonl
   case_index.md
   cleaned_jd_pool.md
@@ -26,11 +27,26 @@ outputs/
 ## Source Priority
 
 1. Teacher enterprise cases define business facts.
-2. `data/cases_row/teacher_case_rows.jsonl` is the reusable upstream row asset.
-3. `data/case_index.md` is the active case asset once populated.
-4. Cleaned JD assets define role/talent language only.
-5. Teacher old role list is optional calibration and should not become a permanent role index.
-6. BTG references define writing shape only.
+2. `data/taxonomy_map.json` defines the canonical industry/capability values and teacher-cluster mapping.
+3. `data/cases_row/teacher_case_rows.jsonl` is the reusable upstream row asset.
+4. `data/case_index.md` is the active case asset once populated.
+5. Cleaned JD assets define role/talent language only.
+6. Teacher old role list is optional calibration and should not become a permanent role index.
+7. BTG references define writing shape only.
+
+## Taxonomy Map Contract
+
+`data/taxonomy_map.json` is the machine-readable taxonomy source for the case-demo workflow.
+
+It must contain:
+
+- `industries`
+- `capabilities`
+- `teacher_cluster_mapping`
+- optional `demo_seed_overrides`
+- `rules`
+
+Do not change the canonical `industries` or `capabilities` lists during a generation run. If a case does not fit, write the proposal to the run's `taxonomy_change_proposals.md`.
 
 ## Case Index Contract
 

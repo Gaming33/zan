@@ -44,7 +44,7 @@ Load only the files needed for the current task:
 - `references/case_row_contract.md`
   - Read when updating or consuming the teacher-case row asset. It defines the upstream case-row schema and when not to re-extract it.
 - `references/filter_taxonomy.md`
-  - Read before classifying cases or roles. It defines the fixed industry/function filters and the OR-logic tagging rule.
+  - Read before classifying cases or roles. It explains the fixed industry/function filters and the OR-logic tagging rule.
 - `references/source_contracts.md`
   - Read before updating assets or outputs. It defines where raw inputs, reusable data assets, run outputs, and archived artifacts belong.
 - `references/jd_asset_rules.md`
@@ -68,15 +68,19 @@ Use these source types in this order:
    - Path: `data/cases_row/teacher_case_rows.jsonl`
    - Use this as the stable row-level source for case selection and case-index updates. Do not re-extract it every run if the source doc did not change.
 
-4. Cleaned JD assets = talent-language evidence.
+4. Taxonomy map = machine-readable industry/capability source.
+   - Path: `data/taxonomy_map.json`
+   - Use this for exact filter values, teacher-cluster mappings, and demo-seed overrides.
+
+5. Cleaned JD assets = talent-language evidence.
    - Preferred paths: `data/cleaned_jd_pool.md`, `data/role_language_bank.md`
    - If missing or stale, update from `inputs/jd_raw/`.
 
-5. Teacher old role list = optional calibration, not a long-term index.
+6. Teacher old role list = optional calibration, not a long-term index.
    - Default path: `C:\Users\Leo\Downloads\岗位清单.docx`
    - Use only to understand the teacher's old role intent and common failure modes. Do not build a permanent role index from it.
 
-6. BTG references = writing structure only.
+7. BTG references = writing structure only.
    - Path: `references/btg_style_guide.md`
    - Use for case shape, tone, and section logic. Do not use BTG as business fact.
 
@@ -85,6 +89,7 @@ Use these source types in this order:
 Maintain these assets incrementally:
 
 ```text
+data/taxonomy_map.json
 data/cases_row/teacher_case_rows.jsonl
 data/case_index.md
 data/cleaned_jd_pool.md
@@ -93,6 +98,8 @@ data/role_language_bank.md
 ```
 
 `cases_row` is the upstream facts table extracted from the teacher enterprise-case document. It is not the final demo output.
+
+`taxonomy_map` is the canonical machine-readable source for industry/capability values and teacher-cluster mappings.
 
 `case_index` is the primary business asset. It should map teacher cases to the fixed website filters.
 
@@ -122,6 +129,7 @@ Decide what this run needs:
 - new enterprise cases from `inputs/cases_raw/` or teacher source
 - new JD files from `inputs/jd_raw/`
 - existing teacher-case row assets from `data/cases_row/`
+- taxonomy values and mappings from `data/taxonomy_map.json`
 - existing reusable assets from `data/`
 - requested run scope, such as all cases, 10 cases, a specific industry, a specific function, or named original cases
 
@@ -142,6 +150,8 @@ Do not redo this step during every demo run. It is a reusable upstream asset.
 ### Stage 3: Update Case Index
 
 Primary goal: map teacher enterprise cases into the website filter system.
+
+Use `data/taxonomy_map.json` for exact industry/capability values and routing hints. Use `references/filter_taxonomy.md` only to interpret the logic.
 
 For each case, record:
 

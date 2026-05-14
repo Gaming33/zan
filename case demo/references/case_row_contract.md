@@ -45,7 +45,7 @@ Each row should contain:
 - Preserve the teacher's original cluster logic and representative companies.
 - Do not add fabricated facts.
 - Keep business pain, AI scenario, and talent-gap language close to the source.
-- Add filter hints only as a routing aid.
+- Add filter hints only as a routing aid, using `data/taxonomy_map.json` as the allowed value source.
 - Allow one source row to seed multiple demos.
 - Do not rebuild this asset on every demo run if the source doc has not changed.
 
