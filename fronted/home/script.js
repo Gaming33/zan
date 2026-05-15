@@ -23,23 +23,23 @@ const capabilityData = {
   ],
   scenes: [
     {
-      title: "增长瓶颈",
-      description: "重新判断市场、渠道、销售组织或增长模型。",
+      title: "增长停滞",
+      description: "需要重新判断市场、渠道、销售组织或增长模型。",
       href: "/services"
     },
     {
       title: "AI 转型",
-      description: "找到值得优先改造的业务环节，并形成可执行试点。",
+      description: "判断哪些业务环节值得先改，而不是先买工具。",
       href: "/services"
     },
     {
       title: "组织升级",
-      description: "支持组织结构、关键岗位、管理机制和团队能力升级。",
+      description: "进入新阶段后，补齐管理机制和关键岗位能力。",
       href: "/services"
     },
     {
       title: "项目攻坚",
-      description: "为时间敏感的关键项目补充负责人、PMO 或跨职能专家。",
+      description: "关键项目缺少负责人、PMO 或跨职能专家。",
       href: "/services"
     }
   ],
@@ -98,12 +98,38 @@ function bindCapabilityTabs() {
   });
 }
 
+function bindFinalForm() {
+  const form = document.querySelector("[data-final-form]");
+  if (!form) return;
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const contact = form.contact.value.trim();
+    const problem = form.problem.value.trim();
+
+    if (!contact || !problem) {
+      const firstEmpty = !contact ? form.contact : form.problem;
+      firstEmpty.focus();
+      firstEmpty.style.borderColor = "#fa4d56";
+      setTimeout(() => { firstEmpty.style.borderColor = ""; }, 2000);
+      return;
+    }
+
+    const success = document.createElement("p");
+    success.className = "final-cta__success is-visible";
+    success.textContent = "已收到你的需求，我们会尽快与你联系。";
+    form.replaceWith(success);
+  });
+}
+
 function init() {
   window.ZuoanShared.renderHeader("/");
   window.ZuoanShared.renderFooter();
   window.ZuoanShared.bindSharedInteractions();
   renderCapabilityCards("services");
   bindCapabilityTabs();
+  bindFinalForm();
 }
 
 init();
