@@ -22,7 +22,7 @@ if ("IntersectionObserver" in window) {
 const form = document.querySelector("#inquiry-form");
 const status = document.querySelector("[data-form-status]");
 const submitButton = form?.querySelector(".submit-button");
-const requiredFields = ["name", "company", "contact", "problem"];
+const requiredFields = ["name", "company", "industry", "contact", "problem"];
 
 function clearFieldState(field) {
   field.classList.remove("is-invalid");
@@ -31,6 +31,7 @@ function clearFieldState(field) {
 }
 
 function setFieldError(field, message) {
+  if (!field) return;
   field.classList.add("is-invalid");
   const control = field.querySelector("input, textarea, select");
   const error = document.querySelector(`[data-error-for="${control?.name}"]`);

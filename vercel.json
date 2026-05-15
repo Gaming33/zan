@@ -1,0 +1,6 @@
+{
+  "buildCommand": null,
+  "outputDirectory": "fronted",
+  "cleanUrls": true,
+  "trailingSlash": false
+}
