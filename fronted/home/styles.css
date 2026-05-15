@@ -435,6 +435,19 @@
   line-height: 1.25;
 }
 
+.talent-lite__copy {
+  display: grid;
+  gap: 12px;
+}
+
+.talent-lite__sub {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
 .final-cta {
   padding: 112px 0;
   background: var(--color-inverse-surface);
