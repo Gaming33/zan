@@ -1,0 +1,117 @@
+- main [ref=e3]:
+  - region "补齐关键阶段的外部高阶能力" [ref=e4]:
+    - generic [ref=e6]:
+      - paragraph [ref=e7]: Services / On-Demand Talent
+      - heading "补齐关键阶段的外部高阶能力" [level=1] [ref=e8]
+      - paragraph [ref=e9]: 按问题、职能和阶段，引入按需人才、临时高管与专家支持，帮助企业在关键节点获得判断、经验和推进能力。
+      - generic [ref=e10]:
+        - link "提交企业需求" [ref=e11] [cursor=pointer]:
+          - /url: /find-talent
+        - link "查看案例研究" [ref=e12] [cursor=pointer]:
+          - /url: /resources/case-studies
+  - region "按需引入外部高阶能力" [ref=e13]:
+    - generic [ref=e15]:
+      - paragraph [ref=e16]: On-Demand Talent
+      - heading "按需引入外部高阶能力" [level=2] [ref=e17]
+    - generic "核心说明" [ref=e18]:
+      - article [ref=e19]:
+        - heading "先判断问题" [level=3] [ref=e20]
+        - paragraph [ref=e21]: 先看企业到底缺什么，再决定适合哪一类支持。
+      - article [ref=e22]:
+        - heading "按阶段引入" [level=3] [ref=e23]
+        - paragraph [ref=e24]: 不必先创建长期岗位，而是按实际问题引入外部支持。
+      - article [ref=e25]:
+        - heading "从诊断到交付" [level=3] [ref=e26]
+        - paragraph [ref=e27]: 从问题诊断、方案判断，到阶段性交付与推进。
+  - region "能力类型" [ref=e28]:
+    - generic [ref=e29]:
+      - generic [ref=e31]:
+        - paragraph [ref=e32]: Capabilities
+        - heading "能力类型" [level=2] [ref=e33]
+      - generic [ref=e34]:
+        - link "战略与规划 市场判断、增长模型、商业化路径。" [ref=e35] [cursor=pointer]:
+          - /url: /find-talent
+          - heading "战略与规划" [level=3] [ref=e36]:
+            - img [ref=e38]
+            - text: 战略与规划
+          - paragraph [ref=e40]: 市场判断、增长模型、商业化路径。
+        - link "临时高管 阶段性管理职责、关键岗位过渡。" [ref=e41] [cursor=pointer]:
+          - /url: /services/interim-executive
+          - heading "临时高管" [level=3] [ref=e42]:
+            - img [ref=e44]
+            - text: 临时高管
+          - paragraph [ref=e46]: 阶段性管理职责、关键岗位过渡。
+        - link "运营与绩效 流程、供应链、组织机制优化。" [ref=e47] [cursor=pointer]:
+          - /url: /find-talent
+          - heading "运营与绩效" [level=3] [ref=e48]:
+            - img [ref=e50]
+            - text: 运营与绩效
+          - paragraph [ref=e52]: 流程、供应链、组织机制优化。
+        - link "组织设计与效能 识别结构问题，设计更顺的协作方式。" [ref=e53] [cursor=pointer]:
+          - /url: /find-talent
+          - heading "组织设计与效能" [level=3] [ref=e54]:
+            - img [ref=e56]
+            - text: 组织设计与效能
+          - paragraph [ref=e58]: 识别结构问题，设计更顺的协作方式。
+        - link "业务整合 并购后协同、整合推进和节奏管理。" [ref=e59] [cursor=pointer]:
+          - /url: /find-talent
+          - heading "业务整合" [level=3] [ref=e60]:
+            - img [ref=e62]
+            - text: 业务整合
+          - paragraph [ref=e64]: 并购后协同、整合推进和节奏管理。
+        - link "转型与项目管理 转型、PMO 和跨职能推进。" [ref=e65] [cursor=pointer]:
+          - /url: /find-talent
+          - heading "转型与项目管理" [level=3] [ref=e66]:
+            - img [ref=e68]
+            - text: 转型与项目管理
+          - paragraph [ref=e70]: 转型、PMO 和跨职能推进。
+  - region "职能方向" [ref=e71]:
+    - generic [ref=e72]:
+      - generic [ref=e74]:
+        - paragraph [ref=e75]: Functions
+        - heading "职能方向" [level=2] [ref=e76]
+      - generic [ref=e77]:
+        - link "增长与市场" [ref=e78] [cursor=pointer]:
+          - /url: /find-talent
+          - img [ref=e80]
+          - generic [ref=e82]: 增长与市场
+        - link "财务与经营" [ref=e83] [cursor=pointer]:
+          - /url: /find-talent
+          - img [ref=e85]
+          - generic [ref=e87]: 财务与经营
+        - link "组织与人才" [ref=e88] [cursor=pointer]:
+          - /url: /find-talent
+          - img [ref=e90]
+          - generic [ref=e92]: 组织与人才
+        - link "运营与供应链" [ref=e93] [cursor=pointer]:
+          - /url: /find-talent
+          - img [ref=e95]
+          - generic [ref=e97]: 运营与供应链
+        - link "战略与新业务" [ref=e98] [cursor=pointer]:
+          - /url: /find-talent
+          - img [ref=e100]
+          - generic [ref=e102]: 战略与新业务
+        - link "技术与 AI" [ref=e103] [cursor=pointer]:
+          - /url: /find-talent
+          - img [ref=e105]
+          - generic [ref=e107]: 技术与 AI
+  - region "适用行业" [ref=e108]:
+    - generic [ref=e109]:
+      - generic [ref=e111]:
+        - paragraph [ref=e112]: Industries
+        - heading "适用行业" [level=2] [ref=e113]
+      - generic [ref=e114]:
+        - link "消费与零售" [ref=e115] [cursor=pointer]:
+          - /url: /find-talent
+        - link "金融与投资" [ref=e116] [cursor=pointer]:
+          - /url: /find-talent
+        - link "医疗健康" [ref=e117] [cursor=pointer]:
+          - /url: /find-talent
+        - link "先进制造" [ref=e118] [cursor=pointer]:
+          - /url: /find-talent
+        - link "企业服务" [ref=e119] [cursor=pointer]:
+          - /url: /find-talent
+        - link "科技与互联网" [ref=e120] [cursor=pointer]:
+          - /url: /find-talent
+        - link "教育与内容" [ref=e121] [cursor=pointer]:
+          - /url: /find-talent

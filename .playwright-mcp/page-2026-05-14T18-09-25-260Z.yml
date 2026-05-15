@@ -1,0 +1,123 @@
+- main [ref=e3]:
+  - region "补齐关键阶段的外部高阶能力" [ref=e4]:
+    - generic [ref=e6]:
+      - paragraph [ref=e7]: Services / On-Demand Talent
+      - heading "补齐关键阶段的外部高阶能力" [level=1] [ref=e8]
+      - paragraph [ref=e9]: 按问题、职能和阶段，引入按需人才、临时高管与专家支持，帮助企业在关键节点获得判断、经验和推进能力。
+      - generic [ref=e10]:
+        - link "提交企业需求" [ref=e11] [cursor=pointer]:
+          - /url: /find-talent
+        - link "查看案例研究" [ref=e12] [cursor=pointer]:
+          - /url: /resources/case-studies
+  - region "按需引入外部高阶能力" [ref=e13]:
+    - generic [ref=e14]:
+      - generic [ref=e15]:
+        - paragraph [ref=e16]: On-Demand Talent
+        - heading "按需引入外部高阶能力" [level=2] [ref=e17]
+      - paragraph [ref=e19]: 这不是传统招聘，也不是简单外包。左安门帮助企业在增长、组织、运营、转型和项目推进中，更快获得外部判断、经验和推进能力。
+    - generic "核心说明" [ref=e20]:
+      - article [ref=e21]:
+        - heading "先判断问题" [level=3] [ref=e22]
+        - paragraph [ref=e23]: 先看企业到底缺什么，再决定适合哪一类支持。
+      - article [ref=e24]:
+        - heading "按阶段引入" [level=3] [ref=e25]
+        - paragraph [ref=e26]: 不必先创建长期岗位，而是按实际问题引入外部支持。
+      - article [ref=e27]:
+        - heading "从诊断到交付" [level=3] [ref=e28]
+        - paragraph [ref=e29]: 从问题诊断、方案判断，到阶段性交付与推进。
+  - region "能力类型" [ref=e30]:
+    - generic [ref=e31]:
+      - generic [ref=e33]:
+        - paragraph [ref=e34]: Capabilities
+        - heading "能力类型" [level=2] [ref=e35]
+      - generic [ref=e36]:
+        - link "战略与规划 市场判断、增长模型、商业化路径。" [ref=e37] [cursor=pointer]:
+          - /url: /find-talent
+          - heading "战略与规划" [level=3] [ref=e38]:
+            - img [ref=e40]
+            - text: 战略与规划
+          - paragraph [ref=e42]: 市场判断、增长模型、商业化路径。
+        - link "临时高管 阶段性管理职责、关键岗位过渡。" [ref=e43] [cursor=pointer]:
+          - /url: /services/interim-executive
+          - heading "临时高管" [level=3] [ref=e44]:
+            - img [ref=e46]
+            - text: 临时高管
+          - paragraph [ref=e48]: 阶段性管理职责、关键岗位过渡。
+        - link "运营与绩效 流程、供应链、组织机制优化。" [ref=e49] [cursor=pointer]:
+          - /url: /find-talent
+          - heading "运营与绩效" [level=3] [ref=e50]:
+            - img [ref=e52]
+            - text: 运营与绩效
+          - paragraph [ref=e54]: 流程、供应链、组织机制优化。
+        - link "组织设计与效能 识别结构问题，设计更顺的协作方式。" [ref=e55] [cursor=pointer]:
+          - /url: /find-talent
+          - heading "组织设计与效能" [level=3] [ref=e56]:
+            - img [ref=e58]
+            - text: 组织设计与效能
+          - paragraph [ref=e60]: 识别结构问题，设计更顺的协作方式。
+        - link "业务整合 并购后协同、整合推进和节奏管理。" [ref=e61] [cursor=pointer]:
+          - /url: /find-talent
+          - heading "业务整合" [level=3] [ref=e62]:
+            - img [ref=e64]
+            - text: 业务整合
+          - paragraph [ref=e66]: 并购后协同、整合推进和节奏管理。
+        - link "转型与项目管理 转型、PMO 和跨职能推进。" [ref=e67] [cursor=pointer]:
+          - /url: /find-talent
+          - heading "转型与项目管理" [level=3] [ref=e68]:
+            - img [ref=e70]
+            - text: 转型与项目管理
+          - paragraph [ref=e72]: 转型、PMO 和跨职能推进。
+  - region "职能方向" [ref=e73]:
+    - generic [ref=e74]:
+      - generic [ref=e75]:
+        - generic [ref=e76]:
+          - paragraph [ref=e77]: Functions
+          - heading "职能方向" [level=2] [ref=e78]
+        - paragraph [ref=e79]: 这里更像 BTG 的函数分类，帮助用户快速判断问题落在哪个职能语境里。
+      - generic [ref=e80]:
+        - link "增长与市场" [ref=e81] [cursor=pointer]:
+          - /url: /find-talent
+          - img [ref=e83]
+          - generic [ref=e85]: 增长与市场
+        - link "财务与经营" [ref=e86] [cursor=pointer]:
+          - /url: /find-talent
+          - img [ref=e88]
+          - generic [ref=e90]: 财务与经营
+        - link "组织与人才" [ref=e91] [cursor=pointer]:
+          - /url: /find-talent
+          - img [ref=e93]
+          - generic [ref=e95]: 组织与人才
+        - link "运营与供应链" [ref=e96] [cursor=pointer]:
+          - /url: /find-talent
+          - img [ref=e98]
+          - generic [ref=e100]: 运营与供应链
+        - link "战略与新业务" [ref=e101] [cursor=pointer]:
+          - /url: /find-talent
+          - img [ref=e103]
+          - generic [ref=e105]: 战略与新业务
+        - link "技术与 AI" [ref=e106] [cursor=pointer]:
+          - /url: /find-talent
+          - img [ref=e108]
+          - generic [ref=e110]: 技术与 AI
+  - region "适用行业" [ref=e111]:
+    - generic [ref=e112]:
+      - generic [ref=e113]:
+        - generic [ref=e114]:
+          - paragraph [ref=e115]: Industries
+          - heading "适用行业" [level=2] [ref=e116]
+        - paragraph [ref=e117]: 不是行业背书展示，而是告诉用户哪些行业问题适合用这种方式来解决。
+      - generic [ref=e118]:
+        - link "消费与零售" [ref=e119] [cursor=pointer]:
+          - /url: /find-talent
+        - link "金融与投资" [ref=e120] [cursor=pointer]:
+          - /url: /find-talent
+        - link "医疗健康" [ref=e121] [cursor=pointer]:
+          - /url: /find-talent
+        - link "先进制造" [ref=e122] [cursor=pointer]:
+          - /url: /find-talent
+        - link "企业服务" [ref=e123] [cursor=pointer]:
+          - /url: /find-talent
+        - link "科技与互联网" [ref=e124] [cursor=pointer]:
+          - /url: /find-talent
+        - link "教育与内容" [ref=e125] [cursor=pointer]:
+          - /url: /find-talent
