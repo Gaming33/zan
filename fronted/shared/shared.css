@@ -89,13 +89,14 @@ a {
 
 .brand-mark__symbol {
   display: grid;
-  width: 28px;
+  width: 58px;
   height: 28px;
   place-items: center;
   background: var(--color-neutral);
   color: var(--color-inverse-text);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
+  letter-spacing: 0.05em;
 }
 
 .site-nav {

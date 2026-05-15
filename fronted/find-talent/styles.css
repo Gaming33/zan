@@ -12,7 +12,7 @@ body {
   background:
     linear-gradient(90deg, rgba(224, 224, 224, 0.24) 1px, transparent 1px) 0 0 / 112px 112px,
     linear-gradient(180deg, rgba(244, 244, 244, 0.55), rgba(255, 255, 255, 0) 260px),
-    var(--page-surface);
+    var(--color-surface);
 }
 
 .find-talent-page main {
@@ -32,7 +32,7 @@ body {
 .eyebrow,
 .card-eyebrow {
   margin: 0;
-  color: var(--page-accent-strong);
+  color: var(--color-secondary);
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0;
@@ -52,7 +52,7 @@ body {
 .hero-lede {
   margin: 16px auto 0;
   max-width: 54ch;
-  color: var(--page-text-secondary);
+  color: var(--color-text-secondary);
   font-size: 18px;
 }
 
@@ -68,8 +68,8 @@ body {
 .inquiry-card {
   width: min(100%, 1120px);
   margin: 0 auto;
-  background: var(--page-surface);
-  border: 1px solid var(--page-border);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
   border-radius: 8px;
   padding: 36px 40px 32px;
   box-shadow: 0 16px 40px rgba(22, 22, 22, 0.05);
@@ -90,7 +90,7 @@ body {
 
 .card-note {
   margin: 12px 0 0;
-  color: var(--page-text-secondary);
+  color: var(--color-text-secondary);
 }
 
 .form-grid {
@@ -108,7 +108,7 @@ body {
 .field span {
   font-size: 14px;
   font-weight: 500;
-  color: var(--page-text);
+  color: var(--color-text-primary);
 }
 
 .field input,
@@ -117,10 +117,10 @@ body {
   width: 100%;
   min-height: 48px;
   padding: 13px 14px;
-  border: 1px solid var(--page-border);
+  border: 1px solid var(--color-border);
   border-radius: 6px;
   background: #fff;
-  color: var(--page-text);
+  color: var(--color-text-primary);
   font: inherit;
   line-height: 1.4;
   transition: border-color 160ms ease, box-shadow 160ms ease;
@@ -140,7 +140,7 @@ body {
 .field select:focus,
 .field textarea:focus {
   outline: none;
-  border-color: var(--page-accent);
+  border-color: var(--color-primary);
   box-shadow: 0 0 0 3px rgba(15, 98, 254, 0.12);
 }
 
@@ -168,7 +168,7 @@ body {
   gap: 16px;
   margin-top: 24px;
   padding-top: 20px;
-  border-top: 1px solid var(--page-border);
+  border-top: 1px solid var(--color-border);
 }
 
 .submit-button {
@@ -196,12 +196,12 @@ body {
 }
 
 .project-prompt .eyebrow {
-  color: var(--page-accent-strong);
+  color: var(--color-secondary);
 }
 
 .prompt-copy {
   margin: 0;
-  color: var(--page-text-secondary);
+  color: var(--color-text-secondary);
   max-width: 40ch;
 }
 

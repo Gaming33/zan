@@ -1,28 +1,11 @@
-window.ZuoanShared?.renderHeader?.("/find-talent");
+window.ZuoanShared?.renderHeader?.("/join");
 window.ZuoanShared?.renderFooter?.();
 window.ZuoanShared?.bindSharedInteractions?.();
 
-const revealTargets = Array.from(document.querySelectorAll("[data-reveal]"));
-
-if ("IntersectionObserver" in window) {
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-        obs.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
-
-  revealTargets.forEach((target) => observer.observe(target));
-} else {
-  revealTargets.forEach((target) => target.classList.add("is-visible"));
-}
-
-const form = document.querySelector("#inquiry-form");
+const form = document.querySelector("#apply-form-el");
 const status = document.querySelector("[data-form-status]");
 const submitButton = form?.querySelector(".submit-button");
-const requiredFields = ["name", "company", "industry", "contact", "problem"];
+const requiredFields = ["name", "contact", "title", "industry", "description"];
 
 function clearFieldState(field) {
   field.classList.remove("is-invalid");
@@ -79,7 +62,7 @@ form?.addEventListener("submit", (event) => {
   submitButton.disabled = true;
   const originalText = submitButton.textContent;
   submitButton.textContent = "已提交";
-  showStatus("已收到你的企业需求。左安门会根据问题背景判断后续沟通和匹配方式。");
+  showStatus("已收到你的申请。左安门会根据你的经验方向，在合适的项目机会出现时联系你。");
 
   window.setTimeout(() => {
     submitButton.disabled = false;

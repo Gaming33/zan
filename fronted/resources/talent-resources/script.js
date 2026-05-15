@@ -1,16 +1,9 @@
-const header = document.querySelector(".site-header");
-const navToggle = document.querySelector(".nav-toggle");
+window.ZuoanShared?.renderHeader?.("/resources/talent-resources");
+window.ZuoanShared?.renderFooter?.();
+window.ZuoanShared?.bindSharedInteractions?.();
+
 const filterButtons = Array.from(document.querySelectorAll(".topic-filter"));
 const cards = Array.from(document.querySelectorAll(".blog-card"));
-
-window.ZuoanShared?.renderFooter?.();
-
-if (navToggle && header) {
-  navToggle.addEventListener("click", () => {
-    const isOpen = header.classList.toggle("is-open");
-    navToggle.setAttribute("aria-expanded", String(isOpen));
-  });
-}
 
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {

@@ -53,7 +53,7 @@ function renderHeader(activePath = "/") {
     <header class="site-header" data-site-header>
       <div class="container site-header__inner">
         <a class="brand-mark" href="/" aria-label="左安门首页">
-          <span class="brand-mark__symbol" aria-hidden="true">左</span>
+          <span class="brand-mark__symbol" aria-hidden="true">ZOAN</span>
           <span>左安门</span>
         </a>
         <button class="mobile-menu-button" type="button" aria-label="展开导航" aria-expanded="false" data-menu-toggle>
@@ -66,7 +66,7 @@ function renderHeader(activePath = "/") {
         </nav>
         <div class="header-actions">
           <a class="button button--secondary" href="/join">申请入席</a>
-          <a class="button button--primary" href="/find-talent">提交需求</a>
+          <a class="button button--primary" href="/find-talent">招贤纳士</a>
         </div>
       </div>
     </header>
