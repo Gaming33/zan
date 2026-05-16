@@ -17,8 +17,8 @@ const footerColumns = [
   {
     title: "我们做什么",
     links: [
-      { label: "按需人才", href: "/services" },
-      { label: "临时高管", href: "/services" }
+      { label: "按需人才", href: "/services/on-demand-talent" },
+      { label: "临时高管", href: "/services/interim-executive" }
     ]
   },
   {
@@ -32,7 +32,7 @@ const footerColumns = [
     title: "加入左安",
     links: [
       { label: "成为独立人才", href: "/join" },
-      { label: "人才资源", href: "/join" }
+      { label: "人才资源", href: "/resources/talent-resources" }
     ]
   }
 ];

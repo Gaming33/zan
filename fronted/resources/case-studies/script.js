@@ -38,7 +38,7 @@ const caseStudies = [
 ];
 
 const industryOptions = [
-  "All Industries",
+  "全部行业",
   "消费与零售",
   "科技与互联网",
   "制造与供应链",
@@ -50,7 +50,7 @@ const industryOptions = [
 ];
 
 const functionOptions = [
-  "All Functions",
+  "全部职能",
   "增长与市场",
   "战略与商业模式",
   "组织与人才",
@@ -84,17 +84,16 @@ function getFilteredCases() {
   const query = searchInput.value.trim();
 
   return caseStudies.filter((item) => {
-    const industryMatch = selectedIndustry === "All Industries" || item.industry === selectedIndustry;
-    const functionMatch = selectedFunction === "All Functions" || item.function === selectedFunction;
+    const industryMatch = selectedIndustry === "全部行业" || item.industry === selectedIndustry;
+    const functionMatch = selectedFunction === "全部职能" || item.function === selectedFunction;
     return industryMatch && functionMatch && matchesSearch(item, query);
   });
 }
 
 function renderCases() {
   const filteredCases = getFilteredCases();
-  const countLabel = filteredCases.length === 1 ? "result" : "results";
 
-  resultCount.textContent = `Displaying ${filteredCases.length} ${countLabel}`;
+  resultCount.textContent = `共 ${filteredCases.length} 个结果`;
   emptyState.hidden = filteredCases.length !== 0;
   caseGrid.innerHTML = filteredCases.map((item, index) => `
     <article class="case-card">
@@ -104,15 +103,15 @@ function renderCases() {
       <div class="case-card__body">
         <h2>${item.title}</h2>
         <p>${item.summary}</p>
-        <button class="case-card__read" type="button" data-case-index="${index}" aria-label="阅读案例：${item.title}">Read</button>
+        <button class="case-card__read" type="button" data-case-index="${index}" aria-label="阅读案例：${item.title}">查看</button>
       </div>
     </article>
   `).join("");
 }
 
 function resetFilters() {
-  industryFilter.value = "All Industries";
-  functionFilter.value = "All Functions";
+  industryFilter.value = "全部行业";
+  functionFilter.value = "全部职能";
   searchInput.value = "";
   renderCases();
 }
