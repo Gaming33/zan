@@ -2,7 +2,8 @@
 .claude
 .playwright-mcp
 node_modules
+dist
 .DS_Store
 Thumbs.db
-*.md
-!README.md
+.env.local
+.env*.local
