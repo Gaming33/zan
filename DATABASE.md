@@ -1,6 +1,6 @@
 # Database
 
-> **定位：** 本文档定义 ZOAN 的数据库层。所有建表、权限、数据操作必须遵守本文档，不得自行新增表或修改字段。
+> **定位：** 本文档定义 ZAN 的数据库层。所有建表、权限、数据操作必须遵守本文档，不得自行新增表或修改字段。
 > **技术选型：** Supabase (PostgreSQL) + Row Level Security。详见 git-instruction.md 禁止使用其他数据库。
 
 ---
@@ -171,7 +171,7 @@
 
 ```sql
 -- supabase/migrations/001_initial_schema.sql
--- ZOAN 初始数据库结构
+-- ZAN 初始数据库结构
 
 -- ============================================
 -- 表 1: enterprise_leads（企业线索）

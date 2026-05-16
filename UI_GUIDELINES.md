@@ -1,7 +1,7 @@
 ---
 version: "1.0"
-name: "ZOAN"
-description: "ZOAN design system — professional consulting tone with AI-era accent. Deep sea blue base, warm gray surfaces, soft purple accent for interactive elements. Refined, restrained, high-trust."
+name: "ZAN"
+description: "ZAN (Zuo An Nexus) design system — professional consulting tone with AI-era accent. Deep sea blue base, warm gray surfaces, soft purple accent for interactive elements. Refined, restrained, high-trust."
 
 colors:
   primary: "#1B2B4B"
@@ -113,7 +113,7 @@ breakpoints:
 
 ## Overview
 
-ZOAN uses a refined consulting design system with AI-era sensibility. The interface is built for a B2B talent and advisory platform targeting CEOs and senior executives. It must communicate **professional trust** while signaling **this is a new kind of consulting firm for the AI era**.
+ZAN uses a refined consulting design system with AI-era sensibility. The interface is built for a B2B talent and advisory platform targeting CEOs and senior executives. It must communicate **professional trust** while signaling **this is a new kind of consulting firm for the AI era**.
 
 Visual keywords:
 - professional consulting
@@ -135,11 +135,11 @@ Design style:
 - Light shadows on cards, subtle hover elevation.
 - Typography-forward design: headlines carry the visual weight.
 
-**Not the old IBM Carbon style.** ZOAN is warmer, more refined, and uses purple accents to differentiate from traditional consulting firms. It is not a generic tech SaaS, not a luxury brand, and not a cartoon AI product.
+**Not the old IBM Carbon style.** ZAN is warmer, more refined, and uses purple accents to differentiate from traditional consulting firms. It is not a generic tech SaaS, not a luxury brand, and not a cartoon AI product.
 
 Target interfaces:
 - Homepage
-- About / Why ZOAN
+- About / Why ZAN
 - Services overview (AI+ three directions)
 - Project opportunities (merged cases + JD listings)
 - Insights (article listing + detail)
@@ -233,7 +233,7 @@ Fallback: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif
 ### Typography Rules
 
 1. **Chinese and English use the same type scale.** Do not create separate scales for each language.
-2. **Headlines use bold/semibold weight.** This is different from the old IBM Carbon light-weight approach. ZOAN headlines should feel authoritative and grounded.
+2. **Headlines use bold/semibold weight.** This is different from the old IBM Carbon light-weight approach. ZAN headlines should feel authoritative and grounded.
 3. **Body text line-height is 1.7.** Chinese text needs more line-height than English for readability. Do not compress below 1.6.
 4. **Use `clamp()` for responsive font sizes** in display and large headings. Fixed pixel values for body text and below.
 5. **Do not use serif fonts.** Not even for English headings. This is a modern consulting brand, not a law firm.
@@ -333,7 +333,7 @@ Every page follows this skeleton:
 3. **Badges/Tags: `rounded-full` (999px).** Pill-shaped for industry tags, function tags, status badges.
 4. **Inputs: `rounded-md` (6px).** Match button roundness.
 5. **Modals: `rounded-xl` (12px).** Slightly more round to visually separate from page content.
-6. **Do NOT use fully square elements.** The old IBM Carbon square geometry is gone. ZOAN uses gentle rounding throughout.
+6. **Do NOT use fully square elements.** The old IBM Carbon square geometry is gone. ZAN uses gentle rounding throughout.
 
 ## Components
 

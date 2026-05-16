@@ -1,4 +1,4 @@
-# ZOAN Technical Instructions
+# ZAN Technical Instructions
 
 > **目的：** 本文件是 AI 辅助开发的硬性技术约束。所有代码生成必须遵守本文档的规定，不得偏离。
 > **与 PRD.md 的关系：** PRD 定义"做什么"，本文件定义"怎么做"。两者共同构成 AI 开发的 harness。

@@ -14,7 +14,7 @@ zoan/                                    ← 项目根目录
 │
 ├── public/                              # 静态资源（构建时原样复制）
 │   └── images/                          # 图片资源
-│       ├── logo.svg                     # ZOAN Logo
+│       ├── logo.svg                     # ZAN Logo
 │       ├── og-image.png                 # 社交分享默认图
 │       └── qrcode-wechat.png            # 公众号二维码
 │

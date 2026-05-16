@@ -1,6 +1,6 @@
 # API
 
-> **定位：** 本文档定义 ZOAN 所有后端 API 端点。AI 开发时不得新增端点或修改已有端点的行为，除非 PRD 明确要求变更。
+> **定位：** 本文档定义 ZAN 所有后端 API 端点。AI 开发时不得新增端点或修改已有端点的行为，除非 PRD 明确要求变更。
 > **技术选型：** Vercel Serverless Functions + TypeScript + Zod 验证。详见 git-instruction.md。
 
 ---
