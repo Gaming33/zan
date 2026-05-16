@@ -32,6 +32,45 @@ README.md → PRD.md → git-instruction.md → UI_GUIDELINES.md → ARCHITECTUR
 
 ---
 
+## 工程技能
+
+以下技能按需调用，仅在触发场景匹配时使用：
+
+### 开发阶段
+
+| 触发场景 | 技能 | 用途 |
+|----------|------|------|
+| 遇到 bug 或异常行为 | `/diagnose` | 6 步系统化排查：复现→假设→验证→修复 |
+| 需要验证 UI 方案再动手 | `/prototype` | 快速搭原型，低成本试错 |
+| 写核心业务逻辑 | `/tdd` | 测试驱动：先写测试再写实现 |
+| 想看当前模块在全局中的位置 | `/zoom-out` | 跳出一层，展示模块关系图 |
+
+### 规划阶段
+
+| 触发场景 | 技能 | 用途 |
+|----------|------|------|
+| 设计方案需要讨论和验证 | `/grill-me` | 追问方案细节直到对齐 |
+| 方案需要对照已有规范验证 | `/grill-with-docs` | 对照 harness 文档追问，防止偏离 |
+| 需要为新功能写 PRD | `/to-prd` | 从对话上下文合成 PRD |
+| 需要把计划拆成可执行工单 | `/to-issues` | 拆解为 GitHub Issues |
+
+### 质量保障
+
+| 触发场景 | 技能 | 用途 |
+|----------|------|------|
+| 感觉代码结构需要优化 | `/improve-codebase-architecture` | 发现重构机会，提升可测试性 |
+| 项目初始化完成后 | `/setup-pre-commit` | 配置 Husky + lint-staged 提交检查 |
+
+### 安全与协作
+
+| 触发场景 | 技能 | 用途 |
+|----------|------|------|
+| 防止误执行危险 git 命令 | `/git-guardrails-claude-code` | 阻止 push、reset --hard 等操作 |
+| 会话上下文快满了 | `/handoff` | 压缩当前进展，交接给新会话 |
+| 需要管理 GitHub Issues | `/triage` | 排优先级、分类、分配 |
+
+---
+
 ## 通用行为准则
 
 **Tradeoff:** These guidelines bias toward caution over speed. For trivial tasks, use judgment.
