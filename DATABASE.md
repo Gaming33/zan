@@ -481,3 +481,4 @@ ALTER TABLE enterprise_leads ADD COLUMN status TEXT DEFAULT 'new';
 | 日期 | 变更 | 说明 |
 |------|------|------|
 | 2026-05-16 | 初始数据库设计 | 5 张表 + RLS 策略 |
+| 2026-05-17 | 新增 002_seed_sample_content.sql | 为 projects / articles / programs 注入示例内容,支撑 Phase 3 动态页面在开发/演示环境渲染。生产环境通过 Dashboard 维护真实内容,不应执行此迁移。 |

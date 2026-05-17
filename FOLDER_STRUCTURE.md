@@ -97,7 +97,8 @@ zoan/                                    ← 项目根目录
 ├── supabase/                            # Supabase 配置和迁移
 │   ├── config.toml                      #   Supabase CLI 配置
 │   └── migrations/                      #   SQL 迁移脚本
-│       └── 001_initial_schema.sql       #   初始建表
+│       ├── 001_initial_schema.sql       #   初始建表
+│       └── 002_seed_sample_content.sql  #   示例内容种子(开发/演示环境)
 │
 ├── index.html                           # Vite 入口 HTML
 ├── package.json                         # 依赖和脚本

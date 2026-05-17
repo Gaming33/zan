@@ -924,10 +924,10 @@ zoan/
 
 ### Phase 3：动态内容页面（1周）
 
-- [ ] 项目机会页（/projects）—— 带筛选、从数据库读取
-- [ ] 洞察文章列表页 + 详情页
-- [ ] Serverless Functions（内容读取 API）
-- [ ] **验证：数据从 Supabase 正确加载到页面**
+- [x] 项目机会页（/projects）—— 带筛选、从数据库读取
+- [x] 洞察文章列表页 + 详情页
+- [x] ~~Serverless Functions（内容读取 API）~~ — 公开内容直接通过 Supabase 客户端 SDK 读取（见 ARCHITECTURE.md §1 读写分离）
+- [x] **验证：数据从 Supabase 正确加载到页面**
 
 ### Phase 4：打磨上线（3-5天）
 
@@ -985,6 +985,7 @@ zoan/
 | 日期 | 变更内容 | 原因 |
 |------|---------|------|
 | 2026-05-17 | Phase 2 内容页面完成：填充 /services、/services/process、/about、/why-zoan、/programs 五个页面内容 | 按 PRD 第 11 节阶段规划推进，所有页面文案、布局符合第 5 节页面规格 |
+| 2026-05-17 | Phase 3 动态内容页面完成：/projects（筛选+卡片+兴趣CTA）、/insights 列表、/insights/:slug 详情；新增 react-markdown 依赖用于文章渲染；新增 002_seed_sample_content.sql 注入示例数据；公开内容读取按 ARCHITECTURE.md 既定路径走 Supabase 客户端 SDK,未新建只读 API 端点 | 按 PRD 第 11 节阶段规划推进；公开数据走客户端直读符合架构既定的读写分离原则,无需为只读场景增加 Serverless 层 |
 
 ---
 
