@@ -6,7 +6,7 @@ export const enterpriseLeadSchema = z.object({
   title: z.string().min(1, '请输入职位').max(50, '职位不超过50个字符'),
   contact: z.string().min(1, '请输入联系方式').max(100),
   challenge: z.string().max(1000, '描述不超过1000个字符').optional(),
-  consent: z.literal(true, { message: '请阅读并同意隐私政策' }),
+  consent: z.boolean().refine((v) => v === true, { message: '请阅读并同意隐私政策' }),
 })
 
 export const talentLeadSchema = z.object({
@@ -15,7 +15,7 @@ export const talentLeadSchema = z.object({
   industry: z.string().min(1, '请输入所在行业').max(50, '行业不超过50个字符'),
   skills: z.string().max(200, '能力描述不超过200个字符').optional(),
   contact: z.string().min(1, '请输入联系方式').max(100),
-  consent: z.literal(true, { message: '请阅读并同意隐私政策' }),
+  consent: z.boolean().refine((v) => v === true, { message: '请阅读并同意隐私政策' }),
 })
 
 export type EnterpriseLeadForm = z.infer<typeof enterpriseLeadSchema>
