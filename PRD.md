@@ -696,89 +696,17 @@ Request Body:
 Response: 同上
 ```
 
-#### 获取项目列表
+#### 获取项目列表 / 文章列表 / 文章详情 / 课程列表
 
-```
-GET /api/projects?status=ongoing&industry=manufacturing&function=strategy
-
-Response 200:
-{
-  "data": [
-    {
-      "id": "uuid",
-      "title": "某头部制造企业 AI 供应链优化",
-      "industry": "制造业",
-      "function": "AI+战略",
-      "status": "ongoing",
-      "narrative": "...",
-      "requirements": "...",
-      "outcomes": null,
-      "created_at": "2026-05-01T..."
-    }
-  ]
-}
-```
-
-#### 获取文章列表
-
-```
-GET /api/articles?topic=ai-trends
-
-Response 200:
-{
-  "data": [
-    {
-      "id": "uuid",
-      "title": "...",
-      "slug": "...",
-      "excerpt": "...",
-      "topic": "AI趋势",
-      "cover_image": "...",
-      "published_at": "2026-05-01T..."
-    }
-  ]
-}
-```
-
-#### 获取文章详情
-
-```
-GET /api/articles/:slug
-
-Response 200:
-{
-  "data": {
-    "id": "uuid",
-    "title": "...",
-    "slug": "...",
-    "excerpt": "...",
-    "content": "... (markdown)",
-    "topic": "...",
-    "cover_image": "...",
-    "published_at": "..."
-  }
-}
-```
-
-#### 获取课程列表
-
-```
-GET /api/programs
-
-Response 200:
-{
-  "data": [
-    {
-      "id": "uuid",
-      "title": "...",
-      "description": "...",
-      "format": "线上工作坊",
-      "duration": "6周",
-      "cover_image": "..."
-    }
-  ]
-}
-```
+> **不通过 Serverless API。** 公开内容(`projects`, `articles`, `programs`)由前端 hook 通过 `@supabase/supabase-js` 客户端 SDK 直接读取,RLS 已限制为 `published = true`。详见 ARCHITECTURE.md §1 读写分离设计。
+>
+> 对应的 hook 入口:
+>
+> - `src/hooks/useProjects.ts` — 项目列表(支持 status/industry/function 过滤)
+> - `src/hooks/useArticles.ts` — 文章列表 + 单篇详情(`useArticle(slug)`)
+> - `src/hooks/usePrograms.ts` — 课程列表
+>
+> 如未来需要聚合、缓存或服务端排序逻辑,再补 Serverless 端点;前端只需替换 hook 实现,组件无感。
 
 ### 9.2 安全要求
 
@@ -926,7 +854,7 @@ zoan/
 
 - [x] 项目机会页（/projects）—— 带筛选、从数据库读取
 - [x] 洞察文章列表页 + 详情页
-- [x] ~~Serverless Functions（内容读取 API）~~ — 公开内容直接通过 Supabase 客户端 SDK 读取（见 ARCHITECTURE.md §1 读写分离）
+- [x] 公开内容读取：通过 Supabase 客户端 SDK 直接读取（见 ARCHITECTURE.md §1 读写分离设计），不构建只读 Serverless 端点
 - [x] **验证：数据从 Supabase 正确加载到页面**
 
 ### Phase 4：打磨上线（3-5天）
@@ -986,6 +914,7 @@ zoan/
 |------|---------|------|
 | 2026-05-17 | Phase 2 内容页面完成：填充 /services、/services/process、/about、/why-zoan、/programs 五个页面内容 | 按 PRD 第 11 节阶段规划推进，所有页面文案、布局符合第 5 节页面规格 |
 | 2026-05-17 | Phase 3 动态内容页面完成：/projects（筛选+卡片+兴趣CTA）、/insights 列表、/insights/:slug 详情；新增 react-markdown 依赖用于文章渲染；新增 002_seed_sample_content.sql 注入示例数据；公开内容读取按 ARCHITECTURE.md 既定路径走 Supabase 客户端 SDK,未新建只读 API 端点 | 按 PRD 第 11 节阶段规划推进；公开数据走客户端直读符合架构既定的读写分离原则,无需为只读场景增加 Serverless 层 |
+| 2026-05-17 | PRD §9 删除原 GET /api/projects、/api/articles、/api/articles/:slug、/api/programs 四个只读端点规格，改为指向 ARCHITECTURE.md §1 与对应 hooks；PRD §11 Phase 3 同步去除原 ~~Serverless 读取 API~~ 划线条目 | 与 ARCHITECTURE.md §1 读写分离设计对齐，消除两份文档的口径冲突；决策依据见上一条变更记录 |
 
 ---
 

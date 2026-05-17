@@ -689,6 +689,7 @@ export function PageName() {
 | 日期 | 变更 | 原因 |
 |------|------|------|
 | 2026-05-16 | 初始架构定义 | 项目从静态 HTML 迁移到 React 全栈架构 |
+| 2026-05-17 | 明确公开内容读取不经过 Serverless API:`projects` / `articles` / `programs` 由前端 hook 通过 Supabase 客户端 SDK 直读,RLS 限制 `published=true`。API.md 与 PRD §9 同步删除原"备用"只读端点 | Phase 3 落地时确认:加 Serverless 一层对只读场景无收益(冷启动、多一跳网络);RLS + anon key 已是 Supabase 标准模式。读写分离规范从默认升级为强制约定 |
 
 ---
 

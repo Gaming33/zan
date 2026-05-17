@@ -25,12 +25,8 @@
 |------|------|------|---------|
 | POST | `/api/enterprise-lead` | 企业线索提交 | 企业合作表单 |
 | POST | `/api/talent-lead` | 人才线索提交 | 人才入驻表单 |
-| GET | `/api/projects` | 获取项目列表 | /projects 页面（备用） |
-| GET | `/api/articles` | 获取文章列表 | /insights 页面（备用） |
-| GET | `/api/articles/[slug]` | 获取单篇文章 | /insights/:slug（备用） |
-| GET | `/api/programs` | 获取课程列表 | /programs 页面（备用） |
 
-**"备用"说明：** 前端优先通过 Supabase SDK 直接读取（更快、更简单）。API 端点保留用于：未来需要服务端逻辑（搜索、聚合、缓存控制）时切换。当前版本前端直接读 Supabase，不调用这些 GET 端点。
+**只读数据通路:** 公开内容(`projects` / `articles` / `programs`)不走 Serverless 端点,由前端 hook 通过 `@supabase/supabase-js` 直接读取,RLS 已限制 `published = true`。详见 ARCHITECTURE.md §1。如未来需要服务端逻辑(搜索、聚合、缓存控制)再补,前端只需替换 hook 实现,组件无感。
 
 ---
 
@@ -39,11 +35,7 @@
 ```
 api/
 ├── enterprise-lead.ts      → POST /api/enterprise-lead
-├── talent-lead.ts          → POST /api/talent-lead
-├── projects.ts             → GET  /api/projects
-├── articles.ts             → GET  /api/articles
-├── articles/[slug].ts      → GET  /api/articles/:slug
-└── programs.ts             → GET  /api/programs
+└── talent-lead.ts          → POST /api/talent-lead
 ```
 
 Vercel 的路由规则：
@@ -259,120 +251,18 @@ export default async function handler(
 // 其余代码完全相同。
 ```
 
-### 4.3 GET /api/projects（备用）
+### 4.3 公开内容读取(不通过 API)
 
-**用途：** 返回已发布的项目列表。
+公开内容(`projects` / `articles` / `programs`)由前端 hook 通过 Supabase 客户端 SDK 直接读取,不经 Serverless 端点。这部分逻辑见对应的 hook 文件:
 
-**请求：**
-```
-GET /api/projects?status=ongoing&industry=制造业
-```
+| 内容 | Hook | 参考实现 |
+|------|------|----------|
+| 项目列表(支持 status/industry/function 过滤) | `src/hooks/useProjects.ts` | `supabase.from('projects').select(...).eq('published', true)` |
+| 文章列表(支持 topic 过滤,不返回 content) | `src/hooks/useArticles.ts` 中的 `useArticles` | `supabase.from('articles').select('id,title,slug,excerpt,topic,cover_image,published_at')...` |
+| 文章详情(返回完整 content) | `src/hooks/useArticles.ts` 中的 `useArticle(slug)` | `.eq('slug', slug).single()` |
+| 课程列表 | `src/hooks/usePrograms.ts` | `supabase.from('programs').select('*')` |
 
-**查询参数（均可选）：**
-
-| 参数 | 类型 | 说明 |
-|------|------|------|
-| `status` | string | 筛选状态：`ongoing` 或 `completed` |
-| `industry` | string | 筛选行业 |
-| `function` | string | 筛选职能 |
-
-**成功响应：**
-```json
-{
-  "data": [
-    {
-      "id": "uuid",
-      "title": "某头部制造企业 AI 供应链优化",
-      "industry": "制造业",
-      "function": "AI+战略",
-      "status": "ongoing",
-      "narrative": "...",
-      "requirements": "...",
-      "outcomes": null,
-      "created_at": "2026-05-01T08:00:00Z"
-    }
-  ]
-}
-```
-
-### 4.4 GET /api/articles（备用）
-
-**用途：** 返回已发布的文章列表。
-
-**请求：**
-```
-GET /api/articles?topic=AI趋势
-```
-
-**成功响应：**
-```json
-{
-  "data": [
-    {
-      "id": "uuid",
-      "title": "2026年AI战略趋势",
-      "slug": "ai-strategy-trend-2026",
-      "excerpt": "...",
-      "topic": "AI趋势",
-      "cover_image": "/images/cover-1.jpg",
-      "published_at": "2026-05-01T08:00:00Z"
-    }
-  ]
-}
-```
-
-**注意：** 列表响应不返回 `content` 字段（正文），只返回摘要，减小响应体积。
-
-### 4.5 GET /api/articles/[slug]（备用）
-
-**用途：** 返回单篇文章完整内容。
-
-**请求：**
-```
-GET /api/articles/ai-strategy-trend-2026
-```
-
-**成功响应：**
-```json
-{
-  "data": {
-    "id": "uuid",
-    "title": "2026年AI战略趋势",
-    "slug": "ai-strategy-trend-2026",
-    "excerpt": "...",
-    "content": "# 完整Markdown正文\n\n...",
-    "topic": "AI趋势",
-    "cover_image": "/images/cover-1.jpg",
-    "published_at": "2026-05-01T08:00:00Z"
-  }
-}
-```
-
-**未找到：**
-```
-404 Not Found
-{ "error": "Article not found" }
-```
-
-### 4.6 GET /api/programs（备用）
-
-**用途：** 返回已发布的课程列表。
-
-**成功响应：**
-```json
-{
-  "data": [
-    {
-      "id": "uuid",
-      "title": "AI战略工作坊",
-      "description": "...",
-      "format": "线上工作坊",
-      "duration": "6周",
-      "cover_image": "/images/program-1.jpg"
-    }
-  ]
-}
-```
+**为什么不放 API:** 公开数据 + RLS 等价于一层只读 REST,加 Serverless 反而带来冷启动与多一跳网络。后续若需服务端逻辑(搜索、聚合、SSR、CDN headers),再补 `api/projects.ts` 等端点,前端只需替换 hook 实现,组件不感知。
 
 ---
 
@@ -601,3 +491,4 @@ export function EnterpriseContact() {
 | 日期 | 变更 | 说明 |
 |------|------|------|
 | 2026-05-16 | 初始 API 设计 | 6 个端点 + Zod schema + 速率限制 |
+| 2026-05-17 | 删除 GET /api/projects、/api/articles、/api/articles/[slug]、/api/programs 四个"备用"只读端点 | 与 ARCHITECTURE.md §1 读写分离设计对齐:公开内容由 hook 通过 Supabase SDK 直读,RLS 已保证安全。删除后 API 层只剩两个写入端点,职责更清晰。未来如需服务端逻辑再增设。 |
