@@ -4,6 +4,11 @@
   "outputDirectory": "dist",
   "cleanUrls": true,
   "trailingSlash": false,
+  "functions": {
+    "api/**/*.ts": {
+      "includeFiles": "src/types/**"
+    }
+  },
   "headers": [
     {
       "source": "/api/(.*)",
