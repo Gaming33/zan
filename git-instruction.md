@@ -10,9 +10,14 @@
 ```
 ┌─────────────────────────────────────────────────┐
 │                   Frontend                       │
-│  React 18 + Vite 5 + TypeScript (strict)        │
-│  TailwindCSS v4 + shadcn/ui                     │
-│  React Router v6 · TanStack Query · RHF + Zod   │
+│  React 19 + Vite + TypeScript (strict)          │
+│  TailwindCSS v3.4 + tailwindcss-animate          │
+│  shadcn/ui (Button + 表单组件 + Separator)       │
+│  react-router v7                                 │
+│  TanStack Query · RHF + Zod                      │
+│  GSAP + ScrollTrigger                            │
+│  @phosphor-icons/react                           │
+│  react-markdown                                  │
 ├─────────────────────────────────────────────────┤
 │                   Backend                        │
 │  Vercel Serverless Functions (Node.js)           │
@@ -29,158 +34,124 @@
 
 ## 2. 前端技术规范
 
-### 2.1 框架：React（强制）
+### 2.1 框架：React 19（强制）
 
 | 规则 | 说明 |
 |------|------|
-| **使用 React** | 仅 React，禁止 Vue、Svelte、Angular 或任何其他框架 |
-| **禁止混用** | 不允许在同一项目中引入任何非 React 的响应式框架 |
-| **函数组件** | 所有组件使用函数组件 + Hooks，禁止 class 组件 |
-| **组件命名** | PascalCase（如 `ProjectCard.tsx`），每个文件一个组件 |
+| **使用 React 19** | 不使用其他框架 |
+| **函数组件 + Hooks** | 禁止 class 组件 |
+| **组件命名** | PascalCase 文件名，**页面使用 default export，普通组件使用 named export 或 default 均可** |
 
 ```tsx
-// ✅ 正确
-export function ProjectCard({ title, status }: ProjectCardProps) { ... }
+// ✅ 页面 default export
+export default function Home() { ... }
 
-// ❌ 禁止
-export default class ProjectCard extends React.Component { ... }
+// ✅ 组件 named 或 default 均可
+export function CountUp() { ... }
+export default function FormAlert() { ... }
+
+// ❌ 禁止 class
+export default class Home extends React.Component { ... }
 ```
 
 ### 2.2 构建工具：Vite（强制）
 
 | 规则 | 说明 |
 |------|------|
-| **使用 Vite** | 仅 Vite，禁止 Webpack、Create React App、Next.js |
-| **不使用 Next.js** | 这是 SPA + Serverless 架构，不是 SSR 框架。SEO 通过 Vercel prerender 解决 |
+| **使用 Vite** | 不使用 Webpack、CRA、Next.js |
+| **不引入 SSR** | SPA + Serverless 架构，SEO 通过 Vercel prerender 处理 |
 
-**相关 Skill：** `/next-best-practices` — 仅参考其中的 React 通用最佳实践，不使用 Next.js 特有 API（`use server`、Server Components、`next/` 导入等）。
-
-### 2.3 语言：TypeScript strict 模式（强制）
+### 2.3 语言：TypeScript strict（强制）
 
 | 规则 | 说明 |
 |------|------|
-| **所有文件使用 .ts / .tsx** | 禁止 .js / .jsx 文件 |
-| **strict: true** | tsconfig.json 必须启用 strict 模式 |
-| **禁止 any** | 不允许 `any` 类型，用 `unknown` + 类型守卫替代 |
-| **显式类型** | 函数参数和返回值必须声明类型 |
-| **接口优先** | 使用 `interface` 定义对象类型，`type` 用于联合/交叉类型 |
+| **.ts / .tsx 唯一** | src/ 内禁止 .js / .jsx |
+| **strict: true** | tsconfig 启用 strict |
+| **避免 any** | 优先 `unknown` + 类型守卫；联合类型确保完整覆盖 |
+| **显式类型** | 函数参数和返回值声明类型 |
+| **interface 优先** | 对象类型用 `interface`，联合 / 交叉类型用 `type` |
 
-```tsx
-// ✅ 正确
-interface ProjectCardProps {
-  title: string;
-  status: 'ongoing' | 'completed';
-  industry: string;
-}
-
-// ❌ 禁止
-const ProjectCard = (props: any) => { ... }
-```
-
-### 2.4 样式：TailwindCSS v4（强制）
+### 2.4 样式：TailwindCSS v3.4（强制）
 
 | 规则 | 说明 |
 |------|------|
-| **仅使用 Tailwind** | 禁止内联 style、禁止独立 CSS 文件（除 globals.css 外）、禁止 CSS Modules、禁止 styled-components |
-| **设计令牌在 CSS 中定义** | Tailwind v4 使用 CSS-first 配置，颜色/间距/字体等令牌在 `globals.css` 中通过 `@theme` 定义 |
-| **不使用 tailwind.config.js** | Tailwind v4 不需要 JS 配置文件 |
+| **使用 Tailwind v3.4 + tailwindcss-animate** | 不引入 v4 |
+| **配置文件**：`tailwind.config.js` + `postcss.config.js` | v3 需要 JS 配置 |
+| **设计令牌在 `src/index.css` 的 `:root`** | CSS 变量定义所有色彩、字体、半径；Tailwind config 用 `hsl(var(--xxx))` 引用 |
+| **允许 inline style 与 className 混用** | 设计令牌中的硬色值通过 inline `style={{ backgroundColor: '#10b981' }}` 直接使用可接受，便于视觉令牌就近呈现 |
+| **禁止独立 CSS 文件** | 除了 `index.css`，不允许其他 .css 文件 |
+| **禁止 CSS Modules / styled-components** | 仅 Tailwind + inline style |
 
-**相关 Skill：** `/tailwind-design-system` — 构建设计系统和组件时按需调用。
-
-#### 色彩令牌（强制使用，不得硬编码颜色值）
-
-```css
-/* globals.css 中的 @theme 定义 */
-@theme {
-  --color-primary: #1B2B4B;
-  --color-primary-light: #253A5E;
-  --color-secondary: #F5F3EF;
-  --color-border: #E8E6E1;
-  --color-text-secondary: #6B7280;
-  --color-accent: #8B7EC8;
-  --color-accent-hover: #7A6DB5;
-  --color-accent-light: oklch(0.65 0.12 280 / 0.1);
-  --color-text-primary: #1A1A2E;
-  --color-text-muted: #4A4A5A;
-  --color-surface: #FFFFFF;
-  --color-surface-dark: #0A0F1C;
-}
-```
-
-**使用方式：** `bg-primary`、`text-accent`、`border-border` 等 Tailwind 类名。禁止在代码中出现 `#1B2B4B` 等硬编码颜色。
-
-### 2.5 组件库：shadcn/ui（强制）
+### 2.5 组件库：shadcn/ui（受限使用）
 
 | 规则 | 说明 |
 |------|------|
-| **使用 shadcn/ui** | 所有基础 UI 组件（Button、Input、Card、Badge 等）使用 shadcn/ui |
-| **不造轮子** | 需要新组件时先检查 shadcn/ui 是否有对应组件 |
-| **通过 CLI 添加** | 使用 `npx shadcn@latest add <component>` 添加组件，不手动复制 |
-| **可定制** | shadcn 组件源码在项目中，可以根据设计需求调整 |
+| **shadcn 用于表单与基础控件** | Button、Input、Textarea、Select、Label、Separator |
+| **营销页不用 shadcn 装饰组件** | Hero / 卡片 / 徽章 等用手写 div + Tailwind 实现，保持视觉调性 |
+| **通过 CLI 添加** | `npx shadcn@latest add <component>` |
 
-**相关 Skill：** `/shadcn` — 添加、搜索、定制 shadcn 组件时调用。
+**当前需要的 shadcn 组件**：
+- `button` — 表单提交（CTA 用裸 Link）
+- `input` — 表单输入
+- `textarea` — 表单 textarea
+- `select` — 下拉选择
+- `label` — 表单标签
+- `separator` — 分隔线（按需）
 
-#### shadcn 组件使用清单
+**不引入**：`card`、`badge`、`dialog`、`sheet`、`dropdown-menu` 等。
 
-以下组件预计会用到，按需添加：
-
-| 组件 | 用途 |
-|------|------|
-| Button | 所有按钮（CTA、提交、导航） |
-| Input / Textarea | 表单输入 |
-| Checkbox | 隐私政策勾选 |
-| Card | 项目卡片、文章卡片、课程卡片 |
-| Badge | 行业标签、职能标签、状态标签 |
-| Select | 筛选器下拉 |
-| Dialog | 移动端菜单、确认弹窗 |
-| Sheet | 移动端侧边导航 |
-| Separator | 内容分割 |
-| Skeleton | 加载占位 |
-
-### 2.6 路由：React Router v6+
+### 2.6 路由：react-router v7
 
 | 规则 | 说明 |
 |------|------|
-| **使用 React Router** | 禁止使用其他路由方案（TanStack Router、Wouter 等） |
-| **懒加载** | 非首屏页面使用 `React.lazy` + `Suspense` 按需加载 |
-| **路由定义集中** | 所有路由在 `App.tsx` 中集中定义 |
-
-```tsx
-// App.tsx 路由结构
-const routes = [
-  { path: '/', element: <Home /> },
-  { path: '/about', element: <About /> },
-  { path: '/why-zoan', element: <WhyZoan /> },
-  { path: '/services', element: <Services /> },
-  { path: '/services/process', element: <Process /> },
-  { path: '/projects', element: <Projects /> },
-  { path: '/insights', element: <Insights /> },
-  { path: '/insights/:slug', element: <InsightDetail /> },
-  { path: '/programs', element: <Programs /> },
-  { path: '/enterprise/contact', element: <EnterpriseContact /> },
-  { path: '/talent/apply', element: <TalentApply /> },
-  { path: '/privacy', element: <Privacy /> },
-  { path: '/terms', element: <Terms /> },
-];
-```
+| **使用 react-router v7** | 统一包，导入 `from 'react-router'` |
+| **不使用 react-router-dom** | v7 已合并 |
+| **路由集中** | 所有路由在 `src/App.tsx` |
+| **不强制懒加载** | 当前页面数量适中，可统一 import |
 
 ### 2.7 数据获取：TanStack Query
 
 | 规则 | 说明 |
 |------|------|
-| **使用 TanStack Query** | 所有服务端数据获取通过 TanStack Query，禁止裸 `useEffect` + `fetch` |
-| **自定义 hooks** | 每个数据实体对应一个 hook（`useProjects`、`useArticles`） |
-| **缓存策略** | 静态内容 staleTime 5 分钟，表单提交使用 mutation |
+| **使用 TanStack Query** | 唯一的服务端数据获取方式 |
+| **自定义 hooks** | 每个数据实体对应一个 hook |
+| **缓存策略** | 公开内容 `staleTime: 5 分钟` |
+| **禁止裸 useEffect + fetch** | 必须经 TanStack Query 包装 |
 
 ### 2.8 表单：React Hook Form + Zod
 
 | 规则 | 说明 |
 |------|------|
-| **使用 React Hook Form** | 所有表单使用 RHF 管理，禁止受控组件手动管理 state |
-| **Zod 验证** | 表单验证 schema 使用 Zod 定义，前后端共享同一 schema |
-| **前后端一致** | 前端表单验证和后端 API 验证使用同一个 Zod schema |
+| **使用 React Hook Form** | 不用受控组件手动管理 state |
+| **Zod 验证** | schema 定义在 `src/types/schemas.ts`，前后端共享 |
+| **前后端一致** | 前端 resolver 与后端 Serverless 用同一份 schema |
+| **错误显示** | 字段下方红色小字，与 FormAlert 浮层配合 |
 
-**相关 Skill：** `/vercel-react-best-practices` — React 性能优化参考。
+### 2.9 动效：GSAP + ScrollTrigger
+
+| 规则 | 说明 |
+|------|------|
+| **使用 GSAP + ScrollTrigger** | 唯一的滚动触发动画方案 |
+| **AnimatedSection 内联模式** | 每个 page 文件顶部定义自己的 wrapper，不抽到全局组件目录 |
+| **必须 cleanup** | useEffect 返回 cleanup，kill 当前组件创建的 ScrollTrigger，避免泄漏 |
+| **遵守动效区间** | 时长、缓动、触发点遵循 UI_GUIDELINES.md `Animation` 章节的区间 |
+| **禁止其他动效库** | 不引入 framer-motion / lottie / react-spring |
+
+### 2.10 图标：@phosphor-icons/react
+
+| 规则 | 说明 |
+|------|------|
+| **使用 Phosphor** | `import { ShieldCheck, ... } from '@phosphor-icons/react'` |
+| **推荐 weight="duotone"** | 与设计调性匹配 |
+| **size 默认 20-24** | 内联图标取较小值，特性卡片取较大值 |
+| **禁止 lucide-react** | 不引入 |
+
+### 2.11 文章渲染：react-markdown
+
+| 规则 | 说明 |
+|------|------|
+| **使用 react-markdown** | 文章 content 字段以 Markdown 文本存储 |
+| **样式通过 `.rich-text-content` 类** | globals.css 中已定义富文本样式 |
 
 ---
 
@@ -190,175 +161,100 @@ const routes = [
 
 | 规则 | 说明 |
 |------|------|
-| **Serverless Only** | 不搭建 Express/Koa/NestJS 服务器，仅使用 Vercel Serverless Functions |
-| **函数位置** | API 函数放在项目根目录的 `api/` 文件夹，每个文件对应一个端点 |
-| **TypeScript** | API 函数也使用 TypeScript |
-| **无状态** | 每个函数调用独立，不依赖内存中的全局状态 |
+| **Serverless Only** | 不搭建任何需常驻运行的服务器 |
+| **函数位置** | `api/` 文件夹，每个文件对应一个端点 |
+| **TypeScript** | API 函数同样使用 TypeScript |
+| **无状态** | 每次调用独立，不依赖内存中的全局状态（速率限制内存 map 在冷启动重置可接受） |
 
 ```
 api/
 ├── enterprise-lead.ts    → POST /api/enterprise-lead
-├── talent-lead.ts        → POST /api/talent-lead
-├── projects.ts           → GET  /api/projects
-├── articles.ts           → GET  /api/articles
-└── programs.ts           → GET  /api/programs
+└── talent-lead.ts        → POST /api/talent-lead
 ```
 
 ### 3.2 API 规范
 
 | 规则 | 说明 |
 |------|------|
-| **RESTful** | GET 读取资源，POST 创建资源 |
+| **RESTful** | GET 读资源、POST 创建资源 |
 | **JSON 响应** | 所有响应使用 JSON 格式 |
-| **统一错误格式** | `{ "error": "message", "details": [...] }` |
-| **速率限制** | 表单提交端点每个 IP 每小时 5 次 |
-| **输入验证**** | 服务端使用 Zod 严格验证，不信任前端传入的任何数据 |
-| **不暴露内部信息** | 错误响应不暴露堆栈跟踪、SQL 错误、内部 ID |
+| **统一错误格式** | `{ "error": "...", "details": {...} }` |
+| **速率限制** | 表单端点每 IP 每小时上限 5 次 |
+| **输入验证** | 服务端 Zod 严格验证，不信任前端 |
+| **不暴露内部信息** | 错误响应不返回堆栈 / SQL 错误 / 内部 ID |
+
+详见 API.md。
 
 ### 3.3 禁止的后端技术
 
-| 禁止使用 | 原因 |
+| 禁止 | 原因 |
 |----------|------|
-| Express / Koa / NestJS | 不需要持久服务器，Serverless 够用 |
-| tRPC | 过度工程化，REST 对这个项目足够 |
-| GraphQL | 同上，页面少、查询简单，GraphQL 增加复杂度 |
-| WebSocket | 当前无实时功能需求 |
-| 任何需要持久运行的服务 | 与 Serverless 架构冲突 |
+| Express / Koa / NestJS / Hono | Serverless 已满足需求，不需要常驻服务器 |
+| tRPC | REST + Zod 足够覆盖当前接口，避免类型层耦合 |
+| GraphQL | 接口简单，引入 GraphQL 增加复杂度 |
+| Drizzle / Prisma 等 ORM | 使用 Supabase 客户端的 query builder |
+| WebSocket / SSE | 当前无实时需求 |
+| MySQL / 自建数据库 | 仅使用 Supabase Postgres |
 
 ---
 
 ## 4. 数据库技术规范
 
-### 4.1 Supabase (PostgreSQL)
+详见 DATABASE.md。
 
 | 规则 | 说明 |
 |------|------|
-| **使用 Supabase** | 禁止自建数据库、禁止 MongoDB、禁止 Firebase Realtime DB |
-| **客户端库** | 使用 `@supabase/supabase-js`，禁止直接写 SQL 查询字符串（用 Supabase 的 query builder） |
-| **RLS 强制** | 所有表必须启用 Row Level Security |
-| **Schema 版本管理** | SQL 迁移脚本放在 `supabase/migrations/` 目录 |
-
-**相关 Skill：** `/supabase-postgres-best-practices` — 数据库设计和查询优化时调用。
-
-### 4.2 数据访问层
-
-| 规则 | 说明 |
-|------|------|
-| **客户端直接读** | 公开内容（projects/articles/programs）通过 Supabase 客户端 + RLS 策略直接读取，不需要经过 Serverless Function |
-| **写入走 API** | 表单提交通过 Serverless Function → Supabase 服务端客户端写入（绕过 RLS） |
-| **Supabase 客户端初始化** | 在 `src/lib/supabase.ts` 中统一初始化，使用环境变量 |
-
-```typescript
-// src/lib/supabase.ts
-import { createClient } from '@supabase/supabase-js';
-
-export const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL,
-  import.meta.env.VITE_SUPABASE_ANON_KEY
-);
-```
-
-### 4.3 环境变量
-
-```
-# .env.local（不提交到 git）
-VITE_SUPABASE_URL=https://xxx.supabase.co
-VITE_SUPABASE_ANON_KEY=eyJ...
-
-# Serverless Functions 中使用（非 VITE_ 前缀）
-SUPABASE_SERVICE_ROLE_KEY=eyJ...
-```
-
-| 规则 | 说明 |
-|------|------|
-| **VITE_ 前缀** | 前端可访问的变量使用 `VITE_` 前缀 |
-| **Service Role Key** | 仅在 Serverless Function 中使用，不暴露到前端 |
-| **.env.example** | 提供模板文件，列出所有需要的环境变量名（不含值） |
+| **Supabase (PostgreSQL)** | 唯一数据库 |
+| **客户端库** | `@supabase/supabase-js` |
+| **RLS 强制** | 所有表启用 Row Level Security |
+| **迁移在 supabase/migrations/** | 序号前缀，禁止修改已执行的迁移文件 |
 
 ---
 
-## 5. 项目结构规范
+## 5. 项目结构
 
-### 5.1 目录结构（强制遵守）
+详见 FOLDER_STRUCTURE.md。
 
+简略目录：
 ```
-zoan/
-├── public/images/              # 静态资源
-├── src/
-│   ├── components/
-│   │   ├── ui/                 # shadcn/ui 组件（CLI 生成，不手写）
-│   │   ├── layout/             # 布局组件：Header, Footer, Container
-│   │   ├── sections/           # 页面 section 组件
-│   │   └── shared/             # 跨页面复用的业务组件
-│   ├── pages/                  # 页面组件（每个路由一个文件）
-│   ├── lib/                    # 工具库：supabase client, api, utils
-│   ├── types/                  # TypeScript 类型定义
-│   ├── hooks/                  # 自定义 hooks
-│   └── styles/globals.css      # 全局样式 + Tailwind 令牌
-├── api/                        # Vercel Serverless Functions
-├── supabase/migrations/        # 数据库迁移脚本
-└── [配置文件]
+src/
+├── components/
+│   ├── ui/                # shadcn (button, input, textarea, select, label, separator)
+│   ├── Navigation.tsx
+│   ├── Footer.tsx
+│   ├── CountUp.tsx
+│   ├── FormAlert.tsx
+│   ├── Skeleton.tsx
+│   └── ParticleNetwork.tsx  (可选)
+├── pages/                 # 9 个页面（default export）
+├── lib/                   # supabase.ts, api.ts, utils.ts
+├── hooks/                 # useArticles.ts
+├── types/                 # index.ts, schemas.ts
+├── data/                  # articles.ts (种子)
+└── index.css              # 全局样式 + 设计令牌
+api/                       # enterprise-lead.ts, talent-lead.ts
+supabase/migrations/       # 001-003 SQL
+public/images/             # 允许一级子目录
+public/videos/             # 视频资源
 ```
-
-### 5.2 文件命名规范
-
-| 类型 | 规范 | 示例 |
-|------|------|------|
-| 页面 | PascalCase | `Projects.tsx`, `InsightDetail.tsx` |
-| 组件 | PascalCase | `ProjectCard.tsx`, `FilterBar.tsx` |
-| Hooks | camelCase + use 前缀 | `useProjects.ts`, `useArticles.ts` |
-| 工具 | camelCase | `supabase.ts`, `api.ts`, `utils.ts` |
-| 类型 | camelCase | `index.ts`（统一导出） |
-| API | kebab-case | `enterprise-lead.ts`, `talent-lead.ts` |
-| 样式 | 仅一个 | `globals.css` |
-
-### 5.3 导入规范
-
-```typescript
-// ✅ 使用 @ 路径别名
-import { Button } from '@/components/ui/button';
-import { ProjectCard } from '@/components/sections/ProjectCard';
-import { useProjects } from '@/hooks/useProjects';
-import type { Project } from '@/types';
-
-// ❌ 禁止相对路径跨级引用
-import { Button } from '../../../components/ui/button';
-```
-
-在 `tsconfig.json` 和 `vite.config.ts` 中配置 `@` → `src/` 的路径别名。
 
 ---
 
 ## 6. 编码规范
 
-### 6.1 React 组件规范
+### 6.1 React 组件结构
 
 ```tsx
-// 组件结构顺序
 // 1. 类型定义
-interface Props {
-  title: string;
-  status: 'ongoing' | 'completed';
-}
+interface Props { ... }
 
-// 2. 组件函数
-export function ProjectCard({ title, status }: Props) {
+// 2. 组件（页面用 default export，普通组件可 named）
+export default function PageName() {
   // 2a. hooks
-  const [isOpen, setIsOpen] = useState(false);
-
   // 2b. 派生状态
-  const statusLabel = status === 'ongoing' ? '进行中' : '已完成';
-
   // 2c. 事件处理
-  const handleClick = () => setIsOpen(prev => !prev);
-
   // 2d. 渲染
-  return (
-    <Card className="...">
-      <Badge>{statusLabel}</Badge>
-      <h3>{title}</h3>
-    </Card>
-  );
+  return ( ... );
 }
 ```
 
@@ -366,26 +262,72 @@ export function ProjectCard({ title, status }: Props) {
 
 | 规则 | 说明 |
 |------|------|
-| **禁止 console.log** | 提交前移除所有 console.log |
-| **禁止 eslint-disable** | 解决 lint 问题，不要压制 |
-| **禁止 TODO 注释** | 要么做要么不做，不留 TODO |
-| **单文件不超过 300 行** | 超过则拆分组件 |
-| **组件 prop 不超过 7 个** | 超过则组合为对象 prop |
-| **不写注释解释"是什么"** | 代码本身应自解释 |
-| **可写注释解释"为什么"** | 当逻辑不直观时注释原因 |
+| **禁止 console.log** | 提交前移除 |
+| **禁止 eslint-disable** | 修复 lint 而不是压制 |
+| **禁止 TODO 注释** | 代码里要么实现要么不写 |
+| **不写注释解释 "是什么"** | 代码自解释 |
+| **可写注释解释 "为什么"** | 当逻辑不直观时 |
+| **单文件无强制行数上限** | 页面文件可较长，但若超过 ~500 行建议评估是否能拆分 section |
 
-### 6.3 不引入的依赖（黑名单）
+### 6.3 依赖白名单
 
-| 依赖 | 原因 | 替代 |
-|------|------|------|
-| axios | 项目简单，fetch 够用 | 原生 fetch + TanStack Query |
-| lodash | 按需用原生方法 | `Array.filter`, `Object.entries` 等 |
-| moment.js | 体积大 | `Intl.DateTimeFormat` 或 `date-fns`（如需） |
-| Redux / Zustand | 无全局复杂状态 | React Context + TanStack Query |
-| framer-motion | 动画需求简单 | CSS transition + IntersectionObserver |
-| react-helmet | meta 标签管理 | React Router + document.title（简单场景） |
+**生产依赖**：
+```json
+{
+  "@supabase/supabase-js": "^2.x",
+  "@tanstack/react-query": "^5.x",
+  "@hookform/resolvers": "^3.x",
+  "react": "^19.x",
+  "react-dom": "^19.x",
+  "react-hook-form": "^7.x",
+  "react-router": "^7.x",
+  "react-markdown": "^10.x",
+  "zod": "^3.x",
+  "gsap": "^3.x",
+  "@phosphor-icons/react": "^2.x",
+  "sonner": "^2.x",
+  "react-helmet-async": "^3.x",
+  "class-variance-authority": "^0.7.x",
+  "clsx": "^2.x",
+  "tailwind-merge": "^2.x",
+  "@radix-ui/react-slot": "^1.x",
+  "@radix-ui/react-label": "^2.x",
+  "@radix-ui/react-select": "^2.x"
+}
+```
 
-**原则：** 每新增一个 npm 包必须在 commit message 中说明理由。优先用浏览器原生 API 和已有依赖的能力。
+**开发依赖**：
+```json
+{
+  "tailwindcss": "^3.4.x",
+  "tailwindcss-animate": "^1.x",
+  "autoprefixer": "^10.x",
+  "postcss": "^8.x",
+  "typescript": "~5.x",
+  "vite": "^7.x or ^8.x",
+  "@vitejs/plugin-react": "^4.x or ^6.x"
+}
+```
+
+### 6.4 依赖黑名单
+
+| 依赖 | 原因 |
+|------|------|
+| `lucide-react` | 使用 Phosphor 替代 |
+| `tailwindcss@4` / `@tailwindcss/vite` | 使用 v3 |
+| `react-router-dom` | 使用 react-router v7 统一包 |
+| `axios` | 原生 fetch 足够 |
+| `moment.js` | 体积大，使用 `Intl.DateTimeFormat` 或 `date-fns` |
+| `redux` / `zustand` | 当前无全局复杂状态 |
+| `framer-motion` | GSAP 覆盖动效需求 |
+| `lottie-web` / `@lottiefiles/*` | 不引入 Lottie |
+| `tRPC` / `@trpc/*` | 使用 REST + Zod |
+| `drizzle-orm` / `drizzle-kit` / `prisma` | 使用 Supabase 客户端 |
+| `mysql2` / `postgres` 直连库 | 仅通过 Supabase 客户端访问数据库 |
+| `hono` / `@hono/*` / `express` 等 | 不搭建服务器 |
+| `superjson` | 不需要 |
+
+**原则**：每次新增 npm 包必须在 commit message 中说明用途，且必须出现在白名单中。
 
 ---
 
@@ -401,12 +343,17 @@ export function ProjectCard({ title, status }: Props) {
   "outputDirectory": "dist",
   "cleanUrls": true,
   "trailingSlash": false,
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
   "headers": [
     {
+      "source": "/api/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "no-store" }]
+    },
+    {
       "source": "/assets/(.*)",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
-      ]
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
     }
   ]
 }
@@ -416,44 +363,53 @@ export function ProjectCard({ title, status }: Props) {
 
 | 环境 | 用途 | 数据库 |
 |------|------|--------|
-| 本地开发 | `npm run dev` | Supabase 本地实例 或 开发环境 |
-| Preview | Vercel Preview Deploy | Supabase 开发环境 |
-| Production | Vercel Production | Supabase 生产环境 |
+| 本地开发 | `npm run dev` | Supabase 开发实例 |
+| Preview | Vercel Preview Deploy | Supabase 开发实例 |
+| Production | Vercel Production | Supabase 生产实例 |
 
 ---
 
 ## 8. 可调用的 Skills
 
-以下已安装的 Skills 在对应场景中按需调用，不得使用未列出的 Skill 替代：
+按需调用，仅在场景匹配时使用：
 
 | Skill | 触发场景 | 注意事项 |
 |-------|----------|----------|
-| `/shadcn` | 添加/搜索/定制 shadcn 组件 | 必须使用 shadcn，不要自建基础组件 |
-| `/tailwind-design-system` | 定义设计令牌、构建样式系统 | 颜色令牌必须使用 PRD 规定的值 |
-| `/supabase-postgres-best-practices` | 设计表结构、优化查询、配置 RLS | 所有表必须启用 RLS |
-| `/vercel-react-best-practices` | React 性能优化、组件模式 | 仅参考 React 通用实践，不使用 Next.js API |
-| `/frontend-design` | 构建新的页面或复杂 UI 组件 | 必须遵守本文档的色彩和组件规范 |
-| `/interaction-design` | 添加交互动效、微交互 | 仅使用 CSS transition，不引入 framer-motion |
-| `/web-design-guidelines` | UI 审查、无障碍检查 | 确保专业咨询调性 |
-| `/webapp-testing` | Playwright 端到端测试 | 表单提交流程必须测试 |
-| `/systematic-debugging` | 遇到 bug 时系统性排查 | 不要猜测，按流程诊断 |
-| `/simplify` | 审查代码是否过度工程化 | 遵循"最小代码"原则 |
+| `/shadcn` | 添加 / 搜索 / 定制 shadcn 组件 | 仅用于表单组件，营销页不引入装饰组件 |
+| `/tailwind-design-system` | 设计令牌、构建样式系统 | 使用 v3 配置；令牌按 UI_GUIDELINES.md |
+| `/supabase-postgres-best-practices` | 表结构、查询、RLS | 所有表必须 RLS |
+| `/vercel-react-best-practices` | React 性能优化 | 不引入 Next.js 特有 API |
+| `/frontend-design` | 构建新页面 / 复杂 UI | 必须遵守 UI_GUIDELINES.md 色彩与组件规范 |
+| `/interaction-design` | 微交互、加载状态 | 使用 GSAP 实现，不引入新依赖 |
+| `/webapp-testing` | Playwright 端到端测试 | 表单提交流程必测 |
+| `/systematic-debugging` | bug 排查 | 6 步法 |
+| `/simplify` | 审查过度工程化 | 遵循"最小代码"原则，但允许 inline style |
+| `/defuddle` | 用户给 URL 让你阅读 | 替代 WebFetch |
 
 ---
 
 ## 9. 检查清单（每次提交前）
 
-- [ ] 没有引入本文档黑名单中的依赖
-- [ ] 所有新文件是 `.ts` 或 `.tsx`，无 `.js`/`.jsx`
-- [ ] 没有使用 `any` 类型
-- [ ] 颜色使用 Tailwind 令牌类名，无硬编码色值
-- [ ] UI 组件优先使用 shadcn/ui
-- [ ] 表单使用 React Hook Form + Zod 验证
-- [ ] 数据获取使用 TanStack Query，无裸 useEffect + fetch
-- [ ] API 端点有 Zod 服务端验证
+- [ ] 没有引入黑名单依赖
+- [ ] 所有新文件是 `.ts` 或 `.tsx`
+- [ ] 颜色使用 CSS 变量或设计令牌定义的 hex（不出现非令牌色值）
+- [ ] UI 组件按规范：表单用 shadcn，营销页用手写 div
+- [ ] 表单使用 React Hook Form + Zod
+- [ ] 数据获取使用 TanStack Query + Supabase 客户端
+- [ ] API 端点有 Zod 服务端再验证
 - [ ] 没有 console.log
-- [ ] 文件不超过 300 行
+- [ ] 滚动动效用 GSAP，cleanup 时 kill ScrollTrigger
+- [ ] 图标用 Phosphor，weight 与场景匹配
+- [ ] 动效时长 / 缓动 / 触发点在 UI_GUIDELINES.md 给定区间内
 
 ---
 
-> **本文档与 PRD.md 同步维护。任何技术栈变更必须同时更新两份文档。**
+## 10. 变更记录
+
+| 日期 | 变更 | 原因 |
+|------|------|------|
+| 2026-05-18 | v2.0 基线确立 | MVP 完成，作为后续迭代基准 |
+
+---
+
+> **本文档随技术栈变更同步维护。任何依赖白/黑名单变更、构建工具升级、架构调整必须先在此文档更新，再做实现。**

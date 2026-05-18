@@ -1,20 +1,16 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { Header } from '@/components/layout/Header'
-import { Footer } from '@/components/layout/Footer'
-import { Home } from '@/pages/Home'
-import { About } from '@/pages/About'
-import { WhyZoan } from '@/pages/WhyZoan'
-import { Services } from '@/pages/Services'
-import { Process } from '@/pages/Process'
-import { Projects } from '@/pages/Projects'
-import { Insights } from '@/pages/Insights'
-import { InsightDetail } from '@/pages/InsightDetail'
-import { Programs } from '@/pages/Programs'
-import { EnterpriseContact } from '@/pages/EnterpriseContact'
-import { TalentApply } from '@/pages/TalentApply'
-import { Privacy } from '@/pages/Privacy'
-import { Terms } from '@/pages/Terms'
+import Navigation from '@/components/Navigation'
+import Footer from '@/components/Footer'
+import Home from '@/pages/Home'
+import Services from '@/pages/Services'
+import Resources from '@/pages/Resources'
+import ResourceDetail from '@/pages/ResourceDetail'
+import Join from '@/pages/Join'
+import FindTalent from '@/pages/FindTalent'
+import Privacy from '@/pages/Privacy'
+import Terms from '@/pages/Terms'
+import NotFound from '@/pages/NotFound'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -29,25 +25,19 @@ export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
-        <div className="flex min-h-screen flex-col">
-          <Header />
-          <main className="flex-1">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/why-zoan" element={<WhyZoan />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/services/process" element={<Process />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/insights" element={<Insights />} />
-              <Route path="/insights/:slug" element={<InsightDetail />} />
-              <Route path="/programs" element={<Programs />} />
-              <Route path="/enterprise/contact" element={<EnterpriseContact />} />
-              <Route path="/talent/apply" element={<TalentApply />} />
-              <Route path="/privacy" element={<Privacy />} />
-              <Route path="/terms" element={<Terms />} />
-            </Routes>
-          </main>
+        <div className="min-h-screen" style={{ backgroundColor: '#0d1d35' }}>
+          <Navigation />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/resources" element={<Resources />} />
+            <Route path="/resources/:id" element={<ResourceDetail />} />
+            <Route path="/join" element={<Join />} />
+            <Route path="/find-talent" element={<FindTalent />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
           <Footer />
         </div>
       </BrowserRouter>

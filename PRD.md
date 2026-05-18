@@ -1,8 +1,8 @@
 # ZAN（左安）产品需求文档 (PRD)
 
-> **版本：** v1.1 | **日期：** 2026-05-17 | **状态：** Draft
+> **版本：** v2.0 | **状态：** Active
 > **品牌：** 中文名"左安"，英文缩写"ZAN"，英文全称"Zuo An Nexus"
-> **本文档是 AI 辅助开发的施工图（harness），所有技术决策已锁定，执行时不得偏离。
+> **本文档是 AI 辅助开发的施工图（harness），所有产品决策在此锁定。代码生成不得偏离。**
 
 ---
 
@@ -27,49 +27,45 @@
 
 ### 一句话定位
 
-ZAN 是一个面向 AI 转型时代的**高端人才网络与咨询平台**，为企业关键阶段连接"懂行业 + 会用 AI"的高阶独立人才。
+ZAN 左安是一个高阶能力按需对接平台：在企业增长、AI 转型、组织升级的关键节点，精准注入经过严格筛选的咨询顾问、领域专家与高管人才。
 
 ### 核心价值链
 
 ```
-企业端："我们有 AI 转型的战略意图，但缺能落地的人"
+企业端："关键阶段缺人，传统猎头/咨询都不够快、不够准"
          ↓
-ZAN 翻译需求，输出精准 JD
+ZAN 通过严选顾问网络，短时内推荐人选
          ↓
-人才端：行业老兵（懂业务、打过仗）→ ZAN 提供 AI upskilling → 达到可派出水平
+人才端：经过验证的咨询顾问/领域专家/高管 → 按需对接 → 项目制协作
          ↓
-匹配交付：企业获得"懂行业 + 会用 AI"的临时 CXO
+匹配交付：企业获得"按需人才 / 临时高管 / 项目制专家"三种灵活配置
          ↓
-课程/Program：既是人才训战工具，也是独立收入来源
+内容驱动：资源智库持续输出洞察，沉淀方法论
 ```
 
-### 商业模式
+### 三大服务方向
 
-- **现阶段：** 内容驱动的人才网络，C端先行
-  - 公域内容（网站 + 公众号）→ 吸引高端人才线索
-  - 转入私域（微信社群）→ 筛选培养
-  - 企业端通过教授人脉 + 网站获客 → 撮合匹配
-- **收入来源：** 项目撮合佣金 + 课程/工作坊产品
-- **长期愿景：** 构建高质量双边网络，成为 AI 时代的人才基础设施
+| 服务 | 描述 | 典型场景 |
+|------|------|---------|
+| **按需人才** (On-Demand Talent) | 按项目周期灵活配置顾问，按效付费 | 业务增长、产品重构、增长瓶颈诊断 |
+| **临时高管** (Interim Executive) | 关键管理岗位空缺或变革期的临时补位 | CEO/CTO/CPO 空窗、并购整合、危机管理 |
+| **项目制专家** (Project-Based Expert) | 跨职能专家组队，全流程项目陪伴 | AI 转型落地、产品体系重构、增长模型搭建 |
 
 ### 核心差异化
 
 | 维度 | 传统猎头 | 传统咨询 | ZAN |
 |------|----------|----------|------|
-| 人才标准 | 职位匹配 | 方法论驱动 | 行业纵深 + AI 赋能 |
-| 交付形态 | 永久雇佣 | 项目报告 | 临时高管/顾问落地执行 |
-| AI 角色 | 无 | 无 | 筛选标签 + 训战工具 |
-| 社群运营 | 无 | 无 | 持续培养、激活、匹配 |
+| 人才标准 | 职位匹配 | 方法论驱动 | 严选 + 行业纵深 + AI 视野 |
+| 响应速度 | 4-8 周 | 2-4 周 | 48 小时量级 |
+| 交付形态 | 永久雇佣 | 项目报告 | 按需对接、按效付费 |
+| 信息安全 | 标准合同 | 标准合同 | 对标行业最高标准 |
 
-### AI 定位（重要）
+### 数据背书（首页展示）
 
-AI 不是要求人才必须具备的硬性条件，而是：
-
-1. **筛选维度：** 优先考虑有 AI 相关经验的候选人，但不作为硬性门槛
-2. **训战工具：** 通过课程和 Program 为人才提供 AI 能力升级
-3. **服务标签：** 所有服务围绕 AI+ 展开（AI+战略 / AI+产品 / AI+组织与经营）
-
-**人才筛选的真实标准：** 行业内纵深经验 + 多元业务知识 + 实打实的战功（能做事），然后通过 ZAN 的课程体系补齐 AI 能力。
+- **48h** 平均响应（从需求到首轮推荐）
+- **500+** 认证顾问（覆盖 AI / 产品 / 增长 / 组织）
+- **95%** 交付达标率（经企业验收）
+- **80%** 成本优化（相比传统咨询）
 
 ---
 
@@ -79,20 +75,19 @@ AI 不是要求人才必须具备的硬性条件，而是：
 
 | 属性 | 描述 |
 |------|------|
-| 规模 | 大中型企业（民企、国企、上市公司） |
-| 行业 | 不限，展示时覆盖尽可能广 |
-| 决策人 | CEO / 董事长 / 战略负责人（非 CTO） |
-| 客单价 | 高（具体不公开，由顾问洽谈） |
-| 核心诉求 | "我们需要懂 AI 的高管来落地转型" |
+| 规模 | 中大型企业（民企、国企、上市公司、成长期独角兽） |
+| 行业 | 不限 — 内容覆盖：金融、医疗、零售、消费、制造、文娱、能源、科技 |
+| 决策人 | CEO / 业务一号位 / 战略负责人 |
+| 核心诉求 | "关键阶段需要外部高阶能力快速到位" |
 
 ### 人才端
 
 | 属性 | 描述 |
 |------|------|
-| 画像 | 行业老兵，VP+ 级别，有实战经验和战功 |
-| 来源 | 内容吸引、搜索、校友网络、口碑传播 |
-| 核心诉求 | 高质量项目机会 + 职业发展 + AI 能力升级 |
-| 转化路径 | 网站/公众号 → 填表 → 微信社群 → 项目匹配 |
+| 画像 | 一线咨询公司背景的顾问 / 产业资深专家 / 现任或前高管 |
+| 核心能力 | 项目制协作、快速融入、项目交付、专业输出、知识共创、价值共创 |
+| 来源 | 内容吸引（资源智库 + 公众号）、教授校友网络、口碑传播 |
+| 转化路径 | 网站 → `/join` 表单 → 顾问审核 → 入席顾问网络 |
 
 ---
 
@@ -101,774 +96,363 @@ AI 不是要求人才必须具备的硬性条件，而是：
 ### 导航结构
 
 ```
-Header:
-  认识ZAN ▾        服务 ▾             项目机会         洞察          课程项目
-                                      (合并案例+JD)   (内容中心)     (AI训战)
-
-  [企业合作]  [人才入驻]   ← 双CTA，始终可见
+Header (液态玻璃效果，深色页透明，滚动后白底):
+  关于左安      核心能力      资源智库      人才入席      [招贤纳士 CTA]
+  (-> /)       (-> /services) (-> /resources) (-> /join)  (-> /find-talent)
 ```
 
-### 完整页面清单（13页）
+### 完整页面清单（9 页 + 404）
 
 | # | 路由 | 页面名称 | 入口 | 受众 |
 |---|------|----------|------|------|
-| 1 | `/` | 首页 | 直接访问 | 双受众 |
-| 2 | `/about` | 关于我们 | Header 认识ZAN | 双受众 |
-| 3 | `/why-zoan` | 为什么选择ZAN | Header 认识ZAN | 双受众 |
-| 4 | `/services` | 服务总览 | Header 服务 | 企业端 |
-| 5 | `/services/process` | 合作流程 | Header 服务 | 企业端 |
-| 6 | `/projects` | 项目机会 ★ | Header 项目机会 | 双受众 |
-| 7 | `/insights` | 洞察文章列表 | Header 洞察 | 双受众 |
-| 8 | `/insights/:slug` | 文章详情 | 文章列表卡片 | 双受众 |
-| 9 | `/programs` | 课程项目 | Header 课程项目 | 人才端 |
-| 10 | `/enterprise/contact` | 企业需求提交 | Header CTA + 首页CTA | 企业端 |
-| 11 | `/talent/apply` | 人才入驻申请 | Header CTA + 项目卡片CTA | 人才端 |
-| 12 | `/privacy` | 隐私政策 | Footer | 双受众 |
-| 13 | `/terms` | 服务条款 | Footer | 双受众 |
+| 1 | `/` | 首页 (Home) | 直接访问 | 双受众 |
+| 2 | `/services` | 核心能力 | Header 核心能力 | 企业端 |
+| 3 | `/resources` | 资源智库 | Header 资源智库 | 双受众 |
+| 4 | `/resources/:id` | 文章详情 | 资源列表卡片 | 双受众 |
+| 5 | `/join` | 人才入席（顾问申请） | Header 人才入席 | 人才端 |
+| 6 | `/find-talent` | 招贤纳士（企业表单） | Header CTA + 首页 CTA | 企业端 |
+| 7 | `/privacy` | 隐私政策 | Footer | 双受众 |
+| 8 | `/terms` | 服务条款 | Footer | 双受众 |
+| 9 | `*` | NotFound (404) | 错误路径 fallback | — |
 
-### Footer 结构
+### Footer 结构（5 列网格 + 底部版权条）
 
 ```
-┌──────────────┬──────────────┬──────────────┬──────────────┐
-│ 认识ZAN     │ 我们的服务    │ 发现机会     │ 联系我们     │
-│ · 关于我们   │ · 服务总览   │ · 项目机会   │ · 企业合作   │
-│ · 为什么选择 │ · 合作流程   │ · 洞察       │ · 人才入驻   │
-│              │              │ · 课程项目   │ · 邮箱       │
-│              │              │              │ · 公众号二维码│
-├──────────────┴──────────────┴──────────────┴──────────────┤
-│ © 2026 ZAN  隐私政策  服务条款                            │
-└───────────────────────────────────────────────────────────┘
+┌────────┬────────┬────────┬─────────────┬──────────────┐
+│ 关于   │ 服务   │ 资源   │ 联系        │ 关注我们     │
+│ 关于左安│按需人才│ 行业案例│ 招贤纳士    │ 公众号二维码 │
+│(占位3项)│临时高管│ 资源智库│ 人才入席    │              │
+│        │项目制 │        │ contact@... │              │
+└────────┴────────┴────────┴─────────────┴──────────────┘
+─────────────────────────────────────────────────────────
+© 2025 左安 ZAN     隐私政策  服务条款  信息安全
 ```
 
 ---
 
 ## 4. 用户流程
 
-### 4.1 企业端用户流程
+### 4.1 企业端流程
 
 ```
-访问首页（搜索/推荐/人脉）
-  → 阅读首页品牌叙事（是谁、做什么、怎么做）
-  → 浏览服务页（了解 AI+ 三方向）
-  → 或直接查看项目案例（建立信任）
-  → 点击 Header "企业合作" CTA
-  → 填写企业需求表单（6字段 + 隐私勾选）
-  → 提交，显示"我们会在1个工作日内联系您"
-  → 顾问收到通知 → 电话/微信跟进
-  → 咨询诊断 → 理解需求 → 翻译JD → 人才匹配 → 交付
+访问首页 → 阅读 Hero "高阶能力·按需获取"
+  → 浏览 WHY ZAN (严选/全程/规范) → SERVICES (3 种模式) → 数据背书
+  → 点击 "招贤纳士" CTA
+  → 填写企业表单（8 字段）
+  → 提交，显示成功提示
+  → 顾问收到通知 → 24 小时内首轮推荐
 ```
 
-### 4.2 人才端用户流程（入口A：内容驱动）
+### 4.2 人才端流程
 
 ```
-阅读公众号文章/网站洞察内容
-  → 被内容质量吸引
-  → 文末/页面引导关注公众号
-  → 公众号菜单"加入人才网络"
-  → 或点击 Header "人才入驻" CTA
-  → 填写人才申请表单（6字段 + 隐私勾选）
-  → 提交，显示"感谢关注，我们会尽快与您联系"
-  → 运营收到通知 → 邀请进微信社群
-  → 社群持续运营（周报、分享会、内推机会）
+阅读资源智库文章 / 公众号引导
+  → 点击 "人才入席" CTA
+  → 填写顾问申请表单（5 字段）
+  → 提交，显示成功提示
+  → 运营审核 → 邀请入席顾问网络
+  → 后续按项目匹配
 ```
 
-### 4.3 人才端用户流程（入口B：机会驱动）
+### 4.3 表单提交流程（技术层面）
 
 ```
-访问 /projects 页面（搜索/公众号链接/分享）
-  → 浏览脱敏项目机会列表
-  → 使用行业/职能/状态筛选器
-  → 点击某个感兴趣的项目
-  → 展开查看完整叙事内容（公司情况、项目描述、人才画像）
-  → 点击"我对这个机会感兴趣"
-  → 跳转人才申请表单（或已填写过则直接提交兴趣）
-  → 顾问跟进 → 评估匹配度 → 安排沟通
-```
-
-### 4.4 表单提交流程（技术层面）
-
-```
-用户填写表单
-  → 前端验证（必填字段、格式校验）
+用户填写表单 (React Hook Form + Zod 客户端验证)
   → POST /api/enterprise-lead 或 /api/talent-lead
-  → Vercel Serverless Function 处理
-  → 写入 Supabase 数据库
-  → 返回成功响应
-  → 前端显示成功提示
-  → （后续可扩展：邮件通知顾问/运营）
+  → Vercel Serverless Function (Zod 服务端再验证 + 速率限制)
+  → 写入 Supabase
+  → 200 返回
+  → 前端显示 FormAlert 成功提示
 ```
 
 ---
 
 ## 5. 页面规格
 
-### 5.1 首页 `/`
+### 5.1 首页 `/` — `src/pages/Home.tsx`
 
-**目的：** 完整的品牌叙事，让用户在30秒内理解ZAN是谁、做什么、怎么做。
+**目的：** 30 秒内传达 ZAN 的定位、价值、信任度，把双受众分流到 /find-talent 或 /join。
 
-| Section | 内容 | 组件 |
+| Section | 背景 | 内容 |
 |---------|------|------|
-| Hero | 一句话定位 + 副标题 + 双CTA按钮 | HeroSection |
-| 我们是谁 | ZAN 的定位描述（2-3句话） | TextSection |
-| 为什么是我们 | 3个差异化卡片（教授背景、AI+、精选网络） | FeatureCards |
-| 我们怎么做 | 5步流程可视化（表单→诊断→翻译JD→匹配→交付） | ProcessFlow |
-| 标杆项目 | 精选2-3个脱敏项目卡片 | ProjectCard[] |
-| 行动号召 | 双CTA（企业合作 + 人才入驻） | CTASection |
+| HERO | 主深蓝 + 半透明 Hero 图 + 渐变叠加 + radial 高光 | 上标 "ZUO AN NEXUS" / 主标 "高阶能力·按需获取" / 描述 / 双 CTA（招贤纳士 + 人才入席） |
+| WHY ZAN | 浅灰底 左文右图 | 上标 WHY ZAN / 副标"为企业重塑核心竞争优势" / 三项 icon 列表（严选人才/全程服务/规范保障） |
+| SERVICES | 深底 | 上标 SERVICES / 标题"灵活获取所需的高阶能力" / 3 列卡片（01 按需人才 / 02 临时高管 / 03 项目制专家） + "查看全部服务" 链接 |
+| 数据背书 | 浅灰底 | 上标 TRUSTED BY NUMBERS / 4 列大字 + CountUp 动画（48h / 500+ / 95% / 80%） |
+| DUAL CTA | 主深蓝 | 上标 GET STARTED / 双按钮 |
 
-### 5.2 关于我们 `/about`
-
-**目的：** 建立深度信任，展示团队实力。
+### 5.2 核心能力 `/services` — `src/pages/Services.tsx`
 
 | Section | 内容 |
 |---------|------|
-| Hero | "认识 ZAN" |
-| 愿景 | 公司使命和愿景 |
-| 故事 | 创始背景、为什么做这件事 |
-| 团队 | 牵头人/教授介绍、核心顾问 |
-| 数据 | 网络规模、服务数据（早期可用文字描述代替数字） |
+| Hero | 标题"核心能力" + 描述 |
+| Intro | 一段定位文案（不是猎头、不是传统咨询） |
+| Industries | 行业覆盖网格（金融/医疗/零售/消费/制造/文娱/能源/科技） |
+| Services 详情 | 3 个服务（按需人才 / 临时高管 / 项目制专家），每个含副标题、英文名、描述、4 个能力点、配图 |
+| CTA | 双按钮 |
 
-### 5.3 为什么选择ZAN `/why-zoan`
-
-**目的：** 与传统猎头和传统咨询做差异化对比。
+### 5.3 资源智库 `/resources` — `src/pages/Resources.tsx`
 
 | Section | 内容 |
 |---------|------|
-| Hero | "为什么选择 ZAN" |
-| 对比 | ZAN vs 传统猎头 vs 传统咨询的三方对比表 |
-| 方法论 | 人才筛选标准、匹配流程、质量保障 |
-| 人才画像 | 我们寻找什么样的人（行业纵深 + 实战经验 + AI潜力） |
+| Hero | "资源智库" + 描述 |
+| 筛选 Tabs | 全部 / 案例研究 / 方法论 / 人才研究 / 实践指南 |
+| 文章网格 | 3 列卡片，每张：封面图 + 类型徽章 + 日期 + 标题 + 摘要 |
+| 分页 | 每页 9 篇，简单分页器 |
 
-### 5.4 服务总览 `/services`
+**当前版本不实现邮件订阅模块**（如未来产品决策需要再补，需更新本规格 + 加 subscribers 表）。
 
-**目的：** 展示三大服务方向，一页三分段。
-
-| Section | 内容 |
-|---------|------|
-| Hero | "我们的服务" |
-| AI+战略 | 描述 + 典型场景 + 能力标签 |
-| AI+产品落地 | 描述 + 典型场景 + 能力标签 |
-| AI+组织与经营 | 描述 + 组织维度（架构/人才/治理/文化）+ 经营维度（策略/营收/成本/商业模式） |
-| CTA | "开启合作" → /enterprise/contact |
-
-**注意：** 三个方向不分独立子页面，在一个页面内用 section 或 tab 展示。
-
-### 5.5 合作流程 `/services/process`
-
-**目的：** 让企业理解从表单到交付的完整旅程。
-
-| Step | 描述 |
-|------|------|
-| 1. 提交需求 | 企业填写表单 |
-| 2. 咨询诊断 | 资深顾问一对一沟通 |
-| 3. 翻译JD | 将企业需求转化为精准人才画像 |
-| 4. 人才匹配 | 从网络中筛选最合适的候选人 |
-| 5. 落地交付 | 人才到岗，持续跟进 |
-
-### 5.6 项目机会 `/projects` ★ 核心页面
-
-**目的：** 合并展示脱敏案例（已完成）和开放机会（进行中），同时服务企业和人才两端。
-
-**筛选器：**
-- 行业标签（多选或单选）
-- 职能标签（多选或单选）
-- 状态：进行中 / 已完成
-
-**项目卡片格式（叙事式）：**
-
-```
-┌────────────────────────────────────────────────┐
-│ [行业标签]  [职能标签]        进行中 ●          │
-│                                                │
-│ 某头部制造企业在数字化转型中遇到增长瓶颈，      │
-│ 现计划启动 AI 驱动的供应链优化项目，             │
-│ 希望寻找一位具备制造业深耕经验 + AI落地能力     │
-│ 的临时 CDO。                                    │
-│                                                │
-│ [我对这个机会感兴趣 →]                          │
-└────────────────────────────────────────────────┘
-```
-
-- **进行中项目的 CTA：** "我对这个机会感兴趣" → /talent/apply 或直接提交兴趣
-- **已完成项目的 CTA：** 无CTA，纯展示（作为能力背书）
-- **点击卡片可展开详情：** 完整叙事、背景、要求、预期成果
-
-**数据来源：** 从 Supabase `projects` 表读取，运营通过数据库或后续管理后台维护。
-
-### 5.7 洞察文章列表 `/insights`
-
-**目的：** 内容中心，吸引人才、展示专业度。
+### 5.4 文章详情 `/resources/:id` — `src/pages/ResourceDetail.tsx`
 
 | Section | 内容 |
 |---------|------|
-| Hero | "洞察与思考" |
-| 筛选 | 主题标签（AI趋势、行业分析、转型方法论、人才洞察） |
-| 文章网格 | 卡片式列表，每张含标题、摘要、主题标签、日期 |
+| Breadcrumb | 首页 > 资源智库 > 文章标题 |
+| Hero | 封面大图 + 类型 / 日期 / 标题 / 摘要 |
+| 正文 | Markdown 渲染（react-markdown）|
+| 底部 CTA | 联系我们 / 阅读更多 |
 
-### 5.8 文章详情 `/insights/:slug`
-
-**目的：** 深度内容阅读页。
-
-| Section | 内容 |
-|---------|------|
-| 面包屑 | 首页 > 洞察 > 文章标题 |
-| 标题 + 元信息 | 标题、日期、主题标签 |
-| 正文 | Markdown 渲染的内容 |
-| 侧栏/底部 | 公众号关注引导、相关文章推荐 |
-| CTA | "加入人才网络" 或 "企业合作" |
-
-### 5.9 课程项目 `/programs`
-
-**目的：** 展示 AI upskilling 课程和训战项目。
+### 5.5 人才入席 `/join` — `src/pages/Join.tsx`
 
 | Section | 内容 |
 |---------|------|
-| Hero | "AI 时代的人才训战" |
-| 课程理念 | 为什么 ZAN 做课程（人才能力升级、不只是招募） |
-| 课程列表 | 卡片式，每张含标题、简介、形式、时长 |
-| CTA | "了解更多" / "加入人才网络" |
+| Hero | "人才入席" 标题 + 描述 |
+| 顾问画像 | 6 项核心能力网格（项目制协作、快速融入、项目交付、专业输出、知识共创、价值共创），每项含图标 + 标题 + 描述 |
+| 申请表单 | 5 字段：name, email, phone, role(核心领域), bio |
+| 成功提示 | FormAlert 浮层 |
 
-### 5.10 企业需求提交 `/enterprise/contact`
+### 5.6 招贤纳士 `/find-talent` — `src/pages/FindTalent.tsx`
 
-**目的：** 企业端核心转化页。
+| Section | 内容 |
+|---------|------|
+| Hero | "招贤纳士" 标题 + 描述 |
+| 流程 | 4 步流程（需求诊断 → 顾问匹配 → 项目启动 → 持续陪伴），每步含图标 |
+| 企业表单 | 8 字段：name, company, email, phone, role(岗位), stage(企业阶段), challenge, timeline |
+| 成功提示 | FormAlert 浮层 |
 
-**表单字段：**
+### 5.7 隐私政策 `/privacy` — `src/pages/Privacy.tsx`
 
-| 字段 | 类型 | 必填 | placeholder |
-|------|------|------|-------------|
-| 姓名 | text | 是 | 您的姓名 |
-| 公司 | text | 是 | 公司名称 |
-| 职位 | text | 是 | 您的职位 |
-| 联系方式 | text | 是 | 手机号或邮箱 |
-| 您希望解决的挑战 | textarea | 否 | 简要描述您的需求 |
-| 隐私政策 | checkbox | 是 | 我已阅读并同意《隐私政策》 |
-
-**提交成功：** 显示"感谢您的信任，我们的资深顾问会在1个工作日内与您联系。"
-
-### 5.11 人才入驻申请 `/talent/apply`
-
-**目的：** 人才端核心转化页。
-
-**表单字段：**
-
-| 字段 | 类型 | 必填 | placeholder |
-|------|------|------|-------------|
-| 姓名 | text | 是 | 您的姓名 |
-| 当前/最近职位 | text | 是 | 如：某制造业集团 VP |
-| 所在行业 | text | 是 | 如：制造业、金融、消费 |
-| 核心能力 | text | 否 | 如：战略规划、组织变革、AI产品 |
-| 联系方式 | text | 是 | 手机号/邮箱/微信号 |
-| 隐私政策 | checkbox | 是 | 我已阅读并同意《隐私政策》 |
-
-**提交成功：** 显示"感谢您的关注，我们会尽快与您联系。"
-
-### 5.12 隐私政策 `/privacy`
-
-标准隐私政策页面，需包含：
-- 收集哪些个人信息
-- 如何使用和存储
-- 第三方分享（无，或仅内部使用）
-- 用户权利
+极简版法律页面。标题 + 章节列表：
+- 收集的个人信息（姓名/邮箱/电话/公司）
+- 使用方式（仅用于联系跟进，不对外分享）
+- 用户权利（查询、删除）
 - 联系方式
 
-### 5.13 服务条款 `/terms`
+### 5.8 服务条款 `/terms` — `src/pages/Terms.tsx`
 
-标准服务条款页面，需包含：
+极简版法律页面。标题 + 章节列表：
 - 服务范围
 - 用户责任
-- 免责声明
 - 知识产权
-- 争议解决
+- 免责声明
+- 联系方式
+
+### 5.9 NotFound `*` — `src/pages/NotFound.tsx`
+
+居中 404 大字 + "返回首页" 链接，深蓝底。
 
 ---
 
 ## 6. 视觉设计指南
 
-### 6.1 色彩系统
+> **完整规范见 UI_GUIDELINES.md。** 本节仅摘核心令牌，与该文档不一致时以 UI_GUIDELINES.md 为准。
+
+### 6.1 色彩（固定值）
 
 ```
-主色（Primary）：
-  - Deep Sea Blue:  #1B2B4B   — 导航栏、标题、主要背景
-  - Deep Blue Light: #253A5E  — hover 状态、次要背景
+主色：
+  --color-accent:        #10b981   主绿（CTA、链接、徽章、强调）
+  --color-accent-hover:  #059669   绿 hover
+  --color-accent-light:  #34d399   亮绿（深底文字、上标）
+  --color-teal:          #14b8a6   青绿（次强调）
 
-辅色（Secondary）：
-  - Warm Gray:       #F5F3EF  — 页面背景、内容区块背景
-  - Cool Gray:       #E8E6E1  — 分割线、边框
-  - Text Gray:       #6B7280  — 次要文字
+背景：
+  --color-bg:            #0d1d35   主深蓝（Hero、CTA 区、Header overlay）
+  --color-bg-dark:       #0a1628   深底（SERVICES 区、Footer）
+  --color-bg-light:      #f5f7fa   浅灰（内容区段间隔）
+  --color-bg-white:      #FFFFFF   卡片/输入框背景
 
-强调色（Accent）：
-  - Soft Purple:     #8B7EC8  — CTA按钮、链接、标签、交互元素
-  - Purple Hover:    #7A6DB5  — CTA hover 状态
-  - Purple Light:    rgba(139,126,200,0.1)  — 标签背景、卡片高亮
+文字：
+  --color-text:          #1a2332   主文字
+  --color-text-muted:    #5a6779   次要文字
+  --color-text-light:    #FFFFFF   深底上的白
+  rgba(255,255,255,0.65)            深底上的次要白
 
-文字色：
-  - Primary Text:    #1A1A2E  — 主标题、正文
-  - Secondary Text:  #4A4A5A  — 次要内容
-  - Inverse Text:    #FFFFFF  — 深色背景上的文字
-
-状态色：
-  - Success:         #10B981
-  - Warning:         #F59E0B
-  - Error:           #EF4444
-
-项目状态：
-  - Ongoing:         #8B7EC8  (柔紫)
-  - Completed:       #6B7280  (灰色)
+边框：
+  --color-border:        rgba(100,149,237,0.2)   深底上的细边
+  --color-border-light:  #e2e6ed                  浅底上的细边
 ```
 
-### 6.2 字体
+### 6.2 字体（固定选型）
 
 ```
-中文：阿里巴巴普惠体 3.0（Alibaba PuHuiTi 3.0）
-  - 通过 CDN 加载，仅加载 400 / 500 / 700 三个字重
-  - fallback: PingFang SC, Microsoft YaHei, sans-serif
+家族：Alibaba PuHuiTi 2.0
+fallback：PingFang SC, Microsoft YaHei, sans-serif
+字重：400 / 500 / 600 / 700（按需加载）
 
-英文：Inter
-  - 从 Google Fonts 或 self-host 加载
-  - fallback: system-ui, sans-serif
-
-标题：中文 700 / 英文 600
-正文：400
-辅助：300
+正文 line-height：1.7-1.8
+标题 letter-spacing：-0.02em ~ -0.01em
+英文上标 letter-spacing：0.2em（tracking-widest）
 ```
 
-### 6.3 间距系统
+### 6.3 间距与圆角
 
 ```
-基于 8px 网格：
-  xs:  4px
-  sm:  8px
-  md:  16px
-  lg:  24px
-  xl:  32px
-  2xl: 48px
-  3xl: 64px
-  4xl: 96px
+内容容器最大宽度：1200px
+页面左右内边距：移动 16-24px / 桌面 24-32px
+Section 主纵向间距：移动 ~70-90px / 桌面 ~120-150px
 
-容器最大宽度：1200px
-内容区最大宽度：800px（长文阅读）
+圆角：
+  --radius: 0.25rem (4px)  — 方角微圆，不用大圆角
+  按钮：方角（基础半径或无）
+  卡片：方角或基础半径
+  徽章/头像：rounded-full
 ```
 
-### 6.4 响应式断点
+### 6.4 动效原则
 
-```
-sm:  640px   — 大手机横屏
-md:  768px   — 平板竖屏
-lg:  980px   — 平板横屏 / 小笔记本
-xl:  1200px  — 桌面
-2xl: 1440px  — 大桌面
-```
-
-### 6.5 组件风格原则
-
-- **按钮：** 圆角 6px，内含充足内边距。主按钮（深蓝底 + 白字），次按钮（柔紫边框 + 柔紫字）
-- **卡片：** 圆角 8px，轻微阴影，hover 时上浮 2px + 阴影加深
-- **标签：** 圆角 999px（胶囊形），小字号，淡色背景 + 深色文字
-- **表单：** 圆角 6px，清晰的 focus 状态（柔紫色边框），充足的字段间距
-- **动画：** 克制。scroll reveal（淡入上浮）、hover 微交互。不使用弹跳、旋转等花哨效果
-
-### 6.6 整体调性
-
-- **专业：** 大量留白、清晰的层级、克制的配色
-- **有质感：** 不使用纯黑纯白，用深海蓝和暖灰代替
-- **AI极客色彩：** 通过柔紫强调色体现，不是大面积使用，而是作为点缀出现在交互元素上
-- **不是：** 科技公司的渐变风、创业公司的扁平风、传统公司的沉闷风
+- **库选型**：GSAP + ScrollTrigger 统一处理滚动触发动画
+- **进场动效**：opacity 0→1 + 垂直位移 ~30px；时长 500-800ms；缓动用 power-out / ease-out 系列；触发点在元素进入视口 ~80-90% 时
+- **Hero 进场**：CSS keyframes 分级延迟，主标 → 装饰线 → 副标 → CTA，每级间隔 200-300ms
+- **CountUp**：数据区数字爬升 ~1-2 秒
+- **Hover**：图片轻微放大（~1.02-1.05）+ 亮度提升；链接下划线生长
+- **Navigation 滚动**：透明渐变为白底毛玻璃，过渡阈值约滚动数十像素内完成
+- **可访问性**：尊重 `prefers-reduced-motion`，禁用全部动画
 
 ---
 
 ## 7. 技术架构
 
-### 7.1 技术栈
+> **完整规范见 ARCHITECTURE.md。**
 
 ```
-前端：
-  框架：   React 18+
-  构建：   Vite 5+
-  语言：   TypeScript
-  样式：   TailwindCSS v4
-  组件库： shadcn/ui
-  路由：   React Router v6+
-  数据：   TanStack Query（服务端状态管理）
-  表单：   React Hook Form + Zod 验证
+前端：React 19 + Vite + TypeScript strict + Tailwind v3 + shadcn/ui + GSAP
+路由：react-router v7
+表单：React Hook Form + Zod（前后端共享 schema）
+数据：TanStack Query + Supabase JS SDK 客户端直读
+图标：@phosphor-icons/react（推荐 weight="duotone"）
+内容渲染：react-markdown
 
-后端：
-  平台：   Vercel Serverless Functions
-  数据库： Supabase (PostgreSQL)
-  认证：   第一阶段不需要，后续用 Supabase Auth
-
-部署：
-  平台：   Vercel
-  域名：   待定（需绑定自定义域名）
-  CDN：    Vercel Edge Network（自带）
+后端：Vercel Serverless Functions（仅写入端点）
+数据库：Supabase (PostgreSQL + RLS)
+部署：Vercel
 ```
 
-### 7.2 架构图
-
-```
-用户浏览器
-  │
-  ├── React SPA (Vite 构建)
-  │     ├── 页面路由 (React Router)
-  │     ├── 组件 (shadcn/ui + 自定义)
-  │     ├── 数据获取 (TanStack Query)
-  │     └── 表单处理 (React Hook Form + Zod)
-  │
-  ├── Vercel Edge Network (CDN + 静态资源)
-  │
-  └── Vercel Serverless Functions (/api/*)
-        ├── POST /api/enterprise-lead
-        ├── POST /api/talent-lead
-        ├── GET  /api/projects
-        ├── GET  /api/articles
-        └── GET  /api/programs
-              │
-              └── Supabase (PostgreSQL)
-                    ├── enterprise_leads
-                    ├── talent_leads
-                    ├── projects
-                    ├── articles
-                    └── programs
-```
-
-### 7.3 关键技术决策
-
-1. **CSR (Client-Side Rendering)：** 这是营销网站，SEO 很重要。但考虑到 React SPA 的 SEO 劣势，使用 Vercel 的 SSR 或 prerender 功能确保搜索引擎可索引。
-2. **shadcn/ui：** 不是 npm 包，而是通过 CLI 复制组件源码到项目中，完全可控。
-3. **Tailwind CSS v4：** 使用 CSS-first 配置（不用 tailwind.config.js），直接在 CSS 中定义设计令牌。
-4. **数据获取：** 静态内容（文章、项目）使用 TanStack Query 缓存 + staleTime 避免重复请求。表单提交使用 mutation。
-5. **无用户系统：** 第一阶段不做登录、注册、用户中心。表单提交即可。
+**关键架构决策：**
+1. **读写分离**：公开内容前端直读 Supabase（RLS 保护）；表单提交走 Serverless（服务端验证 + 限流 + Service Role 写入）
+2. **无 Admin**：内容通过 Supabase Dashboard 管理；当内容量达到运营负担阈值时再考虑加管理后台
+3. **无登录系统**：第一阶段无用户、无 Auth；如需人才档案自助维护再引入 Supabase Auth
 
 ---
 
 ## 8. 数据库设计
 
-### 8.1 表结构（Supabase / PostgreSQL）
+> **完整规范见 DATABASE.md。**
 
-```sql
--- 企业线索
-CREATE TABLE enterprise_leads (
-  id          UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-  name        TEXT NOT NULL,
-  company     TEXT NOT NULL,
-  title       TEXT NOT NULL,
-  contact     TEXT NOT NULL,
-  challenge   TEXT,
-  consent     BOOLEAN NOT NULL DEFAULT false,
-  created_at  TIMESTAMPTZ DEFAULT now()
-);
+### 表清单（3 张）
 
--- 人才线索
-CREATE TABLE talent_leads (
-  id          UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-  name        TEXT NOT NULL,
-  position    TEXT NOT NULL,
-  industry    TEXT NOT NULL,
-  skills      TEXT[],          -- 能力标签数组
-  contact     TEXT NOT NULL,
-  consent     BOOLEAN NOT NULL DEFAULT false,
-  created_at  TIMESTAMPTZ DEFAULT now()
-);
+| 表 | 用途 |
+|----|------|
+| `articles` | 资源智库文章（标题、分类、类型、日期、摘要、封面、Markdown 正文、排序） |
+| `enterprise_leads` | /find-talent 提交的企业需求 |
+| `talent_leads` | /join 提交的顾问申请 |
 
--- 项目/JD（对应 /projects 页面）
-CREATE TABLE projects (
-  id          UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-  title       TEXT NOT NULL,           -- 简短标题
-  industry    TEXT NOT NULL,           -- 行业标签
-  function    TEXT NOT NULL,           -- 职能标签
-  status      TEXT NOT NULL DEFAULT 'ongoing',  -- 'ongoing' | 'completed'
-  narrative   TEXT NOT NULL,           -- 脱敏叙事内容
-  requirements TEXT,                   -- 人才要求描述
-  outcomes    TEXT,                    -- 预期成果（已完成项目）
-  sort_order  INT DEFAULT 0,
-  published   BOOLEAN DEFAULT true,
-  created_at  TIMESTAMPTZ DEFAULT now(),
-  updated_at  TIMESTAMPTZ DEFAULT now()
-);
+### RLS
 
--- 洞察文章（对应 /insights 页面）
-CREATE TABLE articles (
-  id          UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-  title       TEXT NOT NULL,
-  slug        TEXT NOT NULL UNIQUE,    -- URL 友好的标识符
-  excerpt     TEXT,                    -- 摘要
-  content     TEXT NOT NULL,           -- Markdown 格式正文
-  topic       TEXT NOT NULL,           -- 主题标签
-  cover_image TEXT,                    -- 封面图 URL
-  published   BOOLEAN DEFAULT false,
-  published_at TIMESTAMPTZ,
-  created_at  TIMESTAMPTZ DEFAULT now(),
-  updated_at  TIMESTAMPTZ DEFAULT now()
-);
-
--- 课程项目（对应 /programs 页面）
-CREATE TABLE programs (
-  id          UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-  title       TEXT NOT NULL,
-  description TEXT NOT NULL,
-  format      TEXT,                    -- 形式（线上/线下/工作坊）
-  duration    TEXT,                    -- 时长
-  cover_image TEXT,
-  published   BOOLEAN DEFAULT true,
-  created_at  TIMESTAMPTZ DEFAULT now(),
-  updated_at  TIMESTAMPTZ DEFAULT now()
-);
-```
-
-### 8.2 Row Level Security (RLS)
-
-```sql
--- 公开内容：所有人可读
-ALTER TABLE projects ENABLE ROW LEVEL SECURITY;
-CREATE POLICY "Projects are publicly readable"
-  ON projects FOR SELECT
-  USING (published = true);
-
-ALTER TABLE articles ENABLE ROW LEVEL SECURITY;
-CREATE POLICY "Published articles are publicly readable"
-  ON articles FOR SELECT
-  USING (published = true);
-
-ALTER TABLE programs ENABLE ROW LEVEL SECURITY;
-CREATE POLICY "Programs are publicly readable"
-  ON programs FOR SELECT
-  USING (published = true);
-
--- 表单提交：仅允许插入，不允许读取
-ALTER TABLE enterprise_leads ENABLE ROW LEVEL SECURITY;
-CREATE POLICY "Anyone can submit enterprise leads"
-  ON enterprise_leads FOR INSERT
-  WITH CHECK (true);
-
-ALTER TABLE talent_leads ENABLE ROW LEVEL SECURITY;
-CREATE POLICY "Anyone can submit talent leads"
-  ON talent_leads FOR INSERT
-  WITH CHECK (true);
-```
+- `articles`：published=true 公开可读
+- `enterprise_leads` / `talent_leads`：仅允许 INSERT，不允许 SELECT
 
 ---
 
 ## 9. API 设计
 
-### 9.1 端点清单
+> **完整规范见 API.md。**
 
-#### 企业线索提交
+### 端点（2 个写入）
 
-```
-POST /api/enterprise-lead
+| 方法 | 路径 | 用途 |
+|------|------|------|
+| POST | `/api/enterprise-lead` | /find-talent 表单（8 字段） |
+| POST | `/api/talent-lead` | /join 表单（5 字段） |
 
-Request Body:
-{
-  "name": "string (required)",
-  "company": "string (required)",
-  "title": "string (required)",
-  "contact": "string (required)",
-  "challenge": "string (optional)",
-  "consent": true
-}
-
-Response 200:
-{ "success": true }
-
-Response 400:
-{ "error": "Validation failed", "details": [...] }
-
-Response 429:
-{ "error": "Too many requests" }
-
-Response 500:
-{ "error": "Internal server error" }
-```
-
-#### 人才线索提交
-
-```
-POST /api/talent-lead
-
-Request Body:
-{
-  "name": "string (required)",
-  "position": "string (required)",
-  "industry": "string (required)",
-  "skills": "string (optional, comma-separated)",
-  "contact": "string (required)",
-  "consent": true
-}
-
-Response: 同上
-```
-
-#### 获取项目列表 / 文章列表 / 文章详情 / 课程列表
-
-> **不通过 Serverless API。** 公开内容(`projects`, `articles`, `programs`)由前端 hook 通过 `@supabase/supabase-js` 客户端 SDK 直接读取,RLS 已限制为 `published = true`。详见 ARCHITECTURE.md §1 读写分离设计。
->
-> 对应的 hook 入口:
->
-> - `src/hooks/useProjects.ts` — 项目列表(支持 status/industry/function 过滤)
-> - `src/hooks/useArticles.ts` — 文章列表 + 单篇详情(`useArticle(slug)`)
-> - `src/hooks/usePrograms.ts` — 课程列表
->
-> 如未来需要聚合、缓存或服务端排序逻辑,再补 Serverless 端点;前端只需替换 hook 实现,组件无感。
-
-### 9.2 安全要求
-
-- **速率限制：** 表单提交端点限制为每个 IP 每小时 5 次
-- **输入验证：** 服务端使用 Zod schema 严格验证所有输入
-- **CORS：** 仅允许来自ZAN域名的请求
-- **HTTPS：** 强制（Vercel 默认）
-- **不暴露内部 ID：** API 返回中不暴露 Supabase 内部信息
+**只读数据：** 文章列表/详情由前端 hook 通过 Supabase 客户端 SDK 直读，RLS 限制 published=true。
 
 ---
 
 ## 10. 项目文件夹结构
 
+> **完整规范见 FOLDER_STRUCTURE.md。**
+
 ```
-zoan/
-├── public/
-│   ├── images/                    # 静态图片资源
-│   │   ├── logo.svg
-│   │   ├── og-image.png           # 社交分享图
-│   │   └── qrcode-wechat.png      # 公众号二维码
-│   └── favicon.ico
-│
-├── src/
-│   ├── components/
-│   │   ├── ui/                    # shadcn/ui 组件（通过 CLI 生成）
-│   │   │   ├── button.tsx
-│   │   │   ├── input.tsx
-│   │   │   ├── textarea.tsx
-│   │   │   ├── checkbox.tsx
-│   │   │   ├── card.tsx
-│   │   │   ├── badge.tsx
-│   │   │   ├── select.tsx
-│   │   │   └── ...
-│   │   ├── layout/
-│   │   │   ├── Header.tsx         # 全局顶部导航（含双CTA）
-│   │   │   ├── Footer.tsx         # 全局底部
-│   │   │   ├── MobileMenu.tsx     # 移动端汉堡菜单
-│   │   │   └── Container.tsx      # 内容容器（max-width）
-│   │   ├── sections/
-│   │   │   ├── HeroSection.tsx    # 首页 Hero
-│   │   │   ├── FeatureCards.tsx   # 差异化卡片组
-│   │   │   ├── ProcessFlow.tsx    # 流程可视化
-│   │   │   ├── ProjectCard.tsx    # 项目/JD 卡片
-│   │   │   ├── ArticleCard.tsx    # 文章卡片
-│   │   │   ├── ProgramCard.tsx    # 课程卡片
-│   │   │   └── CTASection.tsx     # 通用 CTA 区块
-│   │   └── shared/
-│   │       ├── RevealOnScroll.tsx # Scroll reveal 动画
-│   │       ├── FilterBar.tsx      # 筛选器组件
-│   │       └── SectionHeading.tsx # 统一的 section 标题
-│   │
-│   ├── pages/
-│   │   ├── Home.tsx
-│   │   ├── About.tsx
-│   │   ├── WhyZoan.tsx
-│   │   ├── Services.tsx
-│   │   ├── Process.tsx
-│   │   ├── Projects.tsx
-│   │   ├── Insights.tsx
-│   │   ├── InsightDetail.tsx
-│   │   ├── Programs.tsx
-│   │   ├── EnterpriseContact.tsx
-│   │   ├── TalentApply.tsx
-│   │   ├── Privacy.tsx
-│   │   └── Terms.tsx
-│   │
-│   ├── lib/
-│   │   ├── supabase.ts            # Supabase 客户端初始化
-│   │   ├── api.ts                 # API 调用封装
-│   │   └── utils.ts               # 通用工具函数（cn 等）
-│   │
-│   ├── types/
-│   │   └── index.ts               # TypeScript 类型定义
-│   │
-│   ├── hooks/
-│   │   ├── useProjects.ts         # 项目数据 hook
-│   │   ├── useArticles.ts         # 文章数据 hook
-│   │   └── usePrograms.ts         # 课程数据 hook
-│   │
-│   ├── styles/
-│   │   └── globals.css            # Tailwind 全局样式 + 设计令牌
-│   │
-│   ├── App.tsx                    # 路由配置
-│   └── main.tsx                   # 入口文件
-│
-├── api/                           # Vercel Serverless Functions
-│   ├── enterprise-lead.ts
-│   ├── talent-lead.ts
-│   ├── projects.ts
-│   ├── articles.ts
-│   └── programs.ts
-│
-├── supabase/
-│   ├── config.toml
-│   └── migrations/
-│       └── 001_initial_schema.sql
-│
-├── index.html                     # Vite 入口 HTML
-├── package.json
-├── vite.config.ts
-├── tailwind.config.ts             # 如用 v4 则可能不需要
-├── tsconfig.json
-├── components.json                # shadcn/ui 配置
-├── vercel.json                    # Vercel 部署配置
-├── .env.local                     # 环境变量（本地）
-├── .env.example                   # 环境变量模板
-├── .gitignore
-├── CLAUDE.md                      # AI 行为指南
-└── PRD.md                         # 本文件
+src/
+├── components/
+│   ├── ui/              shadcn (Button、Input、Textarea、Select、Label、Separator)
+│   ├── Navigation.tsx   全局顶部导航
+│   ├── Footer.tsx       全局 5 列 Footer
+│   ├── CountUp.tsx      数字爬升动画
+│   ├── FormAlert.tsx    表单提交结果浮层
+│   ├── Skeleton.tsx     加载占位
+│   └── ParticleNetwork.tsx  可选粒子背景
+├── pages/               9 个页面（default export）
+├── lib/                 supabase.ts, api.ts, utils.ts
+├── hooks/               useArticles.ts
+├── types/               index.ts, schemas.ts
+├── data/                articles.ts（种子数据，开发期引用）
+└── index.css            Tailwind + 设计令牌
+
+api/                     enterprise-lead.ts, talent-lead.ts
+public/
+├── images/              允许一级子目录
+└── videos/              hero-bg.mp4 等
+supabase/migrations/     001 ~ 003 SQL 文件
 ```
 
 ---
 
 ## 11. 开发阶段规划
 
-### Phase 0：项目初始化（1-2天）
+### Phase A：harness 文档锁定（当前完成项）
 
-- [ ] 创建 Vite + React + TypeScript 项目
-- [ ] 配置 Tailwind CSS v4 + 设计令牌（色彩、字体、间距）
-- [ ] 初始化 shadcn/ui
-- [ ] 配置 React Router
-- [ ] 配置 Supabase 客户端
-- [ ] 搭建 Header + Footer + Container 布局组件
-- [ ] 部署到 Vercel，验证 CI/CD 流程
+- [x] PRD.md
+- [x] UI_GUIDELINES.md
+- [x] git-instruction.md
+- [x] ARCHITECTURE.md
+- [x] FOLDER_STRUCTURE.md
+- [x] DATABASE.md + 003 迁移 SQL
+- [x] API.md
 
-### Phase 1：核心页面 + 表单（1周）
+### Phase B：基础设施
 
-- [ ] 首页（所有 section）
-- [ ] 企业需求表单（/enterprise/contact）
-- [ ] 人才申请表单（/talent/apply）
-- [ ] Supabase 数据库建表 + RLS
-- [ ] Serverless Functions（表单提交）
-- [ ] 隐私政策 + 服务条款页
-- [ ] **验证：表单数据成功写入数据库**
+- [ ] public/images/ + public/videos/ 资源就位
+- [ ] 依赖对齐：Tailwind v3 + tailwindcss-animate + react-router v7 + gsap + @phosphor-icons/react + react-helmet-async 等
+- [ ] `src/index.css` 设计令牌定义 + `tailwind.config.js` v3 配置 + `postcss.config.js`
+- [ ] `components.json` shadcn 配置
 
-### Phase 2：内容页面（1周）
+### Phase C：全局壳
 
-- [x] 服务总览页（三分段）
-- [x] 合作流程页
-- [x] 关于我们 + 为什么选择ZAN
-- [x] 课程项目页
-- [x] **验证：所有静态页面完成，导航完整**
+- [ ] `src/components/Navigation.tsx`、`Footer.tsx`
+- [ ] `src/components/CountUp.tsx`、`FormAlert.tsx`、`Skeleton.tsx`、按需 `ParticleNetwork.tsx`
+- [ ] `src/App.tsx` 路由配置 9 个路由
 
-### Phase 3：动态内容页面（1周）
+### Phase D：逐页实现
 
-- [x] 项目机会页（/projects）—— 带筛选、从数据库读取
-- [x] 洞察文章列表页 + 详情页
-- [x] 公开内容读取：通过 Supabase 客户端 SDK 直接读取（见 ARCHITECTURE.md §1 读写分离设计），不构建只读 Serverless 端点
-- [x] **验证：数据从 Supabase 正确加载到页面**
+按以下顺序，每页完成后跑 `npm run dev` 自测：
 
-### Phase 4：打磨上线（3-5天）
+1. Home
+2. Services
+3. Resources
+4. ResourceDetail（Markdown 渲染）
+5. Join（RHF + Zod + fetch）
+6. FindTalent（RHF + Zod + fetch）
+7. Privacy
+8. Terms
+9. NotFound
 
-- [ ] 响应式适配（移动端优化）
-- [ ] 动画和交互打磨（scroll reveal、hover 效果）
-- [ ] SEO 优化（meta 标签、OG 标签、sitemap）
-- [ ] 性能优化（图片压缩、字体加载优化、缓存策略）
-- [ ] 内容填充（真实案例、真实文章）
-- [ ] 法律合规检查（隐私政策内容完善）
-- [ ] 自定义域名绑定
-- [ ] **验证：生产环境完整走查**
+### Phase E：数据接通 + 上线
 
-### 总估时：约 3-4 周
+- [ ] Supabase 执行 003_consolidate_schema.sql
+- [ ] 转换种子数据为 SQL INSERT 写入 articles 表
+- [ ] 浏览器全流程走查（含表单真实写入 Supabase）
+- [ ] Vercel 部署
 
 ---
 
@@ -876,35 +460,32 @@ zoan/
 
 ### 产品原则
 
-1. **C端先行：** 网站首先服务于吸引高端人才，其次才是企业端
-2. **内容为王：** /projects 和 /insights 是两个最有价值的内容页面
-3. **轻表单重跟进：** 表单够用就行，核心靠顾问人工跟进
-4. **脱敏叙事：** 项目展示用故事而不是列表，兼顾品牌感和信息量
+1. **C 端先行**：网站优先服务于吸引高端人才，企业端转化次之
+2. **内容驱动**：`/resources` 是核心引流页，需持续填充高质量内容
+3. **轻表单重跟进**：表单字段够用即可，核心靠顾问人工跟进
+4. **数据背书需真实**：48h / 500+ / 95% / 80% 是承诺，运营保证真实达成
 
 ### 技术原则
 
-1. **不提前做用户系统：** 第一阶段无登录、无注册、无个人中心
-2. **不提前做管理后台：** 内容通过 Supabase Dashboard 直接操作数据库
-3. **不引入不必要的依赖：** 每新增一个 npm 包需要有明确理由
-4. **shadcn/ui 优先：** 所有 UI 组件优先使用 shadcn，不自己造轮子
-5. **Serverless 优先：** 不搭建任何需要持久运行的服务器
-6. **TypeScript 严格模式：** 所有代码必须通过 TypeScript 严格检查
+1. **不提前做用户系统**：第一阶段无登录、无注册、无个人中心
+2. **不提前做管理后台**：内容通过 Supabase Dashboard 维护
+3. **shadcn 仅用于表单组件**：营销页采用手写 div + Tailwind，保持极简风格
+4. **Serverless 优先**：不搭建任何需持久运行的服务器
+5. **TypeScript 严格模式**：所有代码必须通过 strict 检查
 
 ### 安全原则
 
-1. 所有表单提交必须经过服务端验证（不信任前端）
-2. 所有用户输入必须 sanitized（防 XSS）
-3. 数据库启用 RLS，公开数据只读，表单只写
-4. API 端点必须有速率限制
-5. 敏感信息（Supabase key 等）通过环境变量管理，不提交到代码仓库
-6. 表单必须有隐私政策勾选（PIPL 合规）
+1. 表单提交服务端再验证（不信任前端 Zod）
+2. 启用 RLS：公开数据只读 published=true，表单仅 INSERT
+3. API 端点限流：每 IP 每小时上限 5 次表单提交
+4. 环境变量：SERVICE_ROLE_KEY 仅 Serverless 用，不前端暴露
+5. 当前不收集 PIPL consent 字段；如未来合规审查要求引入，需同步更新 schemas / DB / API.md / 表单 UI
 
 ### 内容原则
 
-1. 所有文案使用商业语言而非技术语言（受众是 CEO 不是 CTO）
-2. AI 在文案中的定位是"赋能"而非"替代"
-3. 中英双语品牌名同时出现时：中文在前，英文（ZAN）在后
-4. 联系邮箱上线前必须确认（当前 contact@zuoanmen.com 为占位符）
+1. 文案用商业语言，不用技术术语（受众是 CEO 不是 CTO）
+2. AI 定位是"赋能"不是"替代"
+3. 联系邮箱：上线前需运营确认正式邮箱
 
 ---
 
@@ -912,11 +493,8 @@ zoan/
 
 | 日期 | 变更内容 | 原因 |
 |------|---------|------|
-| 2026-05-17 | Phase 2 内容页面完成：填充 /services、/services/process、/about、/why-zoan、/programs 五个页面内容 | 按 PRD 第 11 节阶段规划推进，所有页面文案、布局符合第 5 节页面规格 |
-| 2026-05-17 | Phase 3 动态内容页面完成：/projects（筛选+卡片+兴趣CTA）、/insights 列表、/insights/:slug 详情；新增 react-markdown 依赖用于文章渲染；新增 002_seed_sample_content.sql 注入示例数据；公开内容读取按 ARCHITECTURE.md 既定路径走 Supabase 客户端 SDK,未新建只读 API 端点 | 按 PRD 第 11 节阶段规划推进；公开数据走客户端直读符合架构既定的读写分离原则,无需为只读场景增加 Serverless 层 |
-| 2026-05-17 | PRD §9 删除原 GET /api/projects、/api/articles、/api/articles/:slug、/api/programs 四个只读端点规格，改为指向 ARCHITECTURE.md §1 与对应 hooks；PRD §11 Phase 3 同步去除原 ~~Serverless 读取 API~~ 划线条目 | 与 ARCHITECTURE.md §1 读写分离设计对齐，消除两份文档的口径冲突；决策依据见上一条变更记录 |
+| 2026-05-18 | v2.0 基线确立 | MVP 完成，作为后续迭代基准 |
 
 ---
 
-> **本 PRD 是活文档，随产品迭代同步更新。**
-> **所有技术决策变更需在此文档中记录。**
+> **本 PRD 是活文档，随产品迭代同步更新。所有产品决策变更需在此文档中记录。**

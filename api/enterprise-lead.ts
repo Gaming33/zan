@@ -2,15 +2,25 @@ import type { VercelRequest, VercelResponse } from '@vercel/node'
 import { createClient } from '@supabase/supabase-js'
 import { enterpriseLeadSchema } from '../src/types/schemas.ts'
 
+// In-memory rate limit (per Serverless instance lifetime)
 const submissions = new Map<string, number[]>()
-const WINDOW_MS = 60 * 60 * 1000
+const WINDOW_MS = 60 * 60 * 1000 // 1 hour
 const MAX_REQUESTS = 5
 
 function isRateLimited(ip: string): boolean {
   const now = Date.now()
   const timestamps = (submissions.get(ip) || []).filter((t) => now - t < WINDOW_MS)
+  if (timestamps.length >= MAX_REQUESTS) {
+    submissions.set(ip, timestamps)
+    return true
+  }
+  timestamps.push(now)
   submissions.set(ip, timestamps)
-  return timestamps.length >= MAX_REQUESTS
+  return false
+}
+
+function emptyToNull(v: string | undefined): string | null {
+  return v && v.length > 0 ? v : null
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
@@ -19,7 +29,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(405).json({ error: 'Method not allowed' })
   }
 
-  const ip = (req.headers['x-forwarded-for'] as string) || req.socket.remoteAddress || 'unknown'
+  const ip =
+    (req.headers['x-forwarded-for'] as string)?.split(',')[0]?.trim() ||
+    req.socket.remoteAddress ||
+    'unknown'
+
   if (isRateLimited(ip)) {
     return res.status(429).json({ error: 'Too many submissions. Please try again later.' })
   }
@@ -37,12 +51,24 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     process.env.SUPABASE_SERVICE_ROLE_KEY!,
   )
 
-  const { error } = await supabase.from('enterprise_leads').insert(result.data)
+  const { error } = await supabase.from('enterprise_leads').insert({
+    name: result.data.name,
+    company: emptyToNull(result.data.company),
+    email: result.data.email,
+    phone: emptyToNull(result.data.phone),
+    role: emptyToNull(result.data.role),
+    stage: emptyToNull(result.data.stage),
+    challenge: result.data.challenge,
+    timeline: emptyToNull(result.data.timeline),
+  })
 
   if (error) {
-    console.error('DB insert error:', error.message)
+    console.error('DB insert error (enterprise):', error.message)
     return res.status(500).json({ error: 'Internal server error' })
   }
 
-  return res.status(200).json({ success: true })
+  return res.status(200).json({
+    success: true,
+    message: '感谢您的信任，我们会在 24 小时内与您联系。',
+  })
 }

@@ -1,0 +1,266 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ===== Brand tokens (ZAN design system) ===== */
+
+    /* Emerald accent — sole interactive color */
+    --color-accent: #10b981;
+    --color-accent-hover: #059669;
+    --color-accent-light: #34d399;
+    --color-accent-muted: rgba(16, 185, 129, 0.15);
+
+    /* Secondary teal accent */
+    --color-teal: #14b8a6;
+    --color-teal-hover: #0d9488;
+    --color-teal-muted: rgba(20, 184, 166, 0.15);
+    --color-emerald: #34d399;
+    --color-emerald-hover: #22c55e;
+    --color-emerald-muted: rgba(52, 211, 153, 0.15);
+
+    /* Backgrounds */
+    --color-bg: #0d1d35;
+    --color-bg-dark: #0a1628;
+    --color-bg-light: #f5f7fa;
+    --color-bg-white: #FFFFFF;
+
+    /* Text */
+    --color-text: #1a2332;
+    --color-text-light: #FFFFFF;
+    --color-text-muted: #5a6779;
+    --color-text-muted-light: rgba(255, 255, 255, 0.65);
+
+    /* Borders */
+    --color-border: rgba(100, 149, 237, 0.2);
+    --color-border-light: #e2e6ed;
+
+    /* Status */
+    --color-error: #EF4444;
+    --color-success: #10B981;
+    --color-warning: #F59E0B;
+
+    /* Fonts */
+    --font-main: "Alibaba PuHuiTi 2.0", "PingFang SC", "Microsoft YaHei", sans-serif;
+    --font-display: "Alibaba PuHuiTi 2.0", "PingFang SC", "Microsoft YaHei", sans-serif;
+
+    /* ===== shadcn HSL tokens (used by Tailwind config) ===== */
+    --background: 216 45% 10%;
+    --foreground: 0 0% 100%;
+    --card: 216 45% 10%;
+    --card-foreground: 0 0% 100%;
+    --popover: 216 45% 10%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 219 79% 66%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 216 35% 16%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 216 35% 16%;
+    --muted-foreground: 219 30% 65%;
+    --accent: 160 84% 39%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 216 30% 18%;
+    --input: 216 30% 18%;
+    --ring: 219 79% 66%;
+    --radius: 0.25rem;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    font-family: var(--font-main);
+    color: var(--color-text);
+    font-size: 15px;
+    line-height: 1.8;
+    letter-spacing: 0.01em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-body {
+    font-family: var(--font-main);
+  }
+}
+
+/* ===== Rich text content (Markdown rendered articles) ===== */
+@layer base {
+  .rich-text-content b,
+  .rich-text-content strong {
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .rich-text-content i,
+  .rich-text-content em {
+    font-style: italic;
+  }
+
+  .rich-text-content s,
+  .rich-text-content strike {
+    text-decoration: line-through;
+    opacity: 0.6;
+  }
+
+  .rich-text-content a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .rich-text-content a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  .rich-text-content p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+  }
+
+  .rich-text-content p:last-child {
+    margin-bottom: 0;
+  }
+
+  .rich-text-content br {
+    display: block;
+    content: "";
+    margin-bottom: 0.5rem;
+  }
+
+  /* Placeholder for contentEditable */
+  div[data-placeholder]:empty::before {
+    content: attr(data-placeholder);
+    color: #a0aec0;
+    pointer-events: none;
+  }
+
+  /* ===== Form input ===== */
+  .form-input {
+    background-color: #FFFFFF;
+    border: 1px solid #e2e6ed;
+    color: #1a2332;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .form-input:focus {
+    border-color: #10b981;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+    outline: none;
+  }
+
+  .form-input::placeholder {
+    color: #a0aec0;
+  }
+}
+
+/* ===== Keyframes ===== */
+@layer utilities {
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  .skeleton-shimmer {
+    background: linear-gradient(90deg, #e2e6ed 25%, #f0f2f5 50%, #e2e6ed 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+  }
+
+  @keyframes heroFadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes heroScaleX {
+    from {
+      opacity: 0;
+      transform: scaleX(0);
+      transform-origin: left;
+    }
+    to {
+      opacity: 1;
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+  }
+
+  @keyframes cardFlipReveal {
+    0% {
+      transform: rotateY(45deg) scale(0.8);
+      opacity: 0;
+    }
+    100% {
+      transform: rotateY(0deg) scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slowRotate {
+    from { transform: rotateY(0deg); }
+    to { transform: rotateY(360deg); }
+  }
+
+  .animate-hero-title {
+    animation: heroFadeUp 0.8s ease-out 0.3s forwards;
+  }
+
+  .animate-hero-line {
+    animation: heroScaleX 0.5s ease-out 0.6s forwards;
+  }
+
+  .animate-hero-desc {
+    animation: heroFadeUp 0.8s ease-out 0.7s forwards;
+  }
+
+  .animate-hero-btn {
+    animation: heroFadeUp 0.6s ease-out 0.9s forwards;
+  }
+}
+
+/* ===== Reduced motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

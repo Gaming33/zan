@@ -1,45 +1,36 @@
-const API_BASE = '/api'
+import type { EnterpriseLeadInput, TalentLeadInput } from '@/types/schemas'
 
-export async function submitEnterpriseLead(data: {
-  name: string
-  company: string
-  title: string
-  contact: string
-  challenge?: string
-  consent: boolean
-}) {
-  const res = await fetch(`${API_BASE}/enterprise-lead`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data),
-  })
-
-  if (!res.ok) {
-    const error = await res.json()
-    throw new Error(error.error || '提交失败')
-  }
-
-  return res.json()
+interface ApiSuccess {
+  success: true
+  message: string
 }
 
-export async function submitTalentLead(data: {
-  name: string
-  position: string
-  industry: string
-  skills?: string
-  contact: string
-  consent: boolean
-}) {
-  const res = await fetch(`${API_BASE}/talent-lead`, {
+interface ApiError {
+  error: string
+  details?: Record<string, string[]>
+}
+
+async function postJson<T>(path: string, data: unknown): Promise<T> {
+  const res = await fetch(path, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
   })
 
+  const json = await res.json()
+
   if (!res.ok) {
-    const error = await res.json()
+    const error = json as ApiError
     throw new Error(error.error || '提交失败')
   }
 
-  return res.json()
+  return json as T
+}
+
+export function submitEnterpriseLead(data: EnterpriseLeadInput) {
+  return postJson<ApiSuccess>('/api/enterprise-lead', data)
+}
+
+export function submitTalentLead(data: TalentLeadInput) {
+  return postJson<ApiSuccess>('/api/talent-lead', data)
 }
