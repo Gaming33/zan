@@ -4,15 +4,22 @@
 
 本项目使用 harness 文档体系约束 AI 开发行为，所有开发活动必须遵守以下规则：
 
-### 规则 1：会话启动时读取 harness
+### 规则 1：会话启动时按任务类型读取 harness
 
-每次新开会话时，在执行任何代码操作之前，先按顺序读取以下文档：
+每次新开会话时，先判断任务类型，按下表只读必要文档。**永远先读 README.md** 作为项目入口。
 
-```
-README.md → PRD.md → git-instruction.md → UI_GUIDELINES.md → ARCHITECTURE.md → FOLDER_STRUCTURE.md → DATABASE.md → API.md
-```
+| 任务类型 | 在 README.md 基础上追加 |
+|---------|------------------------|
+| 部署 / Vercel / 域名 / 环境变量 / 运维 | 无 |
+| 调 bug / 修报错 | 仅相关代码文件 |
+| 写新功能 / 新页面 / 业务逻辑 | PRD + ARCHITECTURE + API |
+| 改 UI / 样式 / 字体 / 颜色 / 动效 | UI_GUIDELINES |
+| 改数据库 / 加表 / RLS / migration | DATABASE + API |
+| 加依赖 / 改构建 / TS 配置 | git-instruction |
+| 新建 / 删除文件 / 调整目录 | FOLDER_STRUCTURE |
+| 产品方向 / 用户流程 / 内容文案 | PRD |
 
-使用 context window 容纳所有文档后再开始开发。如果用户指定的任务涉及特定领域（如只改 UI），至少读取 README.md + 该领域对应的 harness 文档。
+任务模糊或跨多领域时，**主动问用户**："这次属于哪类？"不要默认全读 8 个文档。
 
 ### 规则 2：变更同步更新文档
 
