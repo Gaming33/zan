@@ -1,6 +1,17 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 import { createClient } from '@supabase/supabase-js'
-import { talentLeadSchema } from './_schemas'
+import { z } from 'zod'
+
+// Schema inlined to avoid cross-file imports — Vercel function bundling has
+// proven unreliable for local module resolution. If you change fields here,
+// also update src/types/schemas.ts (used by the frontend form).
+const talentLeadSchema = z.object({
+  name: z.string().min(1, '请输入您的姓名').max(50, '姓名不超过50个字符'),
+  email: z.string().min(1, '请输入邮箱').email('请输入有效的邮箱地址').max(100),
+  phone: z.string().max(30).optional().or(z.literal('')),
+  role: z.string().max(100, '核心领域不超过100个字符').optional().or(z.literal('')),
+  bio: z.string().min(1, '请填写个人简介').max(3000, '简介不超过3000个字符'),
+})
 
 // In-memory rate limit (per Serverless instance lifetime)
 const submissions = new Map<string, number[]>()
