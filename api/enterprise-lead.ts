@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 import { createClient } from '@supabase/supabase-js'
-import { enterpriseLeadSchema } from '../src/types/schemas'
+import { enterpriseLeadSchema } from './_schemas'
 
 // In-memory rate limit (per Serverless instance lifetime)
 const submissions = new Map<string, number[]>()
